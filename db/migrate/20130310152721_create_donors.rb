@@ -7,7 +7,6 @@ class CreateDonors < ActiveRecord::Migration
       t.string :region
       t.boolean :active, :default => true
       t.string :blood_type
-      t.boolean :admin, :default => false
       t.string :social_network
       t.string :email
       t.string :password_digest

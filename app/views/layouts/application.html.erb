@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lifespan</title>
+   <title><%= full_title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <h4>LifeSpan Plus</h4>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",    root_path %></li>
+              <li><%= link_to "About Us",   about_path %></li>
+              <li><%= link_to "Contact Us", contact_path %></li>
+              <li><%= link_to "Privacy Policy", privacy_path %></li>
+	 		  <% if current_donor %>
+                 
+                <%= link_to "Donor List", donors_path, class: "btn btn-large btn-primary" %> 
+                <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
+              
+              <% else %>
+              
+                <%= link_to "Sign up & Donate Now!", signup_path, class: "btn btn-large btn-primary" %>
+                 <%= link_to "Log in", login_path, class: "btn btn-large btn-primary" %>
+              
+              <% end %>	
+	 		</ul>  
+          </nav>
+        </div>
+      </div>
+    </header> 
 
 <%= yield %>
 

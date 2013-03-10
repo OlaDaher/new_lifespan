@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_donor
-    @current_donor ||= Donor.find(donorsession[:donor_id]) if donorsession[:donor_id]
+    @current_donor ||= Donor.find(session[:donor_id]) if session[:donor_id]
   end
 
   helper_method :current_donor

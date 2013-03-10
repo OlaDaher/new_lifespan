@@ -1,7 +1,7 @@
 Lifespan::Application.routes.draw do
+  resources :organizations
   resources :donors
-  resources :donors
-  resources :donorsessions
+  resources :sessions
  
   root :to => 'pages#home'
   match '/home', :to => 'pages#home'
@@ -10,6 +10,6 @@ Lifespan::Application.routes.draw do
   match '/privacy', :to => 'pages#privacy'
  
   match '/signup', :to => 'donors#new'
-  match '/login', :to => 'donorsessions#new'
-  match '/logout', :to => 'donorsessions#destroy'
+  match '/login', :to => 'sessions#new'
+  match '/logout', :to => 'sessions#destroy'
 end

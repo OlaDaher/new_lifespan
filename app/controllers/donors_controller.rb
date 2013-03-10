@@ -2,6 +2,7 @@ class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
   def index
+    @title = "Donor List"
     @donors = Donor.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class DonorsController < ApplicationController
   # GET /donors/1
   # GET /donors/1.json
   def show
+    @title = "Show Donor"
     @donor = Donor.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class DonorsController < ApplicationController
   # GET /donors/new
   # GET /donors/new.json
   def new
+    @title = "New Donor"
     @donor = Donor.new
 
     respond_to do |format|
@@ -34,12 +37,14 @@ class DonorsController < ApplicationController
 
   # GET /donors/1/edit
   def edit
+    @title = "Edit Donor"
     @donor = Donor.find(params[:id])
   end
 
   # POST /donors
   # POST /donors.json
   def create
+    @title = "Donor Created"
     @donor = Donor.new(params[:donor])
 
     respond_to do |format|
@@ -56,6 +61,7 @@ class DonorsController < ApplicationController
   # PUT /donors/1
   # PUT /donors/1.json
   def update
+    @title = "Donor Updated"
     @donor = Donor.find(params[:id])
 
     respond_to do |format|

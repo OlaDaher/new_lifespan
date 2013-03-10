@@ -11,21 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310152721) do
+ActiveRecord::Schema.define(:version => 20130310221259) do
 
   create_table "donors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
     t.string   "region"
-    t.boolean  "active"
+    t.boolean  "active",          :default => true
     t.string   "blood_type"
-    t.boolean  "admin"
     t.string   "social_network"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "donor",           :default => true
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "region"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

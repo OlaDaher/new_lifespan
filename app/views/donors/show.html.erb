@@ -31,8 +31,8 @@
 </p>
 
 <p>
-  <b>Admin:</b>
-  <%= @donor.admin %>
+  <b>Donor:</b>
+  <%= @donor.donor %>
 </p>
 
 <p>
@@ -44,12 +44,6 @@
   <b>Email:</b>
   <%= @donor.email %>
 </p>
-
-<p>
-  <b>Password digest:</b>
-  <%= @donor.password_digest %>
-</p>
-
 
 <%= link_to 'Edit', edit_donor_path(@donor) %> |
 <%= link_to 'Back', donors_path %>
