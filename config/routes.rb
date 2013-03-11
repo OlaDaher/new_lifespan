@@ -12,4 +12,5 @@ Lifespan::Application.routes.draw do
   match '/signup', :to => 'donors#new'
   match '/login', :to => 'sessions#new'
   match '/logout', :to => 'sessions#destroy'
+  match '/register', :to => 'organizations#new'
 end

@@ -5,7 +5,7 @@ class CreateDonors < ActiveRecord::Migration
       t.string :last_name
       t.string :phone
       t.string :region
-      t.boolean :active, :default => true
+      t.boolean :active
       t.string :blood_type
       t.string :social_network
       t.string :email
