@@ -11,26 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310221259) do
+ActiveRecord::Schema.define(:version => 20130311100047) do
 
   create_table "donors", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
-    t.string   "region",          :default => ""
+    t.string   "region"
     t.boolean  "active",          :default => true
-    t.string   "blood_type"       :default => ""
-    t.string   "social_network"   :default => ""
+    t.string   "blood_type"
+    t.string   "social_network"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
-    t.boolean  "donor",           :default => true
+    t.boolean  "donor"
+  end
+
+  create_table "medics", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "position"
+    t.integer  "organization_id"  :default => false 
+    t.boolean  "staff"            :default => true
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
-    t.string   "region",          :default => ""
+    t.string   "region"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

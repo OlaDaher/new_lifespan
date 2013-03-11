@@ -1,0 +1,49 @@
+<%= form_for(@medic) do |f| %>
+  <% if @medic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medic.errors.count, "error") %> prohibited this medic from being saved:</h2>
+
+      <ul>
+      <% @medic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.select(:position, Medic::Position) %>
+  </div>
+  <div class="field">
+    <%= f.label :organization_id %><br />
+    <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :staff %><br />
+    <%= f.check_box :staff %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
