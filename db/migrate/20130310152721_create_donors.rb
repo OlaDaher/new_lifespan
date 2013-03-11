@@ -4,10 +4,10 @@ class CreateDonors < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :phone
-      t.string :region
-      t.boolean :active
-      t.string :blood_type
-      t.string :social_network
+      t.string :region, :default => ""
+      t.boolean :active, :default => true
+      t.string :blood_type, :default => ""
+      t.string :social_network, :default => ""
       t.string :email
       t.string :password_digest
 
