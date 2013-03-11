@@ -1,6 +1,6 @@
 <h1>Log in</h1>
 
-<%= form_tag sessions_path do %>
+<%= form_tag medicsessions_path do %>
   <div class="field">
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
@@ -10,6 +10,10 @@
     <%= password_field_tag :password %>
   </div>
   <div class="actions"><%= submit_tag "Log in" %></div>
+
+<h2> Not Certified as a Medic? </h2>
+<h2> Request your Organization Admin to register you on LifeSpan+ </h2>
+
 
   <%= link_to "Not a Member? Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
 <% end %>
