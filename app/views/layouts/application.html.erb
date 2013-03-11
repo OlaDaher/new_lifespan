@@ -18,11 +18,22 @@
               <li><%= link_to "Contact Us", contact_path %></li>
               <li><%= link_to "Privacy Policy", privacy_path %></li>
 	 		  <% if current_donor %>
-                 
+              <% if can? :index, @donor %>   
                 <%= link_to "Donor List", donors_path, class: "btn btn-large btn-primary" %> 
+              <% end %>
+              
+              <% if can? :new, @organization %>
                 <%= link_to "Register Hospital", register_path, class: "btn btn-large btn-primary" %>
-                <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
+              <% end %>
+
+              <% if can? :new, @medic %>
                 <%= link_to "Register Hospital Admin", join_path, class: "btn btn-large btn-primary" %>
+              <% end %>
+
+              
+                <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
+              
+                
                 <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
               
         <% elsif current_medic %>
