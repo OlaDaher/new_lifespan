@@ -17,38 +17,47 @@
               <li><%= link_to "About Us",   about_path %></li>
               <li><%= link_to "Contact Us", contact_path %></li>
               <li><%= link_to "Privacy Policy", privacy_path %></li>
-	 		  <% if current_donor %>
-               
+	 		  
+              <% if current_donor && current_donor.donor == false %>
+                 
                 <%= link_to "Donor List", donors_path, class: "btn btn-large btn-primary" %> 
-              
-              
-              
                 <%= link_to "Register Hospital", register_path, class: "btn btn-large btn-primary" %>
-              
-
-              
                 <%= link_to "Register Hospital Admin", join_path, class: "btn btn-large btn-primary" %>
-              <% end %>
+
+                 <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
+                  <%= link_to "Donate Now!", '#', class: "btn btn-large btn-primary" %>
+              
+              <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
+
+
+
 
               
-                <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
+              <% elsif current_donor && current_donor.donor == true %>      
+
+              <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
+              <%= link_to "Donate Now!", '#', class: "btn btn-large btn-primary" %>
               
-                
-                <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
+              <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
               
-        <% elsif current_medic %>
+        <% elsif current_medic && current_medic.staff == false %>
               <%= link_to "Doctor List", medics_path, class: "btn btn-large btn-primary" %> 
               <%= link_to "Register Hospital Staff", join_path, class: "btn btn-large btn-primary" %>
-              <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %> 
 
+               <%= link_to "Send Blood Request!", '#', class: "btn btn-large btn-primary" %> 
+          <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %>
+
+        <% elsif current_medic && current_medic.staff == true %>             
+        
+          <%= link_to "Send Blood Request!",'#', class: "btn btn-large btn-primary" %> 
+
+          <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %>
+        
         <% else %>
-              
-                
-                <%= link_to "Donate Now!", login_path, class: "btn btn-large btn-primary" %>
-                <%= link_to "Send Blood Request!", signin_path, class: "btn btn-large btn-primary" %>
-                 
-              
-              <% end %>	
+          <%= link_to "Donate Now!", login_path, class: "btn btn-large btn-primary" %>
+           <%= link_to "Send Blood Request!", signin_path, class: "btn btn-large btn-primary" %> 
+
+        <% end %> 
 	 		</ul>  
           </nav>
         </div>

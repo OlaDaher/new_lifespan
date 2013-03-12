@@ -1,6 +1,7 @@
 class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
+   #load_and_authorize_resource :only => [:index, :show]
   def index
     @title = "Donor List"
     @donors = Donor.all

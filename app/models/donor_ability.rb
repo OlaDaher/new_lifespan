@@ -5,7 +5,7 @@ class DonorAbility < ActiveRecord::Base
   	donor ||= Donor.new
 
     if donor.donor?
-    	
+    	can :read
     else 
     	can :manage, :all	
     end	

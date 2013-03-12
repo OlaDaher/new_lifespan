@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  load_and_authorize resource
+  
   
   def index
     @title = "Organization List"
@@ -15,7 +15,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @title = "Show Organization"
-    #@organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +27,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new.json
   def new
     @title = "New Organization"
-   # @organization = Organization.new
+    @organization = Organization.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,14 +38,14 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1/edit
   def edit
     @title = "Edit Organization"
- #   @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
   end
 
   # POST /organizations
   # POST /organizations.json
   def create
     @title = "Organization Created"
-   # @organization = Organization.new(params[:organization])
+    @organization = Organization.new(params[:organization])
 
     respond_to do |format|
       if @organization.save
@@ -62,7 +62,7 @@ class OrganizationsController < ApplicationController
   # PUT /organizations/1.json
   def update
     @title = "Organization Updated"
-  #  @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
 
     respond_to do |format|
       if @organization.update_attributes(params[:organization])
@@ -78,7 +78,7 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
-   # @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
     @organization.destroy
 
     respond_to do |format|
