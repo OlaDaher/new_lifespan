@@ -2,23 +2,38 @@
 <html>
 <head>
    <title><%= full_title %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag   :all, "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <p class= "flash-error"><%= flash[:alert] %></p>
 
     <p class= "flash-notice"><%= flash[:notice] %></p>
+
+<div id="header">
+</div>
+
+<div id="logo">
+<img src="http://s4.postimage.org/smo2yn9t9/logo1.png" alt="logo" width="260" height="140" >
+
+
+<div id="header">
+    </header> 
+</div>
+
+
 	<header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <h4>LifeSpan Plus</h4>
           <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    root_path %></li>
 
-	 		  
+
+
+
+
+            <ul class="nav pull-right">
+       <h5>     <a href="/home">Home</a></h5>
               <% if current_donor && current_donor.donor == false %>
                  
                 <%= link_to "Donor List", donors_path, class: "btn btn-large btn-primary" %> 
