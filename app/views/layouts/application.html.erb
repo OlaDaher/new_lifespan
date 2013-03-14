@@ -42,12 +42,12 @@
               <%= link_to "Doctor List", medics_path, class: "btn btn-large btn-primary" %> 
               <%= link_to "Register Hospital Staff", join_path, class: "btn btn-large btn-primary" %>
 
-               <%= link_to "Send Blood Request!", '#', class: "btn btn-large btn-primary" %> 
+               <%= link_to "Send Blood Request!", '/send_request', class: "btn btn-large btn-primary" %> 
           <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %>
 
         <% elsif current_medic && current_medic.staff == true %>             
         
-          <%= link_to "Send Blood Request!",'#', class: "btn btn-large btn-primary" %> 
+          <%= link_to "Send Blood Request!",'/send_request', class: "btn btn-large btn-primary" %> 
 
           <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %>
         

@@ -87,4 +87,14 @@ class DonorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def send_request
+    @donors = Donor.all
+    DonorMailer.new_donor_request(@donors).deliver
+    # format.json { render json: @donors }
+    respond_to do |format|
+        format.html { redirect_to root_path, notice: 'The requests have been sent.' }
+        # format.json { render json: @donor, status: :created, location: @donor }
+    end
+  end
 end

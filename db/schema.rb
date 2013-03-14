@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(:version => 20130311182752) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
-    t.string   "region"
+    t.string   "region",          :default => ""
     t.boolean  "active",          :default => true
-    t.string   "blood_type"
-    t.string   "social_network"
+    t.string   "blood_type",      :default => ""
+    t.string   "social_network",  :default => ""
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
-    t.boolean  "donor"
+    t.boolean  "donor",           :default => true
   end
 
   create_table "medic_abilities", :force => true do |t|
@@ -42,19 +42,19 @@ ActiveRecord::Schema.define(:version => 20130311182752) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "position"
-    t.integer  "organization_id"
+    t.integer  "organization_id", :default => 0
     t.boolean  "staff"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
-    t.string   "region"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "region",     :default => ""
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
