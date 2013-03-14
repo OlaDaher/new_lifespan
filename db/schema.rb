@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20130311182752) do
     t.string   "last_name"
     t.string   "position"
     t.integer  "organization_id", :default => 0
-    t.boolean  "staff"
+    t.boolean  "staff", :default => true
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",                     :null => false
