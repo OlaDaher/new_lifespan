@@ -15,9 +15,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Donor.create(first_name:"Srin", last_name:"Chakrav", phone:"97466090897", 
-	email:"schaxz@facebook.com", blood_type:"B+", social_network:"Facebook", 
-	region:"West Bay", active:true, password:"default", 
-	password_confirmation:"default", donor:false) 
+	email:"lifespan.donation@gmail.com", blood_type:"B+", social_network:"Facebook", 
+	region:"West Bay", active:true, password:"lifespanproject1", 
+	password_confirmation:"lifespanproject1", donor:false) 
 
   Donor.create(first_name:"Srin", last_name:"Chakrav", phone:"97466090897", 
   	email:"oladaher@gmail.com", blood_type:"B+", social_network:"Facebook", 
