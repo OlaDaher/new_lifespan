@@ -20,4 +20,6 @@ Lifespan::Application.routes.draw do
   match '/join', :to => 'medics#new'
   match '/signin', :to => 'medicsessions#new'
   match '/signout', :to => 'medicsessions#destroy'
+  match '/send_request', :to => 'donors#send_request'
+  
 end
