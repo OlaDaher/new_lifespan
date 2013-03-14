@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p class= "flash-error"><%= flash[:alert] %></p>
+
+    <p class= "flash-notice"><%= flash[:notice] %></p>
 	<header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
