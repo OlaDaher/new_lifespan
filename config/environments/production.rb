@@ -1,6 +1,13 @@
 Lifespan::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+::ActiveSupport::Deprecation.silenced = true
+
+config.active_support.deprecation = :silence
+  
+if ENV['RAILS_ENV'] == "production"
+  ActiveSupport::Deprecation.silenced = true
+end
   # Code is not reloaded between requests
   config.cache_classes = true
 
