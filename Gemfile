@@ -10,7 +10,7 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem "libv8", "~> 3.11.8.4"
 gem "cancan"
-
+gem 'pwdcalc'
 
 # for deployment on Heroku
 
