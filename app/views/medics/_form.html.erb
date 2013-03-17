@@ -1,4 +1,4 @@
-<%= form_for(@medic) do |f| %>
+<%= semantic_form_for(@medic) do |f| %>
   <% if @medic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@medic.errors.count, "error") %> prohibited this medic from being saved:</h2>
@@ -36,14 +36,12 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.input :password, :as => :pwdcalc %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.input :password_confirmation, :as => :pwdcalc %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.actions :submit, :cancel %>
   </div>
 <% end %>

@@ -50,8 +50,8 @@ class DonorsController < ApplicationController
 
     respond_to do |format|
       if @donor.save
-        format.html { redirect_to @donor, notice: 'Donor was successfully created.' }
-        format.json { render json: @donor, status: :created, location: @donor }
+        session[:donor_id] = @donor.id
+        redirect_to @donor, notice: 'Donor was successfully created.'
       else
         format.html { render action: "new" }
         format.json { render json: @donor.errors, status: :unprocessable_entity }

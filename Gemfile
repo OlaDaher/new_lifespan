@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem "libv8", "~> 3.11.8.4"
 gem "cancan"
 gem 'pwdcalc'
+gem 'formtastic'
 
 # for deployment on Heroku
 
