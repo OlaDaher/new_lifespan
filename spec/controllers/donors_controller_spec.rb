@@ -24,7 +24,7 @@ describe DonorsController do
   # Donor. As you add validations to Donor, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "first_name" => "MyString" }
+    { :active => true, :donor => true, :blood_type => "A+", :email => "donor@gmail.com", :first_name => "Donor", :last_name => "Donor", :password => "123456", :password_confirmation => "123456", :phone => "44882054", :region => "Al Dafnna", :social_network => "Twitter" }
   end
 
   # This should return the minimal set of values that should be in the session
