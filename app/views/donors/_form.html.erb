@@ -1,4 +1,4 @@
-<%= form_for(@donor) do |f| %>
+<%= form_for @donor, :html => { :multipart => true } do |f| %>
   <% if @donor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
@@ -42,6 +42,10 @@
   <div class="field">
     <%= f.label :social_network %><br />
     <%= f.select(:social_network, Donor::Social_Networks) %>
+  </div>
+  <div class="field">
+     <%= f.label :photo %><br />
+     <%= f.file_field :photo %>
   </div>
   <div class="field">
     <%= f.label :email %><br />

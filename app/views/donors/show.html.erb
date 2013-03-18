@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% unless @donor.photo_url.nil? %>
+      <p><%= image_tag @donor.photo_url %></p>
+  <% end %>
+</p>
+<p>
   <b>Name:</b>
   <%= @donor.proper_name %>
 </p>
