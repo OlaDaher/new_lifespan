@@ -20,7 +20,7 @@ describe "medics/new" do
     assert_select "form[action=?][method=?]", medics_path, "post" do
       assert_select "input#medic_first_name[name=?]", "medic[first_name]"
       assert_select "input#medic_last_name[name=?]", "medic[last_name]"
-      assert_select "input#medic_position[name=?]", "medic[position]"
+      assert_select "select#medic_position[name=?]", "medic[position]"
       assert_select "input#medic_organization_id[name=?]", "medic[organization_id]"
       assert_select "input#medic_staff[name=?]", "medic[staff]"
       assert_select "input#medic_email[name=?]", "medic[email]"
