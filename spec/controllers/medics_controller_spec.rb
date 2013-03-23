@@ -24,7 +24,7 @@ describe MedicsController do
   # Medic. As you add validations to Medic, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "first_name" => "MyString" }
+    { :email => "ahashim@qatar.cmu.edu", :first_name => "Aliya", :last_name => "Hashim", :organization_id => 1, :password => "123456", :password_confirmation => "123456", :position => "Position", :staff => true }
   end
 
   # This should return the minimal set of values that should be in the session
