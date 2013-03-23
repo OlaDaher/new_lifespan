@@ -10,13 +10,11 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem "libv8", "~> 3.11.8.4"
 gem "cancan"
-<<<<<<< HEAD
 gem 'pwdcalc'
 gem 'formtastic'
-=======
 gem 'carrierwave'
 
->>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
+
 
 # for deployment on Heroku
 
