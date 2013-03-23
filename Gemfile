@@ -5,10 +5,10 @@ gem 'bcrypt-ruby'
 gem 'rails'
 gem 'jquery-rails'
 gem 'execjs'
-gem "therubyracer", "~> 0.11.0"
+gem 'therubyracer'#, "~> 0.11.0"
 gem 'bootstrap-sass'
 gem 'carrierwave'
-gem "libv8", "~> 3.11.8.4"
+gem 'libv8'#, "~> 3.11.8.4"
 gem "cancan"
 gem 'pwdcalc'
 gem 'formtastic'
