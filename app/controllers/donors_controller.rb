@@ -1,5 +1,5 @@
 class DonorsController < ApplicationController
-   load_and_authorize_resource
+  # load_and_authorize_resource
   # GET /donors
   # GET /donors.json
  
@@ -52,7 +52,10 @@ class DonorsController < ApplicationController
     respond_to do |format|
       if @donor.save
         session[:donor_id] = @donor.id
-        redirect_to @donor, notice: 'Donor was successfully created.'
+        format.html { redirect_to root_url, :notice => "Donor was succesfully created." }
+        format.json { render json: @donor, status: :created, location: @donor }
+      
+         
       else
         format.html { render action: "new" }
         format.json { render json: @donor.errors, status: :unprocessable_entity }

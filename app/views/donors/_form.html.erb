@@ -1,5 +1,6 @@
 <%= semantic_form_for(@donor) do |f| %>
   <% if @donor.errors.any? %>
+  <% @donor.errors.delete(:password_digest) %>
     <div id="error_explanation">
       <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
 
@@ -34,10 +35,6 @@
   <div class="field">
     <%= f.label :blood_type %><br />
     <%= f.select(:blood_type, Donor::Blood_List) %>
-  </div>
-  <div class="field">
-    <%= f.label :donor %><br />
-    <%= f.check_box :donor %>
   </div>
   <div class="field">
     <%= f.label :social_network %><br />

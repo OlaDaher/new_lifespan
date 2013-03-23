@@ -34,7 +34,7 @@
 
             <ul class="nav pull-right">
        <h5>     <a href="/home">Home</a></h5>
-              <% if current_donor && current_donor.donor == false %>
+              <% if current_donor && current_donor.admin == true %>
                  
                 <%= link_to "Donor List", donors_path, class: "btn btn-large btn-primary" %> 
                 <%= link_to "Register Hospital", register_path, class: "btn btn-large btn-primary" %>
@@ -49,21 +49,19 @@
 
 
               
-              <% elsif current_donor && current_donor.donor == true %>      
+              <% elsif current_donor && current_donor.admin == false %>      
 
               <%= link_to "Available Hospitals", organizations_path, class: "btn btn-large btn-primary" %>
-              <%= link_to "Donate Now!", '#', class: "btn btn-large btn-primary" %>
-              
               <%= link_to "Log out", logout_path, class: "btn btn-large btn-primary" %> 
               
-        <% elsif current_medic && current_medic.staff == false %>
+        <% elsif current_medic && current_medic.admin == true %>
               <%= link_to "Doctor List", medics_path, class: "btn btn-large btn-primary" %> 
               <%= link_to "Register Hospital Staff", join_path, class: "btn btn-large btn-primary" %>
 
                <%= link_to "Send Blood Request!", '/send_request', class: "btn btn-large btn-primary" %> 
           <%= link_to "Log out", signout_path, class: "btn btn-large btn-primary" %>
 
-        <% elsif current_medic && current_medic.staff == true %>             
+        <% elsif current_medic && current_medic.admin == false %>             
         
           <%= link_to "Send Blood Request!",'/send_request', class: "btn btn-large btn-primary" %> 
 
