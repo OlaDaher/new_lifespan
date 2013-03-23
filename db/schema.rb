@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130322230424) do
+=======
+ActiveRecord::Schema.define(:version => 20130318203521) do
+>>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
 
   create_table "donor_abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -30,7 +34,12 @@ ActiveRecord::Schema.define(:version => 20130322230424) do
     t.string   "password_digest"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+<<<<<<< HEAD
     t.boolean  "admin", :default => false
+=======
+    t.boolean  "donor",           :default => true
+    t.string   "photo"
+>>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
   end
 
   create_table "medic_abilities", :force => true do |t|

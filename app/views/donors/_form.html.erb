@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <%= semantic_form_for(@donor) do |f| %>
+=======
+<%= form_for @donor, :html => { :multipart => true } do |f| %>
+>>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
   <% if @donor.errors.any? %>
   <% @donor.errors.delete(:password_digest) %>
     <div id="error_explanation">
@@ -39,6 +43,10 @@
   <div class="field">
     <%= f.label :social_network %><br />
     <%= f.select(:social_network, Donor::Social_Networks) %>
+  </div>
+  <div class="field">
+     <%= f.label :photo %><br />
+     <%= f.file_field :photo %>
   </div>
   <div class="field">
     <%= f.label :email %><br />

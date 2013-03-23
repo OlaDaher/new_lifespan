@@ -1,4 +1,5 @@
 class Donor < ActiveRecord::Base
+<<<<<<< HEAD
   attr_accessible  :active, :admin, :blood_type, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :region, :social_network
   validates :password,   :presence => true,
                        :confirmation => true,
@@ -9,6 +10,11 @@ class Donor < ActiveRecord::Base
                        :allow_blank => true,
                        :on => :update
   validates :password_confirmation, :presence => true                     
+=======
+  mount_uploader :photo, PhotoUploader
+	
+  attr_accessible :active, :donor, :blood_type, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :region, :social_network, :photo
+>>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
   has_secure_password
   before_save :format_phone
   validates :email, :active, :social_network, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
@@ -25,6 +31,7 @@ class Donor < ActiveRecord::Base
   Region_List = [[''], ['Al Assiry'],  ['Al Bidda'], ['Al Dafna'], ['Al Hilal'], ['Al Mamoura'], ['Al Markhiya'], ['Al Nasr'], ['Al Sadd'], ['Al Waab'], ['Bin Mahmoud'], ['Madinat Khalifa'], ['Old Airport'], ['Onaiza'], ['Qutaifiya'], ['Ras Abu Aboud'], ['Rumeilah'], ['Wadi Al Sail'], ['West Bay']]
   Blood_List = [[''], ['A+'], ['A-'], ['B+'], ['B-'], ['AB+'], ['AB-'], ['O+'], ['O-']]
   Social_Networks = [[''], ['Facebook'], ['Twitter']]
+
 
   def proper_name
     first_name + " " + last_name
