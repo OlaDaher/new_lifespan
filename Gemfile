@@ -13,7 +13,8 @@ gem "cancan"
 gem 'pwdcalc'
 gem 'formtastic'
 gem 'carrierwave'
-
+gem 'gravatar_image_tag'
+gem 'gravatar-ultimate'
 
 
 # for deployment on Heroku
