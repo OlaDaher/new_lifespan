@@ -1,5 +1,5 @@
 class Medic < ActiveRecord::Base
-<<<<<<< HEAD
+
   attr_accessible :email, :phone, :first_name, :last_name, :organization_id, :password, :password_confirmation, :position, :admin
   validates :password,   :presence => true,
                        :confirmation => true,
@@ -10,9 +10,9 @@ class Medic < ActiveRecord::Base
                        :allow_blank => true,
                        :on => :update
   validates :password_confirmation, :presence => true                      
-=======
-  # attr_accessible :email, :first_name, :last_name, :organization_id, :password, :password_confirmation, :position, :staff
->>>>>>> 045a1ca26bc67fca28731d8477208ac5717eb59a
+
+  
+
   has_secure_password
   before_save :format_phone
   belongs_to :organization

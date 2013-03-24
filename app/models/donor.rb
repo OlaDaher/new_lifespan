@@ -1,6 +1,9 @@
 class Donor < ActiveRecord::Base
-<<<<<<< HEAD
-  attr_accessible  :active, :admin, :blood_type, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :region, :social_network
+
+ attr_accessible :active, :donor, :blood_type, 
+ :email, :first_name, :last_name, :password, :password_confirmation, 
+ :phone, :region, :social_network, :photo
+
   validates :password,   :presence => true,
                        :confirmation => true,
                        :length => {:within => 6..40},
@@ -10,11 +13,10 @@ class Donor < ActiveRecord::Base
                        :allow_blank => true,
                        :on => :update
   validates :password_confirmation, :presence => true                     
-=======
+
   mount_uploader :photo, PhotoUploader
 	
-  attr_accessible :active, :donor, :blood_type, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :region, :social_network, :photo
->>>>>>> 99f422ec6b7614620fb3c229238609bfdd27ced6
+  
   has_secure_password
   before_save :format_phone
   validates :email, :active, :social_network, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
