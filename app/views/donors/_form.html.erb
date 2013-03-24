@@ -1,7 +1,7 @@
-
+<%= form_for @donor, :html => { :multipart => true } do |f| %>
 <%= semantic_form_for(@donor) do |f| %>
 
-<%= form_for @donor, :html => { :multipart => true } do |f| %>
+
 
   <% if @donor.errors.any? %>
   <% @donor.errors.delete(:password_digest) %>
@@ -61,4 +61,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
 <% end %>
