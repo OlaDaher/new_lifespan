@@ -12,7 +12,8 @@
     </div>
   <% end %>
 
-<% if current_medic && current_medic.admin == true %>
+<% if current_donor && current_donor.admin == true || current_medic && current_medic.admin == false %>
+
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
@@ -25,20 +26,24 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
+<% end %>
+
+ 
+  <div class="field">
+    <%= f.label :organization_id %><br />
+    <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
+  </div>
   
+<% if current_donor && current_donor.admin == true %>
+  <div class="field">
+    <%= f.label :admin %><br />
+    <%= f.check_box :admin %>
+  </div>
 <% end %>
 
   <div class="field">
     <%= f.label :position %><br />
     <%= f.select(:position, Medic::Position) %>
-  </div>
-  <div class="field">
-    <%= f.label :organization_id %><br />
-    <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
   </div>
   <div class="field">
     <%= f.label :email %><br />

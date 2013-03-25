@@ -36,6 +36,15 @@
     <%= f.label :active %><br />
     <%= f.check_box :active %>
   </div>
+
+  
+<% if current_donor && current_donor.admin == true %>
+  <div class="field">
+    <%= f.label :admin %><br />
+    <%= f.check_box :admin %>
+  </div>
+<% end %>
+
   <div class="field">
     <%= f.label :blood_type %><br />
     <%= f.select(:blood_type, Donor::Blood_List) %>
