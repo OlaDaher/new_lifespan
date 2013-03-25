@@ -12,7 +12,11 @@
 
 <% @medics.each do |medic| %>
   <tr>
+    
+    <% if medic.first_name && medic.last_name != "" %>
     <td><%= medic.proper_name %></td>
+    <% end %> 
+
     <td><%= medic.position %></td>
     <td><%= medic.organization.name %></td>
     <td><%= link_to 'Show', medic %></td>

@@ -29,11 +29,13 @@
   <b>Blood type:</b>
   <%= @donor.blood_type %>
 </p>
-
+ 
+<% unless @donor.admin == false %>
 <p>
   <b>Admin:</b>
   <%= @donor.admin %>
 </p>
+<% end %> 
 
 <p>
   <b>Social network:</b>

@@ -52,7 +52,7 @@ class DonorsController < ApplicationController
     respond_to do |format|
       if @donor.save
         session[:donor_id] = @donor.id
-        format.html { redirect_to root_url, :notice => "Donor was succesfully created." }
+        format.html { redirect_to @donor, :notice => "Donor was succesfully created." }
         format.json { render json: @donor, status: :created, location: @donor }
       
          

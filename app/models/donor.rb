@@ -4,15 +4,17 @@ class Donor < ActiveRecord::Base
  :email, :first_name, :last_name, :password, :password_confirmation, 
  :phone, :region, :social_network, :photo
 
-  validates :password,   :presence => true,
-                       :confirmation => true,
+  validates :password, :presence => true,
                        :length => {:within => 6..40},
                        :on => :create
   validates :password, :confirmation => true,
                        :length => {:within => 6..40},
                        :allow_blank => true,
                        :on => :update
+  
   validates :password_confirmation, :presence => true                     
+
+  validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer"
 
   mount_uploader :photo, PhotoUploader
 	

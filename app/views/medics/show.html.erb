@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if @medic.first_name && @medic.last_name != "" %>
 <p>
   <b>Name:</b>
   <%= @medic.proper_name %>
 </p>
+<% end %> 
 
 <p>
   <b>Position:</b>

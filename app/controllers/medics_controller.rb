@@ -49,7 +49,6 @@ class MedicsController < ApplicationController
 
     respond_to do |format|
       if @medic.save
-        session[:medic_id] = @medic.id
         format.html { redirect_to @medic, notice: 'Medic was successfully created.' }
         format.json { render json: @medic, status: :created, location: @medic }
       else
