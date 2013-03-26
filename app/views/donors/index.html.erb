@@ -12,8 +12,18 @@
     <th></th>
   </tr>
 
+
 <% @donors.each do |donor| %>
   <tr>
+     <% if donor.admin == true %>
+    <p>
+      <b>System Admin</b>
+    </p>  
+  <% else %>
+    <p>
+      <b>Donors</b>
+    </p>  
+  <% end %>  
 	<td><%= image_tag donor.photo_url %></td>
     <td><%= donor.proper_name %></td>
     <td><%= donor.region %></td>

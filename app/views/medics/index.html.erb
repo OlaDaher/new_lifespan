@@ -1,6 +1,10 @@
-<h1>Listing medics</h1>
+<br />
+
 
 <table>
+   <p>
+      <h1>Administrators</h1>
+    </p> 
   <tr>
     <th>Name</th>
     <th>Position</th>
@@ -10,7 +14,9 @@
     <th></th>
   </tr>
 
+
 <% @medics.each do |medic| %>
+  <% if medic.admin == true %> 
   <tr>
     
     <% if medic.first_name && medic.last_name != "" %>
@@ -24,8 +30,47 @@
     <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<% end %>
+
 </table>
 
 <br />
+<br />
+<br />
+<br />
+
+<table>
+   <p>
+      <h1>Hospital Staff</h1>
+    </p> 
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Organization</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @medics.each do |medic| %>
+  <% if medic.admin == false %> 
+  <tr>
+    
+    <% if medic.first_name && medic.last_name != "" %>
+    <td><%= medic.proper_name %></td>
+    <% end %> 
+
+    <td><%= medic.position %></td>
+    <td><%= medic.organization.name %></td>
+    <td><%= link_to 'Show', medic %></td>
+    <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
+    <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<% end %>
+
+</table>
+
 
 <%= link_to 'New Medic', new_medic_path %>
