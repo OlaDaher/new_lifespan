@@ -1,0 +1,5 @@
+<%= form_tag("/send_one_blood_type", :method => "get") do %>
+  <%= label_tag(:q, "Blood Type") %>
+  <%= select_tag "BloodType", options_for_select([[''], ['A+'], ['A-'], ['B+'], ['B-'], ['AB+'], ['AB-'], ['O+'], ['O-']], "Card") %>
+  <%= submit_tag("Send") %>
+<% end %>
