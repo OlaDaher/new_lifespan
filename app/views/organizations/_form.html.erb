@@ -19,6 +19,10 @@
     <%= f.label :region %><br />
     <%= f.select(:region, Organization::Region_List) %>
   <div class="actions">
+  <div class="field">
+    <%= f.label :phone %><br />
+	<%= f.text_field :phone %>
+  </div>
     <%= f.submit %>
   </div>
 <% end %>
