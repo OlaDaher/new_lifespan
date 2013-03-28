@@ -7,6 +7,8 @@ Lifespan::Application.routes.draw do
   resources :sessions
   resources :medicsessions
  
+ post "donors/send_request"
+ 
   root :to => 'pages#home'
   match '/home', :to => 'pages#home'
   match '/about', :to => 'pages#about'
@@ -21,5 +23,6 @@ Lifespan::Application.routes.draw do
   match '/signin', :to => 'medicsessions#new'
   match '/signout', :to => 'medicsessions#destroy'
   match '/send_request', :to => 'donors#send_request'
+  match '/send_one_blood_type', :to => 'donors#send_request'
   
 end

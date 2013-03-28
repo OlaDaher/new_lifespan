@@ -93,12 +93,15 @@ class DonorsController < ApplicationController
   end
   
   def send_request
+    # redirect_to send_one_blood_type_path
+    @medic = Medic.find(session[:medic_id])
     @donors = Donor.all
-    DonorMailer.new_donor_request(@donors).deliver
-    # format.json { render json: @donors }
-    respond_to do |format|
-        format.html { redirect_to root_path, notice: 'The requests have been sent.' }
-        # format.json { render json: @donor, status: :created, location: @donor }
-    end
+    @org = Organization.find_by_id(@medic.organization_id)
+#    render :text => "Message sent successfully"
+    # if redirect_to send_one_blood_type_path      
+       DonorMailer.new_donor_request(@donors, @medic, @org).deliver
+       # format.html { redirect_to send_one_blood_type_path, notice: 'The requests have been sent jhgfdsdfghj jhgfd.' }
+    # end
   end
+  
 end
