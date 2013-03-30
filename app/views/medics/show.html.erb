@@ -28,5 +28,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_medic_path(@medic) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to 'Edit Profile', edit_medic_path(@medic) %> |
+<%= link_to 'Back', root_path %> |
+<%= link_to 'Delete Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+

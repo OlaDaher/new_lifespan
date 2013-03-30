@@ -1,11 +1,22 @@
 class ApplicationController < ActionController::Base
+  check_authorization
   protect_from_forgery
-  private
-
-  def current_ability
-  	@current_ability ||= Ability.new(current_donor)
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
   end
 
+  private
+ 
+  def current_ability
+    if current_user.kind_of?(Medic)
+      @current_ability ||= MedicAbility.new(current_medic)
+    else
+      @current_ability ||= DonorAbility.new(current_donor)
+    end
+  end
+
+  helper_method :current_ability
 
   def current_donor
     @current_donor ||= Donor.find(session[:donor_id]) if session[:donor_id]
@@ -19,9 +30,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_medic
 
-
-  rescue_from CanCan::AccessDenied do |exception|
-  	flash[:error] = "Access denied."
-  	redirect_to root_url
+  def current_user
+    @current_user ||= current_donor || current_medic
   end
+
+  helper_method :current_user
 end

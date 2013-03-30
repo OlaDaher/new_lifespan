@@ -1,13 +1,22 @@
 
-<div id="nav">
-<ul><h5><li>
-<p class="three">
-<a href="/about">How LifeSpan+ Works?</a></li></p>
-<li><p class="three">  
-<a href="/contact">Contact</a></li></p>
+ <% if current_donor && current_donor.admin == true %>
+<h1>System Admin</h1>
+ 
+ <%elsif current_donor && current_donor.admin == false %> 
+ <% elsif current_medic && current_medic.admin == true %>
+ <% elsif current_medic && current_medic.admin == false %>
+  <% else %>
+  <div class="center hero-unit">
 
-<li><p class="three"> <a href="/privacy">Privacy</a></li></p>
-<li> <p class="three"> <a href="#">Video</a></li> </p>
-</ul></h5>
-
+<h1>LifeSpan+</h1>
+<p>
+	96% of us rely on the other 4% to give blood. Please don’t leave it to someone else!
+</p>
+ <%=link_to "Donate Now!", login_path, class:"btn btn-large btn-primary" %>
 </div>
+   <% end %>
+
+
+
+ 
+ 

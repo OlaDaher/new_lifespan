@@ -1,5 +1,6 @@
 class MedicsessionsController < ApplicationController
-	def new
+	skip_authorization_check
+    def new
       @title = "Log in"
   	end
 
@@ -10,7 +11,7 @@ class MedicsessionsController < ApplicationController
         if medic.admin == true
     		redirect_to root_url, :notice => "Admin Logged in!"
         else
-        redirect_to edit_medic_path(medic), :notice => "Please fill in your Personal Information!"
+        redirect_to edit_medic_path(medic), :notice => "Welcome! Please fill in your Personal Information before proceeding!"
   		  end
       else
     		flash.now.alert = "Invalid email or password"

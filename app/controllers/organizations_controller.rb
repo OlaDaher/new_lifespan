@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  
+  load_and_authorize_resource
   
   def index
     @title = "Organization List"
@@ -82,7 +82,7 @@ class OrganizationsController < ApplicationController
     @organization.destroy
 
     respond_to do |format|
-      format.html { redirect_to organizations_url }
+      format.html { redirect_to organizations_url, :notice => "Organization Deleted!" }
       format.json { head :no_content }
     end
   end

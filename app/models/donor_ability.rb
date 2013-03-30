@@ -1,34 +1,22 @@
-class Ability
+class DonorAbility
   include CanCan::Ability
 
     def initialize(donor)
-    
         donor ||= Donor.new # guest user (not logged in)
-        if donor.admin == false
-            can [:read, :update], Donor, :donor_id => donor.id
-            cannot [:create, :destroy], Donor
-            can :read, Organization
-            cannot [:create, :update, :destroy], Organization
-            cannot [:create, :read, :update, :destroy], Medic
-        else
+        if donor.admin == true
             can :manage, :all
+       
+        elsif donor.admin == false
+            can :create, Donor
+            can [:show, :update, :destroy], Donor, :id => donor.id
+            can :read, Organization
+            cannot :manage, Medic
+       
+        else
+             
         end
-    end    
+    end        
 
-     def initialize(user)
-      user ||= Student.new
-      can :create,Student
-      can :read, Student , :id => user.id
-      can :update, Student, :id => user.id
-      can :destroy, Student, :id => user.id
-      can :read, Registrar
-      can :read, Schedule
-      can :create, Application
-      can :read, Application, :student_id => user.id
-      can :edit, Application, :student_id => user.id
-      can :destroy, Application, :student_id => user.id
-      can :read, University
-  end 
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
@@ -47,5 +35,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
+  
 end

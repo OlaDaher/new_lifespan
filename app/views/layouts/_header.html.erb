@@ -1,0 +1,102 @@
+<header class= "navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <nav>
+      <ul class="nav pull-left">
+        <li><%= link_to "Home", root_path %> </li>
+      </ul>  
+      <ul class="nav pull-right">
+	      
+        <% if current_donor && current_donor.admin == true %>
+     
+     
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Options <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%=link_to "My Profile", current_donor %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Available Donors", donors_path %>
+              </li>
+              <li><%=link_to "Available Hospitals", organizations_path %>
+              </li>
+              <li><%=link_to "Available Admins", medics_path %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Register Hospital", register_path %>
+              </li>
+              <li><%=link_to "Register Admin", join_path %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Log Out", logout_path %>
+              </li>
+            </ul>
+          </li>
+
+        <% elsif current_donor && current_donor.admin == false %>   
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Options <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%=link_to "My Profile", current_donor %>
+              </li>
+              <li><%=link_to "Available Hospitals", organizations_path %>
+              </li
+              <li class='divider'></li>
+              <li><%=link_to "Log Out", logout_path %>
+              </li>
+              <li><%= link_to 'Delete Account', @donor, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </li>  
+            </ul>
+          </li>
+          
+        <% elsif current_medic && current_medic.admin == true %>
+          
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Options <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%=link_to "My Profile", current_medic %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Available Doctors", medics_path %>
+              </li>
+              <li><%=link_to "Register Doctor", join_path %>
+              </li>
+              <li><%=link_to "Send Blood Request!", send_request_path %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Log Out", signout_path %>
+              </li>
+            </ul>
+          </li>
+             
+        <% elsif current_medic && current_medic.admin == false %>             
+          <li id="fat-menu" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Options <b class="caret"></b>
+          </a>
+            <ul class="dropdown-menu">
+              <li><%=link_to "My Profile", current_medic %>
+              </li>
+              <li><%=link_to "Send Blood Request!", send_request_path %>
+              </li>
+              <li class='divider'></li>
+              <li><%=link_to "Log Out", signout_path %>
+              </li>
+            </ul>
+          </li>
+        
+        <% else %>
+        
+         
+          <li><%= link_to "Medic Log In", signin_path %> </li>
+
+        <%end %>
+	    </ul>
+    </nav>
+  </div>
+</header>

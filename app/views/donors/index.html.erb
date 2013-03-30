@@ -1,41 +1,62 @@
 <h1>Listing donors</h1>
-
-<table>
-  <tr>
-	<th>Photo</th>
-    <th>Name</th>
-    <th>Region</th>
-    <th>Blood type</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
-<% @donors.each do |donor| %>
-  <tr>
-     <% if donor.admin == true %>
-    <p>
-      <b>System Admin</b>
-    </p>  
-  <% else %>
-    <p>
-      <b>Donors</b>
-    </p>  
-  <% end %>  
-	<td><%= image_tag donor.photo_url %></td>
-    <td><%= donor.proper_name %></td>
-    <td><%= donor.region %></td>
-    <td><%= donor.blood_type %></td>
-    <td><%= donor.email %></td>
-    <td><%= link_to 'Show', donor %></td>
-    <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-    <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Donor', new_donor_path %>
+  <% @donors.each do |donor| %>
+    <% if donor.admin == true %>
+      <p>
+        <b>System Admin</b>
+      </p>
+      <table>
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Region</th>
+          <th>Blood type</th>
+          <th>Email</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><%= image_tag donor.photo_url %></td>
+          <td><%= donor.proper_name %></td>
+          <td><%= donor.region %></td>
+          <td><%= donor.blood_type %></td>
+          <td><%= donor.email %></td>
+          <td><%= link_to 'Show', donor %></td>
+          <% if can? :update, @donor %>
+           <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+          <% end %>
+          <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      </table>  
+    <% else %>
+      <p>
+        <b>Donors</b>
+      </p>  
+      <table>
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Region</th>
+          <th>Blood type</th>
+          <th>Email</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><%= image_tag donor.photo_url %></td>
+          <td><%= donor.proper_name %></td>
+          <td><%= donor.region %></td>
+          <td><%= donor.blood_type %></td>
+          <td><%= donor.email %></td>
+          <td><%= link_to 'Show', donor %></td>
+          <% if can? :update, @donor %>
+            <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+          <% end %>
+          <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      </table>   
+    <% end %>  
+  <% end %>
+  <br />
+  <%= link_to 'New Donor', new_donor_path %>

@@ -1,5 +1,7 @@
 class DonorsController < ApplicationController
-  # load_and_authorize_resource
+  load_and_authorize_resource
+  
+
   # GET /donors
   # GET /donors.json
  
@@ -84,13 +86,18 @@ class DonorsController < ApplicationController
   # DELETE /donors/1.json
   def destroy
     @donor = Donor.find(params[:id])
-    @donor.destroy
-
+    if current_donor.id == @donor.id
+      session[:donor_id] = nil
+      @donor.destroy
+    else  
+      @donor.destroy
+    end  
     respond_to do |format|
-      format.html { redirect_to donors_url }
+      format.html {  redirect_to root_url, :notice => "User Deleted!" }
       format.json { head :no_content }
     end
   end
+  
   
   def send_request
     # redirect_to send_one_blood_type_path
