@@ -1,5 +1,6 @@
 class MedicsessionsController < ApplicationController
-	skip_authorization_check
+#load_and_authorize_resource
+skip_authorization_check
     def new
       @title = "Log in"
   	end
@@ -9,9 +10,11 @@ class MedicsessionsController < ApplicationController
  		  if medic && medic.authenticate(params[:password])
     		session[:medic_id] = medic.id
         if medic.admin == true
-    		redirect_to root_url, :notice => "Admin Logged in!"
-        else
-        redirect_to edit_medic_path(medic), :notice => "Welcome! Please fill in your Personal Information before proceeding!"
+    		  redirect_to root_url, :notice => "#{medic.organization} Admin Logged in!"
+        elsif medic.first_name.empty? || medic.last_name.empty? || medic.position.empty? || medic.phone.empty? == true
+          redirect_to edit_medic_path(medic), :notice => "Welcome Dr. #{medic.position}! Please complete your Personal Details before proceeding!"
+        else  
+          redirect_to root_url, :notice => "Welcome Dr. #{medic.position}!"
   		  end
       else
     		flash.now.alert = "Invalid email or password"

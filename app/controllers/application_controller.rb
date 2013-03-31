@@ -8,6 +8,18 @@ class ApplicationController < ActionController::Base
 
   private
  
+  def current_medic
+    @current_medic ||= Medic.find(session[:medic_id]) if session[:medic_id]
+  end
+
+  def current_donor
+    @current_donor ||= Donor.find(session[:donor_id]) if session[:donor_id]
+  end
+
+  def current_user
+    @current_user ||= current_donor || current_medic
+  end
+
   def current_ability
     if current_user.kind_of?(Medic)
       @current_ability ||= MedicAbility.new(current_medic)
@@ -16,23 +28,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_ability
-
-  def current_donor
-    @current_donor ||= Donor.find(session[:donor_id]) if session[:donor_id]
-  end
-
   helper_method :current_donor
-
-  def current_medic
-    @current_medic ||= Medic.find(session[:medic_id]) if session[:medic_id]
-  end
-
+  helper_method :current_ability
   helper_method :current_medic
-
-  def current_user
-    @current_user ||= current_donor || current_medic
-  end
-
-  helper_method :current_user
 end

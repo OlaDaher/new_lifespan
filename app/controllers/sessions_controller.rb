@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    skip_authorization_check
+   #load_and_authorize_resource
+   skip_authorization_check
     def new
       @title = "Log in"
   	end
@@ -8,8 +9,12 @@ class SessionsController < ApplicationController
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
     		session[:donor_id] = donor.id
-    		redirect_to root_url, :notice => "Logged in!"
-  		else
+        if donor.admin == true
+    		  redirect_to root_url, :notice => "System Admin Logged in!"
+        else
+          redirect_to root_url, :notice => "#{donor.proper_name} Logged in!"
+  		  end
+      else
     		flash.now.alert = "Invalid email or password"
     		render "new"
   		end

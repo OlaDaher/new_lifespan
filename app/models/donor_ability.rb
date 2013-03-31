@@ -3,17 +3,15 @@ class DonorAbility
 
     def initialize(donor)
         donor ||= Donor.new # guest user (not logged in)
+        can :create, Donor
+        can [:show, :update, :destroy], Donor, :id => donor.id
+        if donor.id.nil? == false
+            cannot :create, Donor
+        end    
+        can [:read, :show], Organization
+        cannot :manage, Medic
         if donor.admin == true
             can :manage, :all
-       
-        elsif donor.admin == false
-            can :create, Donor
-            can [:show, :update, :destroy], Donor, :id => donor.id
-            can :read, Organization
-            cannot :manage, Medic
-       
-        else
-             
         end
     end        
 

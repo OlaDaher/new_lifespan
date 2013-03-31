@@ -9,6 +9,28 @@ class DonorsController < ApplicationController
     @title = "Donor List"
     @donors = Donor.all
 
+    @grouped = {}
+    Donor.all.each do |donor|
+      if donor.admin == false
+        if donor.active == true
+          letter = donor.blood_type.slice(0,2).upcase
+          @grouped[letter] ||= []
+          @grouped[letter] << donor
+        end  
+      end  
+    end
+
+    @grouped_inactive = {}
+     Donor.all.each do |donor|
+      if donor.admin == false
+        if donor.active == false
+          letter = donor.blood_type.slice(0,2).upcase
+          @grouped_inactive[letter] ||= []
+          @grouped_inactive[letter] << donor
+        end  
+      end  
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @donors }

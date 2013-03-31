@@ -51,6 +51,6 @@ class Donor < ActiveRecord::Base
     def format_phone
      phone = self.phone.to_s
      phone.gsub!(/[^0-9]/,"")
-      self.phone = phone
+     self.phone = phone
     end
 end

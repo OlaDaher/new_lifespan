@@ -1,6 +1,6 @@
 class MedicsController < ApplicationController
-  #load_and_authorize_resource
-  skip_authorization_check
+  load_and_authorize_resource
+  
   # GET /medics
   # GET /medics.json
   def index
