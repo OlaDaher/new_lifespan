@@ -31,12 +31,12 @@ Donor.create(first_name:"Volunteer", last_name:"Second", phone:"45213698572",
 
 Donor.create(first_name:"Zakaria", last_name:"Labyad", phone:"48752136954", 
 	email:"zak@gmail.com", blood_type:"A-", social_network:"Twitter", 
-	region:"Al Nasr", active:false, password:"zak123", 
+	region:"Al Nasr", active:true, password:"zak123", 
 	password_confirmation:"zak123", admin:false) 
 
 Donor.create(first_name:"Arjen", last_name:"Robben", phone:"54265421001", 
 	email:"robben@gmail.com", blood_type:"B-", social_network:"Facebook", 
-	region:"Al Waab", active:false, password:"robben123", 
+	region:"Al Waab", active:true, password:"robben123", 
 	password_confirmation:"robben123", admin:false) 
 
 

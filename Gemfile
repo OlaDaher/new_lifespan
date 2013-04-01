@@ -5,16 +5,17 @@ gem 'bcrypt-ruby'
 gem 'rails'
 gem 'jquery-rails'
 gem 'execjs'
-gem 'therubyracer'#, "~> 0.11.0"
+gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'carrierwave'
-gem 'libv8'#, "~> 3.11.8.4"
+gem 'libv8'
 gem "cancan"
 gem 'pwdcalc'
 gem 'formtastic'
 gem 'carrierwave'
 gem 'gravatar_image_tag'
 gem 'gravatar-ultimate'
+gem 'bootstrap-will_paginate'
 
 
 # for deployment on Heroku

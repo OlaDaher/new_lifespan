@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
  		  if donor && donor.authenticate(params[:password])
     		session[:donor_id] = donor.id
         if donor.admin == true
-    		  redirect_to root_url, :notice => "System Admin Logged in!"
+    		  redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
         else
-          redirect_to root_url, :notice => "#{donor.proper_name} Logged in!"
+          redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're Signed in!"
   		  end
       else
     		flash.now.alert = "Invalid email or password"
