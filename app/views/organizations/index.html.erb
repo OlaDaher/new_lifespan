@@ -13,6 +13,11 @@
   <tr>
     <td><%= organization.name %></td>
     <td><%= organization.region %></td>
+    <% @admins.each do |admin| %>
+      <% if  admin.organization_id == organization.id%>
+    <% end %>
+    
+    <td>
     <td><%= link_to 'Show', organization %></td>
     <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
     <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -31,6 +31,14 @@ class Medic < ActiveRecord::Base
     last_name + ", " + first_name   
   end
 
+  def self.admins
+    a = Array.new
+    Medic.all.each do |medic|
+      a << medic if medic.admin == true
+    end
+    return a
+  end
+  
 private
   def format_phone
      phone = self.phone.to_s

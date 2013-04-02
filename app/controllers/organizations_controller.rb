@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
   def index
     @title = "Organization List"
     @organizations = Organization.all
+    @admins = Medic.admins
 
     respond_to do |format|
       format.html # index.html.erb
