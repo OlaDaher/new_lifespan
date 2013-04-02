@@ -10,17 +10,14 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'libv8'
 gem "cancan"
-<<<<<<< HEAD
 gem 'pwdcalc'
 gem 'formtastic'
 gem 'carrierwave'
 gem 'gravatar_image_tag'
 gem 'gravatar-ultimate'
 gem 'bootstrap-will_paginate'
-
-=======
 gem "twitter"
->>>>>>> 7bd8ea3613c6b74e8350ca9e711b511cc0a80bda
+
 
 # for deployment on Heroku
 
