@@ -1,3 +1,12 @@
-Dear donor,
+Dear Donor,
 
-This is a request for a blood donation.
+<%= @blood_needed%> is needed at <%= @medic_org%>, which is in <%= @medic_region%>
+	if you cannot donate blood, share this message and save someone's life
+
+
+Sent by:
+<%= @medic_name%>
+working in <%= @medic_org%>
+
+
+

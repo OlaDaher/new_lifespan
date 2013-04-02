@@ -122,15 +122,19 @@ class DonorsController < ApplicationController
   
   
   def send_request
-    # redirect_to send_one_blood_type_path
+  end
+  
+  def send_one_blood_type
     @medic = Medic.find(session[:medic_id])
     @donors = Donor.all
-    @org = Organization.find_by_id(@medic.organization_id)
-#    render :text => "Message sent successfully"
-    # if redirect_to send_one_blood_type_path      
-       DonorMailer.new_donor_request(@donors, @medic, @org).deliver
-       # format.html { redirect_to send_one_blood_type_path, notice: 'The requests have been sent jhgfdsdfghj jhgfd.' }
-    # end
+    @blood = params[:BloodType]
+    @org = @medic.organization
+    DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
+    @twitter = "#{@blood} is needed at #{@medic.proper_name}"
+    Twitter.update(@twitter)
+    redirect_to root_url
+    
   end
+
   
 end

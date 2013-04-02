@@ -23,6 +23,6 @@ Lifespan::Application.routes.draw do
   match '/signin', :to => 'medicsessions#new'
   match '/signout', :to => 'medicsessions#destroy'
   match '/send_request', :to => 'donors#send_request'
-  match '/send_one_blood_type', :to => 'donors#send_request'
+  match '/send_one_blood_type', :to => 'donors#send_one_blood_type'
   
 end
