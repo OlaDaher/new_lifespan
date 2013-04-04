@@ -37,7 +37,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'shoulda-matchers'
+ # gem 'shoulda-matchers'
 end
 # Gems used only for assets and not required
 # in production environments by default.
