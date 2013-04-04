@@ -130,7 +130,7 @@ class DonorsController < ApplicationController
     @blood = params[:BloodType]
     @org = @medic.organization
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
-    @twitter = "#{blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} If you cannot donate, share it and save someone's life"
+    @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} If you cannot donate, share it and save someone's life"
     Twitter.update(@twitter)
     redirect_to root_url
     
