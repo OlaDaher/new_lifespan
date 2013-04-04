@@ -2,7 +2,7 @@ class Medic < ActiveRecord::Base
 
   attr_accessible :email, :phone, :first_name, :last_name, :organization_id, 
   :password, :password_confirmation, :position, :admin
-  validates :password,   :presence => true,
+  validates :password, :presence => true,
                        :length => {:within => 6..40},
                        :on => :create
   validates :password, :confirmation => true,

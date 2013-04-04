@@ -31,7 +31,11 @@ class SessionsController < ApplicationController
   	end
 
   	def destroy
-    cookies.delete(:auth_token)
-  	redirect_to root_url, :notice => "Donor Logged out!"
+      cookies.delete(:auth_token)
+      if current_donor && current_donor.admin == true
+  	    redirect_to root_url, :notice => "System Admin Logged out!"
+      else 
+        redirect_to root_url, :notice => "You have Logged out!"
+      end
   	end
 end
