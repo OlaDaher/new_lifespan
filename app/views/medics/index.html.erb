@@ -25,9 +25,15 @@
 
     <td><%= medic.position %></td>
     <td><%= medic.organization.name %></td>
-    <td><%= link_to 'Show', medic %></td>
-    <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
-    <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can? :show, medic %>
+      <td><%= link_to 'Show', medic %></td>
+    <% end %>   
+    <% if can? :update, medic %>
+      <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
+    <% end %>
+    <% if can? :destroy, medic %>
+      <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %> 
   </tr>
 <% end %>
 <% end %>

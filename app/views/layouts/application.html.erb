@@ -19,18 +19,20 @@
                   <a href="http://responsivewebinc.com/bootword"><img src="http://s8.postimg.org/dupit741x/logo.jpg" alt="LifeSpan+" /></a>
                 </div>
             </div>
-            <div class="span4 offset4">
-                <div class="social">
-                    <a href="https://www.facebook.com/pages/LifeSpan/425536624196631?ref=ts&fref=ts"><img src="http://s23.postimg.org/fetimunuj/images_2.jpg" class='icon-facebook'> </a>
-                    <a href="https://twitter.com/DonationLife"><img src="http://s16.postimg.org/6s7qquaw5/images_1.jpg" class='icon-facebook'> </a>
+            <% if current_page?(root_path) %>
+             
+                   <div class="span4 offset4">
+                    <div class="social">
+                        <a href="https://www.facebook.com/pages/LifeSpan/425536624196631?ref=ts&fref=ts"><img src="http://s23.postimg.org/fetimunuj/images_2.jpg" class='icon-facebook'> </a>
+                        
+                        <a href="https://twitter.com/DonationLife"><img src="http://s16.postimg.org/6s7qquaw5/images_1.jpg" class='icon-facebook'> </a>
                     
-                    <a href="#"><img src="http://s8.postimg.org/caf3a5cud/images_4.jpg" class='icon-facebook'> </a>
-                    
-                    
-                    
-              </div>
+                        <a href="#"><img src="http://s8.postimg.org/caf3a5cud/images_4.jpg" class='icon-facebook'> </a>
+                    </div>
+                </div>
+                   
+            <% end %>    
             </div>
-          </div>
         </div>
       </header>
 

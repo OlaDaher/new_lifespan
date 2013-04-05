@@ -9,12 +9,10 @@ class DonorAbility
         if donor.id.nil? == false
             can [:read, :show], Organization
             cannot :create, Donor
-            cannot [:new, :create], Session
             cannot :manage, Medic
         end    
         if donor.admin == true
             can :manage, :all
-            cannot [:new, :create], Session
         end
     end        
 
