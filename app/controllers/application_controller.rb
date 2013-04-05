@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+
+
   private
- 
+
   def current_medic
     @current_medic ||= Medic.find(session[:medic_id]) if session[:medic_id]
   end

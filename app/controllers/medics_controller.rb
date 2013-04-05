@@ -51,8 +51,13 @@ class MedicsController < ApplicationController
 
     respond_to do |format|
       if @medic.save
-        format.html { redirect_to @medic, notice: 'Medic was successfully created.' }
-        format.json { render json: @medic, status: :created, location: @medic }
+        if @medic.admin == true
+          format.html { redirect_to @medic, notice: 'Medic Admin was successfully created.' }
+          format.json { render json: @medic, status: :created, location: @medic }
+        else
+          format.html { redirect_to @medic, notice: 'Medic was successfully created.' }
+          format.json { render json: @medic, status: :created, location: @medic }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @medic.errors, status: :unprocessable_entity }
@@ -68,7 +73,7 @@ class MedicsController < ApplicationController
 
     respond_to do |format|
       if @medic.update_attributes(params[:medic])
-        format.html { redirect_to @medic, notice: 'Medic was successfully updated.' }
+        format.html { redirect_to @medic, notice: 'Dr. #{@medic.proper_name} was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -84,7 +89,7 @@ class MedicsController < ApplicationController
     if current_donor && current_donor.admin == true
       @medic.destroy
       respond_to do |format|
-        format.html { redirect_to medics_url, :notice => "Medic Deleted!" }
+        format.html { redirect_to medics_url, :notice => "Medic Admin Deleted!" }
         format.json { head :no_content }
       end
     elsif current_medic.id == @medic.id

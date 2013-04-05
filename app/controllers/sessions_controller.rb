@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-   #load_and_authorize_resource
    skip_authorization_check
     def new
       @title = "Log in"
@@ -9,7 +8,11 @@ class SessionsController < ApplicationController
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
           session[:donor_id] = donor.id
-    		  redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
+          if current_donor && current_donor.admin == true
+    		    redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
+          else 
+            redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're Signed in!"
+          end
       else
     		flash.now.alert = "Invalid email or password"
     		render "new"
@@ -17,14 +20,16 @@ class SessionsController < ApplicationController
   	end
 
   	def destroy
-      cookies.delete(:auth_token)
-      if current_donor && current_donor.admin == true
-  	    redirect_to root_url, :notice => "System Admin Logged out!"
-      else 
-        redirect_to root_url, :notice => "You have Logged out!"
-      end
-
-      session[:donor_id] = nil
-  	redirect_to root_url, :notice => "Donor Logged out!"
-  	end
-end
+      if session[:donor_id]
+        if current_donor && current_donor.admin == true
+          session[:donor_id] = nil
+  	      redirect_to root_url, :notice => "System Admin Logged out!"
+        else 
+          session[:donor_id] = nil
+          redirect_to root_url, :notice => "You have Logged out!"
+        end
+      else
+        redirect_to root_url, :notice => "Unauthorized command!" 
+      end   
+    end
+end    

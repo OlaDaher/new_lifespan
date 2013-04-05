@@ -95,7 +95,7 @@ class DonorsController < ApplicationController
 
     respond_to do |format|
       if @donor.update_attributes(params[:donor])
-        format.html { redirect_to @donor, notice: 'Donor was successfully updated.' }
+        format.html { redirect_to @donor, notice: "#{@donor.proper_name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -115,7 +115,7 @@ class DonorsController < ApplicationController
       @donor.destroy
     end  
     respond_to do |format|
-      format.html {  redirect_to root_url, :notice => "User Deleted!" }
+      format.html {  redirect_to root_url, :notice => "Donor Deleted!" }
       format.json { head :no_content }
     end
   end
