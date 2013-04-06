@@ -73,7 +73,7 @@ class MedicsController < ApplicationController
 
     respond_to do |format|
       if @medic.update_attributes(params[:medic])
-        format.html { redirect_to @medic, notice: 'Dr. #{@medic.proper_name} was successfully updated.' }
+        format.html { redirect_to @medic, notice: "Dr. #{@medic.proper_name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
