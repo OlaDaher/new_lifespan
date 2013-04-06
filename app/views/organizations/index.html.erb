@@ -4,9 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Region</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Admin</th>
   </tr>
 
 <% @organizations.each do |organization| %>
@@ -15,6 +13,8 @@
     <td><%= organization.region %></td>
     <% @admins.each do |admin| %>
       <% if  admin.organization_id == organization.id%>
+        <td><%= admin %></td>
+      <% end %>  
     <% end %>
     
     <td>
