@@ -14,7 +14,7 @@
 #  cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Donor.create(first_name:"Admin", last_name:"LifeSpan", phone:"97466090897", 
+Donor.create(first_name:"Main", last_name:"LifeSpan", phone:"97466090897", 
 	email:"lifespan.donation@gmail.com", blood_type:"B+", social_network:"Facebook", 
 	region:"West Bay", active:true, password:"lifespanproject1", 
 	password_confirmation:"lifespanproject1", admin:true) 
