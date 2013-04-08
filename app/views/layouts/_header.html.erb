@@ -47,6 +47,7 @@
               <li class='divider'></li>
               <li><%=link_to "Log Out", logout_path %>
               </li>
+              <li class='divider'></li>
               <li><%= link_to 'Delete Account', @donor, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>  
             </ul>
@@ -67,6 +68,7 @@
               <li><%=link_to "Register Doctor", join_path %>
               </li>
               <li><%=link_to "Send Blood Request!", send_request_path %>
+              
               </li>
               <li class='divider'></li>
               <li><%=link_to "Log Out", signout_path %>
@@ -87,6 +89,9 @@
               <li class='divider'></li>
               <li><%=link_to "Log Out", signout_path %>
               </li>
+              <li class='divider'></li>
+              <li><%= link_to 'Delete Account', @medic, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </li> 
             </ul>
           </li>
         

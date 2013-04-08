@@ -9,9 +9,13 @@ skip_authorization_check
  		  if medic && medic.authenticate(params[:password])
     		session[:medic_id] = medic.id
         if current_medic && current_medic.admin == true
-          redirect_to root_url, :notice => "Medical Administrator Logged in!"
+          redirect_to root_url, :notice => "Welcome, #{medic.organization.name} Medical Administrator!"
         else
-          redirect_to root_url, :notice => "Dr. #{medic.proper_name} Logged in!"
+          if current_medic.first_name.blank? == false && current_medic.last_name.blank? == false
+            redirect_to root_url, :notice => "Welcome, Dr. #{medic.proper_name}!"
+          else
+            redirect_to edit_medic_path(medic), :notice => "Please fill in your personal details before proceeding!"
+          end
         end  
       else
     		flash.now.alert = "Invalid email or password"
