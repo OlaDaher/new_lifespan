@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
   	def create
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
-          session[:donor_id] = donor.id
+          # session[:donor_id] = donor.id
+          if params[:remember_me]
+            cookies.permanent[:auth_token] = donor.auth_token
+          else
+            cookies[:auth_token] = donor.auth_token  
+          end
           if current_donor && current_donor.admin == true
     		    redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
           else 
@@ -22,10 +27,12 @@ class SessionsController < ApplicationController
   	def destroy
       if session[:donor_id]
         if current_donor && current_donor.admin == true
-          session[:donor_id] = nil
+          # session[:donor_id] = nil
+          cookies.delete(:auth_token)
   	      redirect_to root_url, :notice => "System Admin Logged out!"
         else 
-          session[:donor_id] = nil
+          # session[:donor_id] = nil
+          cookies.delete(:auth_token)
           redirect_to root_url, :notice => "You have Logged out!"
         end
       else
