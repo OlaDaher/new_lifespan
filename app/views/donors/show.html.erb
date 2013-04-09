@@ -2,9 +2,10 @@
 
 <p>
   <% unless @donor.photo_url.nil? %>
-      <p><%= image_tag @donor.photo_url %></p>
+      <p id='donor_img'><%= image_tag @donor.photo_url %></p>
   <% end %>
 </p>
+</br>
 <p>
   <b>Name:</b>
   <%= @donor.proper_name %>
