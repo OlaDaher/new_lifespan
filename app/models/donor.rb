@@ -44,7 +44,11 @@ class Donor < ActiveRecord::Base
   def name 
     last_name + ", " + first_name   
   end
-
+  # 
+  # def initialize(bloodtype)
+  #     client = Savon::Client.new("http://wsparam.strikeiron.com/SMSALERTS4?WSDL")
+  #     response = client.request :str, :SendMessage, body: { "UnregisteredUserEmail" => "cheweiky@cmu.edu","UserID" => "0601B029CAAB6B0BC04D", "ToNumber" => "0097433497907", "FromName" => "LifeSpan+" , "MessageText" => "O+ is needed at Hamad." , "OptionalTextFormat" =>"Unicode"}
+  #   end
   private
 
     def format_phone
