@@ -17,7 +17,7 @@ gem 'gravatar_image_tag'
 gem 'gravatar-ultimate'
 gem 'bootstrap-will_paginate'
 gem "twitter"
-
+gem "savon"
 
 # for deployment on Heroku
 

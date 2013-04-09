@@ -10,11 +10,13 @@
       </br>  
         <table>
           <tr>
+		    <th>Photo</th>
             <th>Full Name</th>
             <th>Region</th>
           </tr>
           <% @grouped[letter].each do |donor| -%>
             <tr>
+			  <td id='donor_img'> <%= image_tag donor.photo_url %></td>
               <td><%= donor.proper_name %></td>
               <td><%= donor.region %></td>
               <% if can? :show, donor %>
@@ -47,11 +49,13 @@
         </br>  
           <table>
             <tr>
+			  <th>Photo</th>
               <th>Full Name</th>
               <th>Region</th>
             </tr>
             <% @grouped_inactive[letter].each do |donor| -%>
               <tr>
+				<td id='donor_img'> <%= image_tag donor.photo_url %></td>
                 <td><%= donor.proper_name %></td>
                 <td><%= donor.region %></td>
                 <% if can? :show, donor %>
