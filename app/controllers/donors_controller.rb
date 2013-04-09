@@ -133,7 +133,6 @@ class DonorsController < ApplicationController
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
 
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}. Sent: #{@time}. SHARE IT AND SAVE SOMEONE'S LIFE"
-    @requests << @twitter
     Twitter.update(@twitter)
 
     # initialize(@blood)
