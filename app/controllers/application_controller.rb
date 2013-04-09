@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_donor
-    @current_donor ||= Donor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
-    # Donor.find(session[:donor_id]) if session[:donor_id]
+    # @current_donor ||= Donor.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    @current_donor ||= Donor.find(session[:donor_id]) if session[:donor_id]
   end
 
   def current_user

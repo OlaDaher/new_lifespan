@@ -8,14 +8,22 @@ class SessionsController < ApplicationController
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
           # session[:donor_id] = donor.id
-          if params[:remember_me]
-            cookies.permanent[:auth_token] = donor.auth_token
-          else
-            cookies[:auth_token] = donor.auth_token  
-          end
+
           if current_donor && current_donor.admin == true
+            if params[:remember_me]
+              cookies.permanent[:auth_token] = donor.auth_token
+            else
+              cookies[:auth_token] = donor.auth_token  
+            end
+            puts "\n\n\n\n\n #{cookies[:auth_token]}\n\n\n\n"
     		    redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
-          else 
+          else
+            if params[:remember_me]
+              cookies.permanent[:auth_token] = donor.auth_token
+            else
+              cookies[:auth_token] = donor.auth_token  
+            end
+            puts "\n\n\n\n\n #{cookies[:auth_token]}\n\n\n\n" 
             redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're Signed in!"
           end
       else
