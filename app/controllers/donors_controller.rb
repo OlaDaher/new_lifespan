@@ -129,7 +129,7 @@ class DonorsController < ApplicationController
     @donors = Donor.all
     @blood = params[:BloodType]
     @org = @medic.organization
-    @time = Time.now
+    @time = Time.now.strftime("%H:%M:%S")
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
 
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}. Sent: #{@time}. SHARE IT AND SAVE SOMEONE'S LIFE"
