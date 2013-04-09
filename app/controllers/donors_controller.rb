@@ -135,6 +135,7 @@ class DonorsController < ApplicationController
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}. Sent: #{@time}. SHARE IT AND SAVE SOMEONE'S LIFE"
 
     Twitter.update(@twitter)
+   
     redirect_to root_url
     
   end
