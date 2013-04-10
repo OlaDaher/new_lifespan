@@ -134,7 +134,7 @@ class DonorsController < ApplicationController
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
     Twitter.update(@twitter)
     @donors.each do |d|
-       d.initializeSMS(@blood)
+       d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
     redirect_to root_url
     
