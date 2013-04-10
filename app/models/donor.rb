@@ -18,7 +18,7 @@ class Donor < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 	
-  
+  before_create { generate_token(:auth_token) }
   has_secure_password
   before_save :format_phone
   validates :email, :active, :social_network, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
@@ -44,7 +44,17 @@ class Donor < ActiveRecord::Base
   def name 
     last_name + ", " + first_name   
   end
+
   # 
+
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Donor.exists?(column => self[column])
+  end
+
+
   # def initialize(bloodtype)
   #     client = Savon::Client.new("http://wsparam.strikeiron.com/SMSALERTS4?WSDL")
   #     response = client.request :str, :SendMessage, body: { "UnregisteredUserEmail" => "cheweiky@cmu.edu","UserID" => "0601B029CAAB6B0BC04D", "ToNumber" => "0097433497907", "FromName" => "LifeSpan+" , "MessageText" => "O+ is needed at Hamad." , "OptionalTextFormat" =>"Unicode"}

@@ -109,9 +109,11 @@ class DonorsController < ApplicationController
   def destroy
     @donor = Donor.find(params[:id])
     if current_donor.id == @donor.id
-      session[:donor_id] = nil
+      # session[:donor_id] = nil
+      cookies.delete(:auth_token)
       @donor.destroy
     else  
+      cookies.delete(:auth_token)
       @donor.destroy
     end  
     respond_to do |format|
@@ -131,18 +133,8 @@ class DonorsController < ApplicationController
     @org = @medic.organization
     @time = Time.now.strftime("%H:%M:%S")
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
-
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
-
     Twitter.update(@twitter)
-
-   
-
-    # initialize(@blood)
-
     redirect_to root_url
-    
   end
-
-  
 end
