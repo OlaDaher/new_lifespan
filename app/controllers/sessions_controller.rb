@@ -15,7 +15,8 @@ class SessionsController < ApplicationController
             else
               cookies[:auth_token] = donor.auth_token  
             end
-            puts "\n\n\n\n\n #{cookies[:auth_token]}\n\n\n\n"
+
+
     		    redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
           else
             if params[:remember_me]
@@ -23,7 +24,8 @@ class SessionsController < ApplicationController
             else
               cookies[:auth_token] = donor.auth_token  
             end
-            puts "\n\n\n\n\n #{cookies[:auth_token]}\n\n\n\n" 
+
+
             redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're Signed in!"
           end
       else
@@ -33,7 +35,7 @@ class SessionsController < ApplicationController
   	end
 
   	def destroy
-      if session[:donor_id]
+      if cookies[:auth_token]
         if current_donor && current_donor.admin == true
           # session[:donor_id] = nil
           cookies.delete(:auth_token)
