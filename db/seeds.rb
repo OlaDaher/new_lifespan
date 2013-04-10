@@ -19,22 +19,22 @@ Donor.create(first_name:"Main", last_name:"LifeSpan", phone:"97466090897",
 	region:"West Bay", active:true, password:"lifespanproject1", 
 	password_confirmation:"lifespanproject1", admin:true) 
 
-Donor.create(first_name:"Donor", last_name:"Labrat", phone:"974521346725", 
+Donor.create(first_name:"Donor", last_name:"Labrat", phone:"97466090897", 
 	email:"book@gmail.com", blood_type:"A+", social_network:"Twitter", 
 	region:"Al Dafna", active:true, password:"book12", 
 	password_confirmation:"book12", admin:false) 
 
-Donor.create(first_name:"Volunteer", last_name:"Second", phone:"45213698572", 
+Donor.create(first_name:"Volunteer", last_name:"Second", phone:"97466090897", 
 	email:"volume@gmail.com", blood_type:"O-", social_network:"Facebook", 
 	region:"Al Sadd", active:true, password:"volume12", 
 	password_confirmation:"volume12", admin:false) 
 
-Donor.create(first_name:"Zakaria", last_name:"Labyad", phone:"48752136954", 
+Donor.create(first_name:"Zakaria", last_name:"Labyad", phone:"97466090897", 
 	email:"zak@gmail.com", blood_type:"A-", social_network:"Twitter", 
 	region:"Al Nasr", active:true, password:"zak123", 
 	password_confirmation:"zak123", admin:false) 
 
-Donor.create(first_name:"Arjen", last_name:"Robben", phone:"54265421001", 
+Donor.create(first_name:"Arjen", last_name:"Robben", phone:"97466090897", 
 	email:"robben@gmail.com", blood_type:"B-", social_network:"Facebook", 
 	region:"Al Waab", active:true, password:"robben123", 
 	password_confirmation:"robben123", admin:false) 
