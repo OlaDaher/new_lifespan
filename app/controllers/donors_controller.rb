@@ -133,8 +133,9 @@ class DonorsController < ApplicationController
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
     Twitter.update(@twitter)
-    # initialize(@blood)
-
+    @donors.each do |d|
+       d.initializeSMS(@blood)
+    end
     redirect_to root_url
     
   end
