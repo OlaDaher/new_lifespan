@@ -4,6 +4,9 @@ class Donor < ActiveRecord::Base
  :email, :first_name, :last_name, :password, :password_confirmation, 
  :phone, :region, :photo, :admin
 
+  validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}
+  validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}
+  validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case"
   validates :password, :presence => true,
                        :length => {:within => 6..40},
                        :on => :create
@@ -24,7 +27,7 @@ class Donor < ActiveRecord::Base
   validates :email, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
-  validates_format_of :phone, :with => /^(\+?\d{11}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 11 digits (country code needed) separated by dashes only"
+  validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)"
 
   
 
