@@ -25,10 +25,9 @@ class SessionsController < ApplicationController
         if current_donor && current_donor.admin == true
           session[:donor_id] = nil
           cookies.delete(:auth_token)
-  	      redirect_to root_url, :notice => "System Admin Logged out!"
+          redirect_to root_url, :notice => "System Admin Logged out!"
         else 
-          # session[:donor_id] = nil
-          cookies.delete(:auth_token)
+          session[:donor_id] = nil
           redirect_to root_url, :notice => "You have Logged out!"
         end
       else
