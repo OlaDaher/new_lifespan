@@ -1,8 +1,8 @@
 class Donor < ActiveRecord::Base
 
- attr_accessible :active, :donor, :blood_type, 
+ attr_accessible :donor, :blood_type, 
  :email, :first_name, :last_name, :password, :password_confirmation, 
- :phone, :region, :social_network, :photo, :admin
+ :phone, :region, :photo, :admin
 
   validates :password, :presence => true,
                        :length => {:within => 6..40},
@@ -21,7 +21,7 @@ class Donor < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
   has_secure_password
   before_save :format_phone
-  validates :email, :active, :social_network, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
+  validates :email, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
   validates_format_of :phone, :with => /^(\+?\d{11}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 11 digits (country code needed) separated by dashes only"

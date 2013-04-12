@@ -32,10 +32,7 @@
     <%= f.label :region %><br />
     <%= f.select(:region, Donor::Region_List) %>
   </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
+
 
   
 <% if current_donor && current_donor.admin == true %>
@@ -49,10 +46,7 @@
     <%= f.label :blood_type %><br />
     <%= f.select(:blood_type, Donor::Blood_List) %>
   </div>
-  <div class="field">
-    <%= f.label :social_network %><br />
-    <%= f.select(:social_network, Donor::Social_Networks) %>
-  </div>
+
   <div class="field">
      <%= f.label :photo %><br />
      <%= f.file_field :photo %>
