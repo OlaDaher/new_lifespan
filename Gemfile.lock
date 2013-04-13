@@ -87,9 +87,6 @@ GEM
     ffi (1.4.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    formtastic-bootstrap (2.0.0)
-      formtastic (~> 2.2)
-      formtastic-bootstrap
     gherkin (2.11.6)
       json (>= 1.7.6)
     gravatar-ultimate (1.0.3)
@@ -238,7 +235,6 @@ DEPENDENCIES
   execjs
   factory_girl_rails
   formtastic
-  formtastic-bootstrap
   gravatar-ultimate
   gravatar_image_tag
   heroku

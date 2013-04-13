@@ -48,8 +48,9 @@
               <li><%=link_to "Log Out", logout_path %>
               </li>
               <li class='divider'></li>
-              <li><%= link_to 'Delete Account', @donor, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <li><%= link_to 'Delete Profile', @donor, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>  
+              </td>
             </ul>
           </li>
           
@@ -90,7 +91,7 @@
               <li><%=link_to "Log Out", signout_path %>
               </li>
               <li class='divider'></li>
-              <li><%= link_to 'Delete Account', @medic, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <li><%= link_to 'Delete Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li> 
             </ul>
           </li>

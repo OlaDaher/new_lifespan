@@ -114,7 +114,7 @@ class DonorsController < ApplicationController
       @donor.destroy
     end  
     respond_to do |format|
-      format.html {  redirect_to root_url, :notice => "Donor Deleted!" }
+      format.html {  redirect_to root_url, :notice => "#{@donor.proper_name} Deleted!" }
       format.json { head :no_content }
     end
   end
