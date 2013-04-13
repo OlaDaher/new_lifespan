@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= full_title %></title>
-  <%= stylesheet_link_tag   :all, "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+    <title><%= full_title %></title>
+    <%= stylesheet_link_tag   :all, "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <p class= "flash-error"><%= flash[:alert] %></p>
-    <p class= "flash-notice"><%= flash[:notice] %></p>
-    <div id="header">
-    </div>  
+   <p class= "flash-error"><%= flash[:alert] %></p>
+    <p class= "flash-notice"><%= flash[:notice] %></p> 
     <div id="logo">
-    <img src="http://s4.postimage.org/smo2yn9t9/logo1.png" alt="logo" width="260" height="140" >
-      <div id="header">
-      </div> 
-    </div>
-	  <header class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <nav>
-          <ul class="nav pull-right">
-            <h5>     <a href="/home">Home</a>
-            </h5>
-            <%= render 'layouts/header'%>  
-          </ul>  
-        </nav>
-      </div>
-    </header>
-  </div> 
-  <%= yield %>
-  <%= render 'layouts/footer'%>
+        <header class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <nav>
+                    <ul class="nav pull-right">
+                        <h5>     <a href="/home">Home</a>
+                        </h5>
+                        <%= render 'layouts/header'%>  
+                    </ul>  
+                </nav>
+            </div>
+        </header>
+    </div> 
+    <%= yield %>
+    <%= render 'layouts/footer'%>
 </body>
 </html>
