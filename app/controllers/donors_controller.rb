@@ -106,7 +106,7 @@ class DonorsController < ApplicationController
   def destroy
     @donor = Donor.find(params[:id])
     if current_donor.id == @donor.id
-      # session[:donor_id] = nil
+      session[:donor_id] = nil
       cookies.delete(:auth_token)
       @donor.destroy
     else  

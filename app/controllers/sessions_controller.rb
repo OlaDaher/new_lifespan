@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
           session[:donor_id] = donor.id
 
           if current_donor && current_donor.admin == true
-    		    redirect_to root_url, :notice => "Welcome System Admin, You're Signed in!"
+    		    redirect_to root_url, :notice => "Welcome System Admin, LifeSpan+ at your service!"
           else
-            redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're Signed in!"
+            redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're part of the 4% !"
           end
       else
     		flash.now.alert = "Invalid email or password"
@@ -25,10 +25,9 @@ class SessionsController < ApplicationController
         if current_donor && current_donor.admin == true
           session[:donor_id] = nil
           redirect_to root_url, :notice => "System Admin Logged out!"
-        else 
-          session[:donor_id] = nil
-          redirect_to root_url, :notice => "You have Logged out!"
-        end
+        end 
+      session[:donor_id] = nil
+      redirect_to root_url, :notice => "You have Logged out!"
       else
         redirect_to root_url, :notice => "Unauthorized command!" 
       end   

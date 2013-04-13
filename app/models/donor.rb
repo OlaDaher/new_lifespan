@@ -24,7 +24,7 @@ class Donor < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
   has_secure_password
   before_save :format_phone
-  validates :email, :first_name, :last_name, :phone, :blood_type, :region, :presence => true
+  validates :email, :first_name, :last_name, :date_of_birth, :phone, :blood_type, :region, :presence => true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
   validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)"
