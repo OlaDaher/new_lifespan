@@ -1,12 +1,4 @@
-/*!
- * Bootstrap v2.1.1
- *
- * Copyright 2012 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
- */
+/*For the nav bar*/
 .clearfix {
   *zoom: 1;
 }
@@ -164,18 +156,6 @@
   }
 }
 
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 20%;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-input {
-  height: auto !important;
-}
 
 @media (max-width: 480px) {
   .nav-collapse {
@@ -856,111 +836,8 @@ input {
 
 
 
-@font-face {
-  font-family: "FontAwesome";
-  src: url('../font-awesome/fontawesome-webfont.eot');
-  src: url('../font-awesome/fontawesome-webfont.eot?#iefix') format('eot'), url('../font-awesome/fontawesome-webfont.woff') format('woff'), url('../font-awesome/fontawesome-webfont.ttf') format('truetype'), url('../font-awesome/fontawesome-webfont.svg#FontAwesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/*  Font Awesome styles
-    ------------------------------------------------------- */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  text-decoration: inherit;
-}
-a [class^="icon-"], a [class*=" icon-"] {
-  display: inline-block;
-  text-decoration: inherit;
-}
-/* makes the font 33% larger relative to the icon container */
-.icon-large:before {
-  vertical-align: top;
-  font-size: 1.3333333333333333em;
-}
-.btn [class^="icon-"], .btn [class*=" icon-"] {
-  /* keeps button heights with and without icons the same */
-
-  line-height: .9em;
-}
-li [class^="icon-"], li [class*=" icon-"] {
-  display: inline-block;
-  width: 1.25em;
-  text-align: center;
-}
-li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
-  /* 1.5 increased font size for icon-large * 1.25 width */
-
-  width: 1.875em;
-}
-li[class^="icon-"], li[class*=" icon-"] {
-  margin-left: 0;
-  list-style-type: none;
-}
-li[class^="icon-"]:before, li[class*=" icon-"]:before {
-  text-indent: -2em;
-  text-align: center;
-}
-li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
-  text-indent: -1.3333333333333333em;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-	width: 30px;
-height: 30px;
-line-height: 30px;
-vertical-align: text-top;
-background-repeat: no-repeat;
-}
 
 
-.social{
-margin-top:35px;
-}
-
-.social i{
-width:30px;
-height:30px;
-font-size:16px;
-line-height:30px;
-text-align:center;
-background:#14a900;
--webkit-transition: background 1s ease;
--moz-transition: background 1s ease;
--o-transition: background 1s ease;
-transition: background 1s ease;
-border-radius:30px;
-text-shadow:0px 0px 1px #000;
-margin:0px 2px;
-box-shadow:inset 0px 0px 1px #000;
-}
-
-.social i:hover{
-background:#333;
--webkit-transition: background 1s ease;
--moz-transition: background 1s ease;
--o-transition: background 1s ease;
-transition: background 1s ease;
-}
-
-.social a, .social a:visited{
-color:#fff;
-}
-
-.social a:hover{
-text-decoration:none;
-}
-
-img.aligncenter{
-margin:0px auto;
-text-align:center;
-padding:none;
-display:block;
-}
 
 /* Responsive */
 
@@ -1015,15 +892,4 @@ display:block;
 @media (max-width: 979px){
 
 }
-.logo{
-margin-top:5px;
-margin-left:auto;
-margin-right:auto;
-width:270px;
-height:110px;
-}
 
-.logo img{
-max-width:270px;
-max-height:110px;
-}

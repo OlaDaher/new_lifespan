@@ -15,43 +15,35 @@
 <% if current_donor && current_donor.admin == true || current_medic && current_medic.admin == false %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    First Name: <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    Last Name: <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    Date of Birth: <%= f.date_select :date_of_birth %>
   </div>
    <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    Phone: <%= f.text_field :phone %>
   </div>
 <% end %>
 
  
   <div class="field">
-    <%= f.label :organization_id %><br />
-    <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
+   Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
   </div>
   
 <% if current_donor && current_donor.admin == true %>
   <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
+    Admin: <%= f.check_box :admin %>
   </div>
 <% end %>
 
   <div class="field">
-    <%= f.label :position %><br />
-    <%= f.select(:position, Medic::Position) %>
+    Position: <%= f.select(:position, Medic::Position) %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    Email: <%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.input :password, :as => :pwdcalc %>
