@@ -73,10 +73,20 @@ class DonorsController < ApplicationController
     @title = "Donor Created"
     @donor = Donor.new(params[:donor])
 
+    @code = params[:donor][:password]
+    @f_name = params[:donor][:first_name]
+    @l_name = params[:donor][:last_name]
+    @email_id = params[:donor][:email]
+    at_index = @email_id.index('@')
+    username = @email_id[0,at_index-1]
+    if @code.include?(username) || @code.include?(@f_name) || @code.include?(@l_name) == true
+        @donor.errors.full_messages << "password can't contain your first name, last name or email"
+    end
+
     respond_to do |format|
       if @donor.save
         session[:donor_id] = @donor.id
-        format.html { redirect_to @donor, :notice => "Donor was succesfully created." }
+        format.html { redirect_to @donor, :notice => "#{@donor.proper_name} was succesfully created." }
         format.json { render json: @donor, status: :created, location: @donor }
       
          

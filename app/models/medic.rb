@@ -1,6 +1,6 @@
 class Medic < ActiveRecord::Base
 
-  attr_accessible :email, :phone, :first_name, :last_name, :organization_id, 
+  attr_accessible :email, :phone, :date_of_birth, :first_name, :last_name, :organization_id, 
   :password, :password_confirmation, :position, :admin
   validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}
   validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}
@@ -53,9 +53,9 @@ class Medic < ActiveRecord::Base
   
 private
   def format_phone
-     phone = self.phone.to_s
-     phone.gsub!(/[^0-9]/,"")
-      self.phone = phone
+    phone = self.phone.to_s
+    phone.gsub!(/[^0-9]/,"")
+    self.phone = phone
   end
 
 end
