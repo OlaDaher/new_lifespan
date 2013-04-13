@@ -21,7 +21,7 @@
     Last Name: <%= f.text_field :last_name %>
   </div>
   <div class="field">
-  Date of Birth: <%= f.date_select :date_of_birth %>
+    Date of Birth: <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
   </div>
   <div class="field">
     Phone Number: <%= f.text_field :phone %>
