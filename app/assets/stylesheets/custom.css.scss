@@ -15,8 +15,9 @@ body {
  margin: 0;
  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
  font-size: 13px;
-color:#bd362f;
+ color:#bd362f;
  background-color: #ffffff;
+ text-align: center;
 
 
 }
@@ -49,10 +50,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5em;
-  letter-spacing: -2px;
+
+  font-size: 1.9em;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
+  color:#bd362f;
 
 }
 
@@ -67,9 +69,17 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 0.9em;
   line-height: 1.7em;
+ text-align: left;
+ padding-top:-20px;
+ margin-left: -45px;
+ margin-bottom: 10px;
+
+
+
 }
+
 
 /* header */
 
@@ -257,4 +267,41 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 }
 
 
+
+
+
+.hero-unit {
+
+
+padding: 60px;	
+	margin-bottom: -10px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 20px;
+	color: inherit;
+}
+
+
+.hero-unit h1 {
+	font-size: 55px;
+	line-height: 1;
+	color: inherit;
+	letter-spacing: -1px;
+	color:#bd362f;
+	margin-left: -45px;
+ 
+  
+}
+
+.hero-unit h2 {
+	font-size: 25px;
+	line-height: 1;
+	color: inherit;
+	letter-spacing: -1px;
+  color:black;
+  text-align: left;
+ padding-top: -30px;
+	margin-left: -45px;
+
+}
 

@@ -1,3 +1,4 @@
+
 <% if session[:donor_id] %>
     <h1>  <div id="error_expanation">Seems like you are already a Donor & Signed In! </h1>
 <% elsif session[:medic_id] %>
@@ -23,3 +24,26 @@
     <%= link_to "Not a Member? Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
   <% end %>
 <% end %>  
+
+</br>
+<h1>Please Log in</h1>
+</br>
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+</br>
+</br>
+  
+    <%= link_to "Not a Member? Sign Up!", signup_path, class:"btn btn-large btn-primary" %>
+<% end %>
+
+
+
+
