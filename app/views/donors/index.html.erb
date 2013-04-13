@@ -36,42 +36,4 @@
   <% end %>
 </ul>
 <br />
-
-<% if current_donor && current_donor.admin == true %>
-  <h1>Inactive Donors</h1>
-  <ul>
-    <% @grouped_inactive.keys.sort.each do |letter| -%>
-    </br>
-    </br>
-      <li>
-        <h1><%= letter %></h1>
-        <ul>
-        </br>  
-          <table>
-            <tr>
-			  <th>Photo</th>
-              <th>Full Name</th>
-              <th>Region</th>
-            </tr>
-            <% @grouped_inactive[letter].each do |donor| -%>
-              <tr>
-				<td id='donor_img'> <%= image_tag donor.photo_url %></td>
-                <td><%= donor.proper_name %></td>
-                <td><%= donor.region %></td>
-                <% if can? :show, donor %>
-                  <td><%= link_to 'Show', donor %></td>
-                <% end %>  
-                <% if can? :update, donor %>
-                  <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-                <% end %>
-                <% if can? :destroy, donor %>
-                  <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>  
-              </tr>
-            <% end %>
-          </table>   
-        </ul>
-      </li>  
-    <% end %>
-  </ul>
-<% end %>  
+ 

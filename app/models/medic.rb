@@ -36,6 +36,11 @@ class Medic < ActiveRecord::Base
     last_name + ", " + first_name   
   end
 
+  def age
+    now = Time.now.utc.to_date
+    now.year - date_of_birth.year - (date_of_birth.to_date.change(:year => now.year) > now ? 1 : 0)
+  end 
+
   def self.admins
     a = Array.new
     Medic.all.each do |medic|
