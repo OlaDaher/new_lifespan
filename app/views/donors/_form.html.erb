@@ -1,8 +1,5 @@
 <%= form_for @donor, :html => { :multipart => true } do |f| %>
 <%= semantic_form_for(@donor) do |f| %>
-
-
-
   <% if @donor.errors.any? %>
   <% @donor.errors.delete(:password_digest) %>
     <div id="error_explanation">
@@ -17,47 +14,37 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    
+    First Name: <%= f.text_field :first_name %>
+    <div>
+  <div class="field">
+    Last Name: <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  Date of Birth: <%= f.date_select :date_of_birth %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    Phone Number: <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :region %><br />
-    <%= f.select(:region, Donor::Region_List) %>
+    Region: <%= f.select(:region, Donor::Region_List) %>
   </div>
 
-
-  
 <% if current_donor && current_donor.admin == true %>
   <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
+   Admin: <%= f.check_box :admin %>
   </div>
 <% end %>
 
   <div class="field">
-    <%= f.label :blood_type %><br />
-    <%= f.select(:blood_type, Donor::Blood_List) %>
+    Blood Type :<%= f.select(:blood_type, Donor::Blood_List) %>
   </div>
 
   <div class="field">
-     <%= f.label :photo %><br />
-     <%= f.file_field :photo %>
+     Photo: <%= f.file_field :photo %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    Email Adrees<%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.input :password, :as => :pwdcalc %>
