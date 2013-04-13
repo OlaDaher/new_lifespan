@@ -1,4 +1,4 @@
-class RemoveActiveToDonors < ActiveRecord::Migration
+class RemoveActiveFromDonors < ActiveRecord::Migration
   def up
     remove_column :donors, :active
   end

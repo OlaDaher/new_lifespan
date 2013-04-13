@@ -1,13 +1,16 @@
 Lifespan::Application.routes.draw do
   
 
+
+
   resources :medics
   resources :organizations
   resources :donors
   resources :sessions
   resources :medicsessions
+  resources :password_resets
  
- post "donors/send_request"
+
  
   root :to => 'pages#home'
   match '/home', :to => 'pages#home'
