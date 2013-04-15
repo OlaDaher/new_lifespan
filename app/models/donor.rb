@@ -53,7 +53,12 @@ class Donor < ActiveRecord::Base
     end while Donor.exists?(column => self[column])
   end
 
-
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(validate: false)
+    DonorMailer.password_reset(self).deliver
+  end
   # def initialize(bloodtype)
   #     client = Savon::Client.new("http://wsparam.strikeiron.com/SMSALERTS4?WSDL")
   #     response = client.request :str, :SendMessage, body: { "UnregisteredUserEmail" => "cheweiky@cmu.edu","UserID" => "0601B029CAAB6B0BC04D", "ToNumber" => "0097433497907", "FromName" => "LifeSpan+" , "MessageText" => "O+ is needed at Hamad." , "OptionalTextFormat" =>"Unicode"}

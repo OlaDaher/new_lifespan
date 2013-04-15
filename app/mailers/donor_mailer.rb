@@ -11,4 +11,9 @@ class DonorMailer < ActionMailer::Base
         mail(:to => "lifespan.donation@gmail.com", :bcc => @donorEmail,
         :subject => "Blood Donation Request")
   end
+  
+  def password_reset(user)
+    @donor = donor
+    mail :to => donor.email, :subject => "Password Reset"
+  end
 end
