@@ -30,12 +30,6 @@
     Region: <%= f.select(:region, Donor::Region_List) %>
   </div>
 
-<% if current_donor && current_donor.admin == true %>
-  <div class="field">
-   Admin: <%= f.check_box :admin %>
-  </div>
-<% end %>
-
   <div class="field">
     Blood Type :<%= f.select(:blood_type, Donor::Blood_List) %>
   </div>
@@ -44,7 +38,7 @@
      Photo: <%= f.file_field :photo %>
   </div>
   <div class="field">
-    Email Adrees<%= f.text_field :email %>
+    Email Address: <%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.input :password, :as => :pwdcalc %>

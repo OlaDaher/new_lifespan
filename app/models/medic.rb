@@ -11,7 +11,7 @@ class Medic < ActiveRecord::Base
   validates :password, :confirmation => true,
                        :length => {:within => 6..40},
                        :allow_blank => true,
-                       :on => :update
+                       :on => :create
   validates :password_confirmation, :presence => true                      
 
   validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer", :allow_blank => true
@@ -19,7 +19,8 @@ class Medic < ActiveRecord::Base
   has_secure_password
   before_save :format_phone
   belongs_to :organization
-  validates :email, :organization_id, :presence => true
+  validates :email, :organization_id, :presence => true, :on => :create
+  validates :date_of_birth, :phone, :first_name, :last_name, :presence => true, :on => :update 
   validates :email, uniqueness: true
   validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)", :allow_blank => true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"

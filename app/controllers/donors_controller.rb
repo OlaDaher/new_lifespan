@@ -1,5 +1,6 @@
 class DonorsController < ApplicationController
   load_and_authorize_resource
+  before_filter :skip_password_attribute, only: :update
   
 
   # GET /donors
@@ -89,15 +90,24 @@ class DonorsController < ApplicationController
   def update
     @title = "Donor Updated"
     @donor = Donor.find(params[:id])
-
     respond_to do |format|
+      params[:donor].delete(:password) if params[:donor][:password].blank?
       if @donor.update_attributes(params[:donor])
         format.html { redirect_to @donor, notice: "#{@donor.proper_name} was successfully updated." }
         format.json { head :no_content }
       else
+        @title = "Edit Donor"
         format.html { render action: "edit" }
         format.json { render json: @donor.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  private
+
+   def skip_password_attribute
+    if params[:password].blank? && params[:password_validation].blank?
+      params.except!(:password, :password_validation)
     end
   end
 

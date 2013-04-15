@@ -22,12 +22,8 @@ class SessionsController < ApplicationController
 
   	def destroy
       if session[:donor_id]
-        if current_donor && current_donor.admin == true
-          session[:donor_id] = nil
-          redirect_to root_url, :notice => "System Admin Logged out!"
-        end 
-      session[:donor_id] = nil
-      redirect_to root_url, :notice => "You have Logged out!"
+        session[:donor_id] = nil
+        redirect_to root_url, :notice => "Succesfully Logged out!"
       else
         redirect_to root_url, :notice => "Unauthorized command!" 
       end   

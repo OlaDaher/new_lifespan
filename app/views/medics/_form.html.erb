@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<% if current_donor && current_donor.admin == true || current_medic && current_medic.admin == false %>
+<% if current_medic && current_medic.admin == false %>
 
   <div class="field">
     First Name: <%= f.text_field :first_name %>
@@ -26,31 +26,35 @@
    <div class="field">
     Phone: <%= f.text_field :phone %>
   </div>
+  <div class="field">
+    Position: <%= f.select(:position, Medic::Position) %>
+  </div>
 <% end %>
 
  
   <div class="field">
    Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
   </div>
-  
+  </br>
 <% if current_donor && current_donor.admin == true %>
   <div class="field">
     Admin: <%= f.check_box :admin %>
   </div>
 <% end %>
-
+</br>
+<% if current_donor && current_donor.admin == true || current_medic && current_medic.admin == true %>
   <div class="field">
-    Position: <%= f.select(:position, Medic::Position) %>
+    Email Address: <%= f.text_field :email %>
   </div>
-  <div class="field">
-    Email: <%= f.text_field :email %>
-  </div>
+  </br>
+  </br>
   <div class="field">
     <%= f.input :password, :as => :pwdcalc %>
   </div>
   <div class="field">
     <%= f.input :password_confirmation, :as => :pwdcalc %>
   </div>
+<% end %>
    <div class="actions">
     <%= f.submit %>
   </div>

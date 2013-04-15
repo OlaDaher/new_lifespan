@@ -9,9 +9,20 @@
   <%= @organization.region %>
 </p>
 <p>
+  <b>Website:</b>
+  <%= @organization.website %>
+</p>
+
+<p>
   <b>Phone:</b>
   <%= @organization.phone %>
 </p>
+
+<p>
+  <b>Email:</b>
+  <%= @organization.email %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |

@@ -16,10 +16,17 @@
   </div>
   <div class="field">
     Region: <%= f.select(:region, Organization::Region_List) %>
-  <div class="actions">
+  </div>
+  <div class="field">
+    Website: <%= f.text_field :website %>
+  </div>
   <div class="field">
 	Phone: <%= f.text_field :phone %>
   </div>
+   <div class="field">
+    Email Address: <%= f.text_field :email %>
+  </div>
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
