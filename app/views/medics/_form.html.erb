@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<% if current_medic && current_medic.admin == false || current_donor && current_donor.admin == true %>
+<% if current_medic && current_medic.admin == true || current_medic && current_medic == false %>
 <div class="ola">
   <div class="field">
     First Name: <%= f.text_field :first_name %>
@@ -31,11 +31,12 @@
   </div>
 <% end %>
 
- 
+ <% if current_donor && current_donor.admin == true %>
   <div class="field">
    Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name, :include_blank => true, :default => nil) %>
   </div>
   </br>
+<% end %>  
 <% if current_donor && current_donor.admin == true %>
   <div class="field">
     Admin: <%= f.check_box :admin %>
