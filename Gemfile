@@ -18,6 +18,7 @@ gem 'gravatar-ultimate'
 gem 'bootstrap-will_paginate'
 gem 'twitter'
 gem 'savon'
+gem 'rails_autolink'
 
 
 # for deployment on Heroku

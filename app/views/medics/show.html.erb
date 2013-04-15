@@ -36,10 +36,11 @@
   <%= @medic.admin %>
 </p>
 <% end %>
-
+</br>
 <p>
-  <b>Email:</b>
-  <%= @medic.email %>
+  <b>Email:
+   <%= h auto_link(simple_format(@medic.email)) %>
+ </b>
 </p>
 
 <%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
