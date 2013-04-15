@@ -13,7 +13,7 @@
   <% end %>
 
 <% if current_medic && current_medic.admin == false %>
-
+<div class="ola">
   <div class="field">
     First Name: <%= f.text_field :first_name %>
   </div>
@@ -59,3 +59,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
