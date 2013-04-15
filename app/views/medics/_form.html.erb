@@ -33,7 +33,7 @@
 
  
   <div class="field">
-   Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name) %>
+   Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name, :include_blank => true, :default => nil) %>
   </div>
   </br>
 <% if current_donor && current_donor.admin == true %>
