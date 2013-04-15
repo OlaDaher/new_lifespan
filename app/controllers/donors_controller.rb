@@ -103,16 +103,6 @@ class DonorsController < ApplicationController
     end
   end
 
-  private
-
-   def skip_password_attribute
-    if params[:password].blank? && params[:password_validation].blank?
-      params.except!(:password, :password_validation)
-    end
-  end
-
-  # DELETE /donors/1
-  # DELETE /donors/1.json
   def destroy
     @donor = Donor.find(params[:id])
     if current_donor.id == @donor.id
@@ -128,7 +118,6 @@ class DonorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
   
   def send_request
   end
@@ -146,5 +135,13 @@ class DonorsController < ApplicationController
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
     redirect_to root_url
+  end
+
+ private
+
+   def skip_password_attribute
+    if params[:password].blank? && params[:password_validation].blank?
+      params.except!(:password, :password_validation)
+    end
   end
 end

@@ -1,12 +1,12 @@
 
-<% if @medic.first_name && @medic.last_name != "" %>
+<% if @medic.first_name.blank? == false && @medic.last_name.blank? == false%>
 <p>
   <b>Name:</b>
   <%= @medic.proper_name %>
 </p>
 <% end %> 
 
-<% if @medic.date_of_birth != "" %>
+<% if @medic.date_of_birth.blank? == false%>
 <p>
   <b>Date of birth:</b>
   <%= @medic.date_of_birth %>
@@ -18,28 +18,31 @@
 </p>
 <% end %> 
 
+<% if @medic.position.blank? == false%>
 <p>
   <b>Position:</b>
   <%= @medic.position %>
 </p>
+<% end %> 
 
 <p>
   <b>Organization:</b>
   <%= @medic.organization.name %>
 </p>
 
+<% if @medic.admin == true%>
 <p>
   <b>Admin:</b>
   <%= @medic.admin %>
 </p>
+<% end %>
 
 <p>
   <b>Email:</b>
   <%= @medic.email %>
 </p>
 
-
-<%= link_to 'Edit Profile', edit_medic_path(@medic) %> |
-<%= link_to 'Back', root_path %> |
-<%= link_to 'Delete Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
+<%= link_to 'Edit Profile', edit_medic_path(@medic), class:"btn btn-large btn-primary" %> 
+<%= link_to 'Deactivate Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 

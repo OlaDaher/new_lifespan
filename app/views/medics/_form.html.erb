@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<% if current_medic && current_medic.admin == false %>
+<% if current_medic && current_medic.admin == false || current_donor && current_donor.admin == true %>
 <div class="ola">
   <div class="field">
     First Name: <%= f.text_field :first_name %>
