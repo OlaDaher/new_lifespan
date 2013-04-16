@@ -21,15 +21,16 @@ class PasswordResetsController < ApplicationController
   end
   
   def edit
-    if @medic = Medic.find_by_password_reset_token!(params[:id]) == nil
-      @donor = Donor.find_by_password_reset_token!(params[:id])
-    else
-      @medic = Medic.find_by_password_reset_token!(params[:id])
-    end
-    
-    # @medic = Medic.find_by_password_reset_token!(params[:id])
-  
+    # if (@medic = Medic.find_by_password_reset_token!(params[:id])).nil?
+      @donor = Donor.find_by_password_reset_token!(params[:id]) unless @donor.nil?
+    # else
+      @medic = Medic.find_by_password_reset_token!(params[:id]) unless @medic.nil?
+    # end
+      
   end
+  # def edit_donor
+  #     @donor = Donor.find_by_password_reset_token!(params[:id])  
+  # end
   
   def update
     if @medic = Medic.find_by_password_reset_token!(params[:id]) == nil
