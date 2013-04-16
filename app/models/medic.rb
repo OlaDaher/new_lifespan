@@ -1,7 +1,7 @@
 class Medic < ActiveRecord::Base
-
-  attr_accessible :email, :phone, :date_of_birth, :first_name, :last_name, :organization_id, 
-  :password, :password_confirmation, :position, :admin
+  mount_uploader :photo, PhotoUploader
+  attr_accessible :email, :phone, :date_of_birth, :first_name, :last_name, :organization_id,
+  :password, :password_confirmation, :position, :admin, :photo
   validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, numbers, or underscores"}
   validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}
   validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case"

@@ -14,6 +14,9 @@
 
 <% if current_medic && current_medic.admin == true || current_medic && current_medic == false %>
 <div class="ola">
+<div class="field">
+     Photo: <%= f.file_field :photo %>
+  </div>
   <div class="field">
     First Name: <%= f.text_field :first_name %>
   </div>

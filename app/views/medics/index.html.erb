@@ -6,6 +6,7 @@
       <h1>Administrators</h1>
     </p> 
   <tr>
+	<th>Photo</th>
     <th>Name</th>
     <th>Position</th>
     <th>Organization</th>
@@ -17,7 +18,8 @@
 <% @medics.each do |medic| %>
   <% if medic.admin == true %> 
   <tr>
-    
+    <td id='donor_img'> <%= image_tag medic.photo_url %></td>
+	
     <% if medic.first_name && medic.last_name != "" %>
     <td><%= medic.proper_name %></td>
     <% end %> 
@@ -49,6 +51,7 @@
       <h1>Hospital Staff</h1>
     </p> 
   <tr>
+	<th>Photo</th>
     <th>Name</th>
     <th>Position</th>
     <th>Organization</th>
@@ -60,7 +63,8 @@
 <% @medics.each do |medic| %>
   <% if medic.admin == false %> 
   <tr>
-    
+    <td id='donor_img'> <%= image_tag medic.photo_url %></td>
+  
     <% if medic.first_name && medic.last_name != "" %>
     <td><%= medic.proper_name %></td>
     <% end %> 
