@@ -134,6 +134,8 @@ class DonorsController < ApplicationController
     @donors.each do |d|
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
+    @req=Request.new(:content => @twitter, :posted_at => Time.now)
+    @req.save!
     redirect_to root_url
   end
 
