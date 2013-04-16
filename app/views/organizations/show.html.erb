@@ -9,21 +9,28 @@
   <%= @organization.region %>
 </p>
 <p>
-  <b>Website:</b>
-  <%= @organization.website %>
-</p>
-
-<p>
   <b>Phone:</b>
   <%= @organization.phone %>
 </p>
-
+</br>
+</br>
+</br>
 <p>
-  <b>Email:</b>
-  <%= @organization.email %>
+  <b>Website:
+  <%= h auto_link(simple_format(@organization.website)) %>
+  </b>
+</p>
+</br>
+<p>
+  <b>Email:
+  <%= h auto_link(simple_format(@organization.email)) %>
+  </b>
 </p>
 
 
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+
+
+
+<%= link_to 'Edit', edit_organization_path(@organization),  class:"btn btn-large btn-primary"%> 
+<%= link_to 'Back', organizations_path,  class:"btn btn-large btn-primary" %>

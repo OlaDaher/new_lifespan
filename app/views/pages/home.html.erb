@@ -4,15 +4,17 @@
 <h1>System Admin</h1>
  
  <%elsif current_donor && current_donor.admin == false %> 
- <h1> <%=current_donor.proper_name%> | Lets save lives... </h1>
+ <h1> <%=current_donor.proper_name%> | Lets Donate Blood... </h1>
  <% elsif current_medic && current_medic.admin == true %>
- <h1>Captain <%=current_medic.organization.name%> | Lets save lives... </h1>
+ <h1><%=current_medic.organization.name%> Admin | LifeSpan+ Activated... </h1>
  <% elsif current_medic && current_medic.admin == false %>
  <h1> Dr. <%=current_medic.proper_name%> | Lets save lives...</h1>
   <% else %>
 <div class="center hero-unit">
 
 <h1>LifeSpan+</h1>
+  <%= image_tag("red_nurse.jpg", :alt => "rss feed") %>
+  <%= image_tag("man.jpg", :alt => "rss feed") %>
 <p>
 	96% of us rely on the other 4% to give blood. Please don’t leave it to someone else!
 </p>

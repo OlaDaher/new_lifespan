@@ -15,6 +15,8 @@ class DonorAbility
         end    
         if donor.admin == true
             can :manage, :all
+            cannot :update, Medic
+            cannot :update, Donor
         end
     end        
 

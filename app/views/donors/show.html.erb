@@ -41,14 +41,15 @@
   <%= @donor.admin %>
 </p>
 <% end %> 
-
+</br>
 <p>
-  <b>Email:</b>
-  <%= @donor.email %>
+  <b>Email:
+  <%= h auto_link(simple_format(@donor.email)) %>
+   </b>
 </p>
 
-<%= link_to 'Edit Profile', edit_donor_path(@donor) %> |
-<%= link_to 'Back', root_path %> |
-<%= link_to 'Delete Profile', @donor, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
+<%= link_to 'Edit Profile', edit_donor_path(@donor), class:"btn btn-large btn-primary" %> 
+<%= link_to 'Deactivate Profile', @donor, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 
 

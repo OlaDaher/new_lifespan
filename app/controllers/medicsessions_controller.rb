@@ -9,9 +9,13 @@ skip_authorization_check
  		  if medic && medic.authenticate(params[:password])
     		session[:medic_id] = medic.id
         if current_medic && current_medic.admin == true
-          redirect_to root_url, :notice => "Welcome, #{medic.organization.name}, LifeSpan+ at your service!"
+          if current_medic.first_name.blank? || current_medic.last_name.blank? || current_medic.date_of_birth.blank? || current_medic.phone.blank? || current_medic.position.blank?
+            redirect_to edit_medic_path(medic), :notice => "Welcome, #{medic.organization.name} Admin, Please complete your Profile!"
+          else
+             redirect_to root_path, :notice => "LifeSpan+ at your service"
+          end
         else
-          if current_medic.first_name.blank? == false && current_medic.last_name.blank? == false
+          if current_medic.first_name.blank? == false && current_medic.last_name.blank? == false && current_medic.date_of_birth.blank? == false && current_medic.phone.blank? == false && current_medic.position.blank? == false
             redirect_to root_url, :notice => "Welcome, Dr. #{medic.proper_name}, LifeSpan+ at your service!"
           else
             redirect_to edit_medic_path(medic), :notice => "Please fill in your personal details before proceeding!"
