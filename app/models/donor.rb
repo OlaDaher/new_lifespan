@@ -1,12 +1,12 @@
 class Donor < ActiveRecord::Base
 
- attr_accessible :blood_type, :date_of_birth, 
- :email, :first_name, :last_name, :password, :password_confirmation, 
- :phone, :region, :photo, :admin
+ attr_accessible :blood_type, :date_of_birth,
+ :email, :first_name, :last_name, :password, :password_confirmation,
+ :phone, :region, :photo, :admin, :confirmation_code, :authenticated
 
-  validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}
-  validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}
-  validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case"
+  validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}, :on => :create     
+  validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}, :on => :create    
+  validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case", :on =>  :create    
   validates :password, :presence => true,
                        :length => {:within => 6..40},
                        :on => :create
@@ -16,13 +16,14 @@ class Donor < ActiveRecord::Base
                        :on => :create
                       # :on => :update, :unless => lambda{ |donor| donor.password.blank? }        
   
-  validates :password_confirmation, :presence => true                     
+  validates :password_confirmation, :presence => true, :on => :create                    
 
   validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer"
 
   mount_uploader :photo, PhotoUploader
 	
   before_create { generate_token(:auth_token) }
+  before_create :set_confirmation_code
   has_secure_password
   before_save :format_phone
   validates :email, :first_name, :last_name, :date_of_birth, :phone, :blood_type, :region, :presence => true
@@ -52,6 +53,12 @@ class Donor < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while Donor.exists?(column => self[column])
+  end
+
+  def set_confirmation_code
+    generate_token(:confirmation_code)
+    self.authenticated = false
+    return
   end
 
 

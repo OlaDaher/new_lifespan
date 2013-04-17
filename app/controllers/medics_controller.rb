@@ -7,6 +7,13 @@ class MedicsController < ApplicationController
     @title = "Doctor List"
     @medics = Medic.all
 
+    @group = {}
+    Medic.all.each do |medic|
+          hospital_name = medic.organization.name
+          @group[hospital_name] ||= []
+          @group[hospital_name] << medic 
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @medics }

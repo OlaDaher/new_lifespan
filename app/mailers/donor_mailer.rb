@@ -11,4 +11,10 @@ class DonorMailer < ActionMailer::Base
         mail(:to => "lifespan.donation@gmail.com", :bcc => @donorEmail,
         :subject => "Blood Donation Request")
   end
+
+  def donor_authentication(donor)
+    @donor = donor
+    mail(:to => @donor.email,
+        :subject => "Blood Donation Request")
+  end  
 end

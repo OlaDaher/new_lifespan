@@ -12,13 +12,14 @@ class MedicAbility
         can :send_one_blood_type, Donor
         
         if medic.admin == true
-            can :manage, Medic
+            cannot :manage, Medic
             can :manage, Organization
             cannot :manage, Donor
             can :read, Donor
             can :send_request, Donor
             can :send_one_blood_type, Donor
-            #cannot :create, Medic
+            can :manage, Medic, :organization_id => medic.organization_id
+     
             #can(:create, Medic) do |organization|
             #    permitted = organization.id === medic.organization_id
             #    permitted

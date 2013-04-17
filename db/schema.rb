@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415201845) do
+ActiveRecord::Schema.define(:version => 20130417120344) do
 
   create_table "donor_abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -22,19 +22,28 @@ ActiveRecord::Schema.define(:version => 20130415201845) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
-    t.string   "region",                 :default => ""
-    t.string   "blood_type",             :default => ""
+    t.string   "region",                        :default => ""
+    t.string   "blood_type",                    :default => ""
     t.string   "email"
     t.string   "password_digest"
+<<<<<<< HEAD
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "donor",                  :default => true
+=======
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+>>>>>>> d674e7dd05fe11ddad45b355df7f9b1840e29bf5
     t.string   "photo"
-    t.boolean  "admin",                  :default => false
+    t.boolean  "admin",                         :default => false
     t.string   "auth_token"
     t.date     "date_of_birth"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "confirmation_code"
+    t.boolean  "authenticated"
+    t.string   "password_resets_donor_token"
+    t.datetime "password_resets_donor_sent_at"
   end
 
   create_table "medic_abilities", :force => true do |t|
