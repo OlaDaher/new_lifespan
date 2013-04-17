@@ -1,0 +1,2 @@
+module PasswordResetsDonorsHelper
+end

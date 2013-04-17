@@ -7,6 +7,7 @@ class DonorAbility
         can [:show, :update, :destroy], Donor, :id => donor.id
         cannot :manage, Medic
         cannot [:create, :update, :destroy], Organization
+        can :confirm_account, Donor
         if donor.id.nil? == false
             can [:read, :show], Organization
             cannot :create, Organization

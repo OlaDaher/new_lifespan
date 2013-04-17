@@ -73,8 +73,9 @@ class DonorsController < ApplicationController
 
     respond_to do |format|
       if @donor.save
-        session[:donor_id] = @donor.id
-        format.html { redirect_to @donor, :notice => "#{@donor.proper_name} was succesfully created." }
+        DonorMailer.donor_authentication(@donor).deliver
+        #session[:donor_id] = @donor.id
+        format.html { redirect_to root_path, :notice => "#{@donor.proper_name} was succesfully created." }
         format.json { render json: @donor, status: :created, location: @donor }
       
          
@@ -135,6 +136,14 @@ class DonorsController < ApplicationController
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
     redirect_to root_url
+  end
+
+  def confirm_account
+      @donor = Donor.find(params[:id])
+      @donor.authenticated = true
+      @donor.save!
+      session[:donor_id] = @donor.id
+      redirect_to @donor, notice: 'You are now the 4%! Lets Donate!'
   end
 
  private

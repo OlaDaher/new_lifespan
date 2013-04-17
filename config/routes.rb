@@ -3,6 +3,8 @@ Lifespan::Application.routes.draw do
 
 
 
+  get "password_resets_donors/new"
+
   resources :medics
   resources :organizations
   resources :donors
@@ -27,5 +29,6 @@ Lifespan::Application.routes.draw do
   match '/signout', :to => 'medicsessions#destroy'
   match '/send_request', :to => 'donors#send_request'
   match '/send_one_blood_type', :to => 'donors#send_one_blood_type'
+  match '/confirm/:id/:code', :to => 'donors#confirm_account'
   
 end

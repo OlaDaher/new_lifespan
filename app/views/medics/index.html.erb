@@ -1,22 +1,22 @@
+<h1>Active Medics</h1>
 <br />
-
-
-<table>
-   <p>
-      <h1>Administrators</h1>
-    </p> 
-  <tr>
-    <th>Name</th>
-    <th>Position</th>
-    <th>Organization</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
-<% @medics.each do |medic| %>
-  <% if medic.admin == true %> 
-  <tr>
+<ul>
+  <% @group.keys.sort.each do |hospital_name| -%>
+    </br>
+    </br>
+    <li>
+      <h1><%= hospital_name %></h1>
+      <ul>
+      </br>  
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Organization</th>
+          </tr>
+          <% @group[hospital_name].each do |medic| -%>
+          <% if medic.admin == true %> 
+          <tr>
     
     <% if medic.first_name && medic.last_name != "" %>
     <td><%= medic.proper_name %></td>
@@ -39,7 +39,6 @@
 
 </table>
 <br />
-<%= link_to 'Create New Medical Admin', new_medic_path %>
 <br />
 <br />
 <br />
