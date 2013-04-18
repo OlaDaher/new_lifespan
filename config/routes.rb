@@ -11,7 +11,7 @@ Lifespan::Application.routes.draw do
   resources :sessions
   resources :medicsessions
   resources :password_resets
- 
+  resources :password_resets_donors 
 
  
   root :to => 'pages#home'

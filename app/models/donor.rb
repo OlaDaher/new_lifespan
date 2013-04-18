@@ -61,6 +61,12 @@ class Donor < ActiveRecord::Base
     return
   end
 
+  def send_password_resets_donor
+    generate_token(:password_reset_token)
+    self.password_resets_donor_sent_at = Time.zone.now
+    save!
+    DonorMailer.password_reset_donor(self).deliver
+  end
 
   # def initialize(bloodtype)
   #     client = Savon::Client.new("http://wsparam.strikeiron.com/SMSALERTS4?WSDL")

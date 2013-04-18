@@ -26,14 +26,9 @@ ActiveRecord::Schema.define(:version => 20130417120344) do
     t.string   "blood_type",                    :default => ""
     t.string   "email"
     t.string   "password_digest"
-<<<<<<< HEAD
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.boolean  "donor",                  :default => true
-=======
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
->>>>>>> d674e7dd05fe11ddad45b355df7f9b1840e29bf5
+    t.boolean  "donor",                         :default => true
     t.string   "photo"
     t.boolean  "admin",                         :default => false
     t.string   "auth_token"
