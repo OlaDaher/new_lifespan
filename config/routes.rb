@@ -27,7 +27,7 @@ Lifespan::Application.routes.draw do
   match '/signout', :to => 'medicsessions#destroy'
   match '/send_request', :to => 'donors#send_request'
   match '/send_one_blood_type', :to => 'donors#send_one_blood_type'
-  match '/password_rests/:id/edit/:donormedic', :to => 'password_resets#'
+  # match '/password_rests/:id/edit/:donormedic', :to => 'password_resets#'
   
   
 end
