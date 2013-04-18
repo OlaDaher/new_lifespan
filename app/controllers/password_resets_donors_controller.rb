@@ -4,9 +4,13 @@ class PasswordResetsDonorsController < ApplicationController
   end
   
   def create
-    donor = Donor.find_by_email(params[:email])
-    donor.send_password_resets_donor if donor
-    redirect_to root_url, :notice => "Email sent with password reset instructions."
+    if donor = Donor.find_by_email(params[:email]) == nil
+      redirect_to new_password_resets_donor_path, :notice => "Your email address is not yet registered in our system."
+    else
+      donor = Donor.find_by_email(params[:email])
+      donor.send_password_resets_donor if donor
+      redirect_to root_url, :notice => "Email sent with password reset instructions."
+    end
   end
   
   def edit
