@@ -31,6 +31,7 @@
 
 
 
-
-<%= link_to 'Edit', edit_organization_path(@organization),  class:"btn btn-large btn-primary"%> 
+<% if current_donor && current_donor.admin == true || current_medic && current_medic.admin == true %>
+  <%= link_to 'Edit', edit_organization_path(@organization),  class:"btn btn-large btn-primary"%> 
+<% end %>  
 <%= link_to 'Back', organizations_path,  class:"btn btn-large btn-primary" %>

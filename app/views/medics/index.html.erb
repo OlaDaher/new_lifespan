@@ -76,28 +76,8 @@
           </br>  
             <table>
               <% @group[hospital_name].each do |medic| -%>
-                <% if medic.admin == true %> 
-                  <tr>
-                    <th>Hospital Admin</th>
-                  </tr>
-                  <tr>
-                    <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
-                      <td><%= medic.proper_name %></td>
-                    <% else %>
-                      <td> Not Entered </td>  
-                    <% end %>
-                    <% if can? :show, medic %>
-                      <td><%= link_to 'Show', medic %></td>
-                    <% end %>  
-                    <% if can? :update, medic %>
-                      <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
-                    <% end %>
-                    <% if can? :destroy, medic %>
-                      <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    <% end %> 
-                  </tr>   
-                <% else %>
-                  <tr>
+                <% if medic.admin == false %> 
+                    <tr>
                     <th>Doctors</th>
                     <th>Position</th>
                   </tr>

@@ -12,9 +12,13 @@
     <td><%= organization.name %></td>
     <td><%= organization.region %></td>
     <% @admins.each do |admin| %>
-      <% if  admin.organization_id == organization.id%>
-        <td><%= admin.proper_name %></td>
-      <% end %>  
+      <% if admin.organization_id == organization.id %>
+        <% if  admin.first_name.blank? == false || admin.last_name.blank? == false %>
+          <td><%= admin.proper_name %></td>
+        <% else %>
+          <td><%= admin.email %></td>
+        <% end %>  
+      <% end %>
     <% end %>
     
     <% if can? :show, organization %>
