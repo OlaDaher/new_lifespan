@@ -44,6 +44,8 @@
 </p>
 
 <%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
-<%= link_to 'Edit Profile', edit_medic_path(@medic), class:"btn btn-large btn-primary" %> 
+<% if current_medic && current_medic.admin == true %>
+  <%= link_to 'Edit Profile', edit_medic_path(@medic), class:"btn btn-large btn-primary" %> 
+<% end %>  
 <%= link_to 'Deactivate Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 
