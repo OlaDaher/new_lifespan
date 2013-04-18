@@ -83,7 +83,7 @@ class Donor < ActiveRecord::Base
   end
 
   def send_password_resets_donor
-    generate_token(:password_reset_token)
+    generate_token(:password_resets_donor_token)
     self.password_resets_donor_sent_at = Time.zone.now
     save!
     DonorMailer.password_resets_donor(self).deliver

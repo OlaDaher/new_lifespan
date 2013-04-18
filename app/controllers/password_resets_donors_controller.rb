@@ -18,7 +18,7 @@ class PasswordResetsDonorsController < ApplicationController
     if @donor.password_resets_donor_sent_at < 2.hours.ago
       redirect_to new_password_resets_donor_path, :alert => "Password &crarr; 
         reset has expired."
-    elsif @donor.update_attributes(params[:user])
+    elsif @donor.update_attributes(params[:donor])
       redirect_to root_url, :notice => "Password has been reset."
     else
       render :edit
