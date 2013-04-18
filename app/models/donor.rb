@@ -4,16 +4,20 @@ class Donor < ActiveRecord::Base
  :email, :first_name, :last_name, :password, :password_confirmation,
  :phone, :region, :photo, :admin, :confirmation_code, :authenticated
 
-  validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}, :on => :update     
-  validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}, :on => :update    
-  validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case", :on =>  :update   
+  validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}, :on => :update,
+                       :if => :password     
+  validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}, :on => :update,
+                       :if => :password    
+  validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case", :on =>  :update,
+                       :if => :password   
   
   validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}, :on => :create     
   validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}, :on => :create    
   validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case", :on =>  :create    
   validates :password, :presence => true,
                        :length => {:within => 6..40},
-                       :on => :update
+                       :on => :update,
+                       :if => :password
 
   validates :password, :presence => true,
                        :length => {:within => 6..40},
@@ -31,7 +35,8 @@ class Donor < ActiveRecord::Base
                        :on => :create
 
   
-  validates :password_confirmation, :presence => true, :on => :update  
+  validates :password_confirmation, :presence => true, :on => :update,
+                       :if => :password  
   validates :password_confirmation, :presence => true, :on => :create                  
 
   validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer"

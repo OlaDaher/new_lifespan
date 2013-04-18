@@ -6,12 +6,12 @@ class Medic < ActiveRecord::Base
   validates :password, :format => {:with => /^(?=.*[a-zA-Z])(?=.*[0-9])/, message: "must include one number and one letter"}
   validates_format_of :password, :with => /[A-Z]/, :message => " must have one upper case"
   validates :password, :presence => true,
-                       :length => {:within => 6..40},
-                       :on => :create
+                       :length => {:within => 6..40}
+                 
   validates :password, :confirmation => true,
                        :length => {:within => 6..40},
-                       :allow_blank => true,
-                       :on => :create
+                       :allow_blank => true
+                       
   validates :password_confirmation, :presence => true                      
 
   validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer", :allow_blank => true
