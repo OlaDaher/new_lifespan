@@ -12,7 +12,7 @@ class DonorMailer < ActionMailer::Base
         :subject => "Blood Donation Request")
   end
 
-  def password_reset_donor(donor)
+  def password_resets_donor(donor)
     @donor = donor
     mail :to => donor.email, :subject => "Password Reset"
   end
