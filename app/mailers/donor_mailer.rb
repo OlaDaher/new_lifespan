@@ -15,6 +15,6 @@ class DonorMailer < ActionMailer::Base
   def donor_authentication(donor)
     @donor = donor
     mail(:to => @donor.email,
-        :subject => "Blood Donation Request")
+          :subject => "Authenticate LifeSpan+ Account!")
   end  
 end

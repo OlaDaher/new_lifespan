@@ -74,11 +74,8 @@ class DonorsController < ApplicationController
     respond_to do |format|
       if @donor.save
         DonorMailer.donor_authentication(@donor).deliver
-        #session[:donor_id] = @donor.id
         format.html { redirect_to root_path, :notice => "#{@donor.proper_name} was succesfully created." }
         format.json { render json: @donor, status: :created, location: @donor }
-      
-         
       else
         format.html { render action: "new" }
         format.json { render json: @donor.errors, status: :unprocessable_entity }
