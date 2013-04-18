@@ -18,6 +18,7 @@ class DonorAbility
             can :manage, :all
             cannot :update, Medic
             cannot :update, Donor
+            can :update, Donor, :id => donor.id
         end
     end        
 
