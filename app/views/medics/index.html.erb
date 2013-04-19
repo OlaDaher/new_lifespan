@@ -1,4 +1,4 @@
-<h1>Medic Accounts</h1>
+<h1>Available Medic Admins and Staff</h1>
 <br />
 <% if current_donor && current_donor.admin == true %>
   <ul>
@@ -6,14 +6,14 @@
       </br>
       </br>
       <li>
-        <h2><%= hospital_name %></h2>
+        <h1><%= hospital_name %></h1>
         <ul>
         </br>  
           <table>
             <% @group[hospital_name].each do |medic| -%>
               <% if medic.admin == true %> 
                 <tr>
-                  <th>Hospital Admin</th>
+                  <th><h2>Hospital Admin</h2></th>
                 </tr>
                 <tr>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
@@ -33,8 +33,8 @@
                 </tr>   
               <% else %>
                 <tr>
-                  <th>Doctors</th>
-                  <th>Position</th>
+                  <th><h2>Doctors</h2></th>
+                  <th><h2>Position</h2></th>
                 </tr>
                 <tr>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
@@ -71,15 +71,15 @@
       </br>
       <% if current_medic.organization.name == hospital_name %>
         <li>
-          <h2><%= hospital_name %></h2>
+          <h1><%= hospital_name %></h1>
           <ul>
           </br>  
             <table>
               <% @group[hospital_name].each do |medic| -%>
                 <% if medic.admin == false %> 
                     <tr>
-                    <th>Doctors</th>
-                    <th>Position</th>
+                  <th><h2>Doctors</h2></th>
+                  <th><h2>Position</h2></th>
                   </tr>
                   <tr>
                     <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
