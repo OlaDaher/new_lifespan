@@ -18,7 +18,7 @@ class MedicAbility
             can :read, Donor
             can :send_request, Donor
             can :send_one_blood_type, Donor
-            can [:create, :read, :destroy], Medic, :organization_id => medic.organization_id
+            can [:create, :read, :update, :destroy], Medic, :organization_id => medic.organization_id
             can [:read, :update], Organization, :id => medic.organization_id
         end
     end        

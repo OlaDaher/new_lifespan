@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417120344) do
+ActiveRecord::Schema.define(:version => 20130420105526) do
 
   create_table "donor_abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -28,13 +28,10 @@ ActiveRecord::Schema.define(:version => 20130417120344) do
     t.string   "password_digest"
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
-    t.boolean  "donor",                         :default => true
     t.string   "photo"
     t.boolean  "admin",                         :default => false
     t.string   "auth_token"
     t.date     "date_of_birth"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
     t.string   "confirmation_code"
     t.boolean  "authenticated"
     t.string   "password_resets_donor_token"
