@@ -1,4 +1,8 @@
-
+<p>
+  <% unless @organization.photo_url.nil? %>
+      <p id='donor_img'><%= image_tag @organization.photo_url %></p>
+  <% end %>
+</p>
 <p>
   <b>Name:</b>
   <%= @organization.name %>

@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+	<th>Photo</th>
     <th>Name</th>
     <th>Region</th>
     <th>Admin</th>
@@ -9,6 +10,7 @@
 
 <% @organizations.each do |organization| %>
   <tr>
+	<td id='donor_img'> <%= image_tag organization.photo_url %></td>
     <td><%= organization.name %></td>
     <td><%= organization.region %></td>
     <% @admins.each do |admin| %>
