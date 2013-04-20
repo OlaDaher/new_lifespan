@@ -1,7 +1,8 @@
-<h1>Listing organizations</h1>
+<h1>Available Hospitals</h1>
 
 <table>
   <tr>
+	<th>Photo</th>
     <th>Name</th>
     <th>Region</th>
     <th>Admin</th>
@@ -9,12 +10,17 @@
 
 <% @organizations.each do |organization| %>
   <tr>
+	<td id='donor_img'> <%= image_tag organization.photo_url %></td>
     <td><%= organization.name %></td>
     <td><%= organization.region %></td>
     <% @admins.each do |admin| %>
-      <% if  admin.organization_id == organization.id%>
-        <td><%= admin.proper_name %></td>
-      <% end %>  
+      <% if admin.organization_id == organization.id %>
+        <% if  admin.first_name.blank? == false || admin.last_name.blank? == false %>
+          <td><%= admin.proper_name %></td>
+        <% else %>
+          <td><%= admin.email %></td>
+        <% end %>  
+      <% end %>
     <% end %>
     
     <% if can? :show, organization %>
@@ -35,6 +41,6 @@
 
 <br />
 
-<% if current_donor && current_donor.admin == true %>   
+<% if can? :create, @organization %>
   <%= link_to 'Register Organization', new_organization_path %>
 <% end %>

@@ -1,6 +1,12 @@
 
 <% if @medic.first_name.blank? == false && @medic.last_name.blank? == false%>
 <p>
+  <% unless @medic.photo_url.nil? %>
+      <p id='donor_img'><%= image_tag @medic.photo_url %></p>
+  <% end %>
+</p>
+</br>
+<p>
   <b>Name:</b>
   <%= @medic.proper_name %>
 </p>
@@ -44,6 +50,5 @@
 </p>
 
 <%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
-<%= link_to 'Edit Profile', edit_medic_path(@medic), class:"btn btn-large btn-primary" %> 
 <%= link_to 'Deactivate Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 

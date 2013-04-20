@@ -76,12 +76,27 @@ class Donor < ActiveRecord::Base
     end while Donor.exists?(column => self[column])
   end
 
+
   def set_confirmation_code
     generate_token(:confirmation_code)
     self.authenticated = false
     return
   end
 
+  def send_password_resets_donor
+    generate_token(:password_resets_donor_token)
+    self.password_resets_donor_sent_at = Time.zone.now
+    save!
+    DonorMailer.password_resets_donor(self).deliver
+  end
+
+
+  # def send_password_reset
+  #   generate_token(:password_reset_token)
+  #   self.password_reset_sent_at = Time.zone.now
+  #   save!(validate: false)
+  #   DonorMailer.password_reset(self).deliver
+  # end
 
   # def initialize(bloodtype)
   #     client = Savon::Client.new("http://wsparam.strikeiron.com/SMSALERTS4?WSDL")

@@ -1,14 +1,8 @@
 class MedicMailer < ActionMailer::Base
-  default from: "from@example.com"
+    default from: "lifespan.donation@gmail.com"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.medic_mailer.password_reset.subject
-  #
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
-  end
+    def password_reset(medic)
+      @medic = medic
+      mail :to => medic.email, :subject => "Password Reset"
+    end
 end

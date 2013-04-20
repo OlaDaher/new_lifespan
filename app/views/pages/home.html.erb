@@ -2,9 +2,19 @@
  
  <% if current_donor && current_donor.admin == true %>
 <h1>System Admin</h1>
- 
+ <h4>Blood Donation Requests</h4>
+<%Request.last_24hours.each do |r|%>
+(<%=r.id%>) <%=r.content%></br>
+<%end%>
+
  <%elsif current_donor && current_donor.admin == false %> 
  <h1> <%=current_donor.proper_name%> | Lets Donate Blood... </h1>
+</br>
+<h4>Blood Donation Requests</h4>
+<%Request.last_24hours.each do |r|%>
+(<%=r.id%>) <%=r.content%></br>
+<%end%>
+
  <% elsif current_medic && current_medic.admin == true %>
  <h1><%=current_medic.organization.name%> Admin | LifeSpan+ Activated... </h1>
  <% elsif current_medic && current_medic.admin == false %>
@@ -13,10 +23,11 @@
 <div class="center hero-unit">
 
 <h1>LifeSpan+</h1>
-  <%= image_tag("red_nurse.jpg", :alt => "rss feed") %>
-  <%= image_tag("man.jpg", :alt => "rss feed") %>
+  <%= image_tag("female.jpg", :alt => "rss feed") %>
 <p>
+
 	96% of us rely on the other 4% to give blood. Please don’t leave it to someone else!
+	
 </p>
  <%=link_to "Donate Now!", login_path, class:"btn btn-large btn-primary" %>
 </div>

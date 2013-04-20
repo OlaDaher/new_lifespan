@@ -1,21 +1,23 @@
-<h1>Medic Accounts</h1>
-<br />
+<h1>Available Medic Admins and Staff</h1>
+</br>
 <% if current_donor && current_donor.admin == true %>
   <ul>
     <% @group.keys.sort.each do |hospital_name| -%>
       </br>
       </br>
       <li>
-        <h2><%= hospital_name %></h2>
+        <h1><%= hospital_name %></h1>
         <ul>
         </br>  
           <table>
             <% @group[hospital_name].each do |medic| -%>
               <% if medic.admin == true %> 
                 <tr>
-                  <th>Hospital Admin</th>
+                  <th>Photo</th>
+                  <th><h2>Hospital Admin</h2></th>
                 </tr>
                 <tr>
+                  <td id='donor_img'> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                     <td><%= medic.proper_name %></td>
                   <% else %>
@@ -33,10 +35,12 @@
                 </tr>   
               <% else %>
                 <tr>
-                  <th>Doctors</th>
-                  <th>Position</th>
+                  <th>Photo</th>
+                  <th><h2>Doctors</h2></th>
+                  <th><h2>Position</h2></th>
                 </tr>
                 <tr>
+                  <td id='donor_img'> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                     <td><%= medic.proper_name %></td>
                   <% else %>
@@ -71,37 +75,19 @@
       </br>
       <% if current_medic.organization.name == hospital_name %>
         <li>
-          <h2><%= hospital_name %></h2>
+          <h1><%= hospital_name %></h1>
           <ul>
           </br>  
             <table>
               <% @group[hospital_name].each do |medic| -%>
-                <% if medic.admin == true %> 
-                  <tr>
-                    <th>Hospital Admin</th>
+                <% if medic.admin == false %> 
+                    <tr>
+                  <th>Photo</th>    
+                  <th><h2>Doctors</h2></th>
+                  <th><h2>Position</h2></th>
                   </tr>
                   <tr>
-                    <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
-                      <td><%= medic.proper_name %></td>
-                    <% else %>
-                      <td> Not Entered </td>  
-                    <% end %>
-                    <% if can? :show, medic %>
-                      <td><%= link_to 'Show', medic %></td>
-                    <% end %>  
-                    <% if can? :update, medic %>
-                      <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
-                    <% end %>
-                    <% if can? :destroy, medic %>
-                      <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    <% end %> 
-                  </tr>   
-                <% else %>
-                  <tr>
-                    <th>Doctors</th>
-                    <th>Position</th>
-                  </tr>
-                  <tr>
+                    <td id='donor_img'> <%= image_tag medic.photo_url %></td>
                     <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                       <td><%= medic.proper_name %></td>
                     <% else %>

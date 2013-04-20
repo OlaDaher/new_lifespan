@@ -16,9 +16,9 @@
     Password: <%= password_field_tag :password %>
     </div>
     </br>
-
     <div class="actions"><%= submit_tag "Log in" %></div>
     </br>
+  	<%= link_to "forgotten password?", new_password_resets_donor_path %>
     </br>
     <%= link_to "Not a Member? Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
   <% end %>
