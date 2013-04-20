@@ -57,6 +57,13 @@ class Medic < ActiveRecord::Base
     end while Medic.exists?(column => self[column])
   end
   
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(validate: false)
+    MedicMailer.password_reset(self).deliver
+  end
+  
 private
   def format_phone
     phone = self.phone.to_s
