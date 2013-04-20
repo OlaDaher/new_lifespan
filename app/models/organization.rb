@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :region, :phone, :website, :email
+  attr_accessible :name, :region, :phone, :website, :email, :photo
   Region_List = [[''], ['Al Assiry'],  ['Al Bidda'], ['Al Dafna'], ['Al Hilal'], ['Al Mamoura'], ['Al Mansoura'], ['Al Markhiya'], ['Al Mirqab Al Jadeed'], ['Al Muntazah'], ['Al Nasr'], ['Al Rayyan'], ['Al Sadd'], ['Al Waab'], ['Bin Mahmoud'], ['Madinat Khalifa'], ['Old Airport'], ['Onaiza'], ['Qutaifiya'], ['Ras Abu Aboud'], ['Rumeilah'], ['Wadi Al Sail'], ['West Bay']]
   validates :name, :email, :region, :phone, :website, :presence => true
   has_many :medics
@@ -8,7 +8,7 @@ class Organization < ActiveRecord::Base
   validates :email, uniqueness: true
   validates_format_of :website, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "is invalid ( ensure URL begins with  http://www.______ )"
   before_save :format_phone
- 
+  mount_uploader :photo, PhotoUploader
   
   private
   
