@@ -13,6 +13,12 @@ class DonorMailer < ActionMailer::Base
   end
 
 
+  def password_resets_donor(donor)
+    @donor = donor
+    mail :to => donor.email, :subject => "Password Reset"
+  end
+
+
   def donor_authentication(donor)
     @donor = donor
     mail(:to => @donor.email,
