@@ -33,13 +33,7 @@
 <p>
   <b>Blood type:</b>
   <%= @donor.blood_type %>
-</p>
-
-<p>
-  <b>Authenticated:</b>
-  <%= @donor.authenticated %>
-</p>
- 
+</p> 
 <% unless @donor.admin == false %>
 <p>
   <b>Admin:</b>
@@ -54,8 +48,11 @@
 </p>
 
 <%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %>
+<% if can? :update, @donor %>
+    <%= link_to 'Edit Profile', edit_donor_path(@donor), class:"btn btn-large btn-primary" %>
+<% end %>
 <% if can? :destroy, @donor %>   
-  <%= link_to 'Deactivate Profile', @donor, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
+  <%= link_to 'Delete Profile', @donor, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 <% end %>  
 
 

@@ -50,5 +50,9 @@
 </p>
 
 <%= link_to 'Back', root_path, class:"btn btn-large btn-primary" %> 
-<%= link_to 'Deactivate Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
-
+  <% if can? :update, @medic %>
+    <%= link_to 'Edit Profile ', edit_medic_path(@medic), class:"btn btn-large btn-primary" %>
+  <% end %>
+  <% if can? :destroy, @medic %>
+    <%= link_to 'Delete Profile', @medic, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
+  <% end %>
