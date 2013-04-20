@@ -53,6 +53,29 @@
    <%= f.input :organization_id, :as => :hidden, :input_html => { :value => current_medic.organization_id } %>
   <% end %>  
 
+<% if current_medic && current_medic.admin == true || current_medic && current_medic == false %>
+<div class="ola">
+<div class="field">
+     Photo: <%= f.file_field :photo %>
+  </div>
+  <div class="field">
+    First Name: <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    Last Name: <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+  Date of Birth: <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
+  </div>
+   <div class="field">
+    Phone: <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    Position: <%= f.select(:position, Medic::Position) %>
+  </div>
+<% end %>
+
+
   </br>
 
   <div class="field">
