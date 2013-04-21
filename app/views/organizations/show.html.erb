@@ -1,3 +1,4 @@
+<body>
 <p>
   <% unless @organization.photo_url.nil? %>
       <p id='donor_img'><%= image_tag @organization.photo_url %></p>
@@ -38,8 +39,11 @@
 <% if can? :update, @organization %>
   <%= link_to 'Edit Hospital', edit_organization_path(@organization),  class:"btn btn-large btn-primary"%> 
 <% end %>
+<br><br>
 <% if can? :destroy, @organization %>
     <%= link_to 'Delete Hospital', @organization, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-large btn-primary" %>
 <% end %>
-
+<br><br>
 <%= link_to 'Back', organizations_path,  class:"btn btn-large btn-primary" %>
+
+</body>
