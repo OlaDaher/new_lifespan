@@ -19,6 +19,7 @@ Lifespan::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
   match '/privacy', :to => 'pages#privacy'
+  match '/regulations', :to => 'pages#regulations'
  
   match '/signup', :to => 'donors#new'
   match '/login', :to => 'sessions#new'
