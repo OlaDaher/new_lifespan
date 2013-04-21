@@ -1,27 +1,25 @@
 <% if session[:donor_id] %>
-    <h1>  <div id="error_expanation">Seems like you are already a Donor & Signed In! </h1>
+<h1>  <div id="error_expanation">Seems like you are already a Donor & Signed In! </h1>
 <% elsif session[:medic_id] %>
-    <h1>  <div id="error_expanation">Seems like you are already a Medic & Signed In! </h1>    
+<h1>  <div id="error_expanation">Seems like you are already a Medic & Signed In! </h1>    
 <% else %>
-  </br>
-  <h1>Please Log in</h1>
-  </br>
-  <%= form_tag sessions_path do %>
-    <div class="field">
-     
-     Email:  <%= text_field_tag :email, params[:email] %>
-    </div>
-    <div class="field">
-    
-    Password: <%= password_field_tag :password %>
-    </div>
-    </br>
-    <div class="actions"><%= submit_tag "Log in" %></div>
-    </br>
-  	<%= link_to "forgotten password?", new_password_resets_donor_path %>
-    </br>
-    <%= link_to "Not a Member? Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
-  <% end %>
+<br>
+<h1>LOGIN</h1>
+</br>
+<%= form_tag sessions_path do %>
+<div class="field">
+
+    <%= text_field_tag :email, params[:email]  , :placeholder => "Email Adrress"%>
+</div>
+<div class="field">
+
+    <%= password_field_tag :password, params[:password] ,:placeholder => "Password" %>
+</div>
+<%= link_to "forgotten password?", new_password_resets_donor_path %>
+<br><br>
+<div class="actions"><%= submit_tag "Log in" %></div>
+<%= link_to "Not a Member? Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
+<% end %>
 <% end %>  
 
 
