@@ -11,8 +11,8 @@ Medic.create!(first_name:"Yazan", last_name:"Hijleh", date_of_birth:22.years.ago
 organization_id:2, email:"yna2@cmu.edu", position:"Andrologist", admin:true, password:"Yazan123",
 password_confirmation:"Yazan123")
 
-Donor.create!(first_name:"Life", last_name:"Span", date_of_birth:Date.parse("2013/04/21"), phone:"97800044", 
-	email:"lifespan.donation@gmail.com", blood_type:"A-", weight: 10, gender: "Other", 
+Donor.create!(first_name:"Life", last_name:"Span", date_of_birth:17.years.ago, phone:"97800044", 
+	email:"lifespan.donation@gmail.com", blood_type:"A-", weight: 51, gender: "Other", 
 	region:"Madinat Khalifa", password:"Lifespanproject1", 
 	password_confirmation:"Lifespanproject1", admin:true) 
 
