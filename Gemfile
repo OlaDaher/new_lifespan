@@ -19,6 +19,7 @@ gem 'bootstrap-will_paginate'
 gem 'twitter'
 gem 'savon'
 gem 'rails_autolink'
+gem 'validates_timeliness'
 
 
 # for deployment on Heroku

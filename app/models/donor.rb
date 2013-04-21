@@ -1,7 +1,7 @@
 class Donor < ActiveRecord::Base
 
- attr_accessible :blood_type, :date_of_birth,
- :email, :first_name, :last_name, :password, :password_confirmation,
+ attr_accessible :blood_type, :date_of_birth, :weight,
+ :email, :first_name, :gender, :last_name, :password, :password_confirmation,
  :phone, :region, :photo, :admin, :confirmation_code, :authenticated
 
   validates :password, :format => {:with => /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/, message: "may only contain letters, digits, or underscores"}, :on => :update,
@@ -40,14 +40,17 @@ class Donor < ActiveRecord::Base
   validates :password_confirmation, :presence => true, :on => :create                  
 
   validates_length_of :first_name, :last_name, :within => 2..20, :too_long => "must be shorter", :too_short => "must be longer"
-
+  validates :weight, :numericality => {:only_integer => true}
+  validates_numericality_of :weight, :greater_than_or_equal_to => 50, :less_than_or_equal_to => 636, :message => "has to be higher than 50"
+  validates_date :date_of_birth, :before => lambda { 16.years.ago },
+                               :before_message => "must be at least 16 years old"
   mount_uploader :photo, PhotoUploader
 	
   before_create { generate_token(:auth_token) }
   before_create :set_confirmation_code
   has_secure_password
   before_save :format_phone
-  validates :email, :first_name, :last_name, :date_of_birth, :phone, :blood_type, :region, :presence => true
+  validates :email, :weight, :gender, :first_name, :last_name, :date_of_birth, :phone, :blood_type, :region, :presence => true
   validates :email, uniqueness: true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
   validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)"

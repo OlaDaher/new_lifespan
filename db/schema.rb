@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420105526) do
+ActiveRecord::Schema.define(:version => 20130421212704) do
 
   create_table "donor_abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20130420105526) do
     t.boolean  "authenticated"
     t.string   "password_resets_donor_token"
     t.datetime "password_resets_donor_sent_at"
+    t.integer  "weight"
+    t.string   "gender"
   end
 
   create_table "medic_abilities", :force => true do |t|
