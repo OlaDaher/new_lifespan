@@ -1,11 +1,10 @@
-
-<% if @medic.first_name.blank? == false && @medic.last_name.blank? == false%>
 <p>
   <% unless @medic.photo_url.nil? %>
-      <p id='donor_img'><%= image_tag @medic.photo_url %></p>
+      <p><%= image_tag @medic.photo_url %></p>
   <% end %>
 </p>
-</br>
+
+<% if @medic.first_name.blank? == false && @medic.last_name.blank? == false%>
 <p>
   <b>Name:</b>
   <%= @medic.proper_name %>
