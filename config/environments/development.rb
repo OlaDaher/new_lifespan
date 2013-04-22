@@ -35,5 +35,5 @@ Lifespan::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  config.action_mailer.default_url_options = { :host => "http://bloodonation.herokuapp.com/" }
+  config.action_mailer.default_url_options = { :host => "http://lifespan-plus.herokuapp.com/" }
 end
