@@ -1,40 +1,36 @@
 
 Medic.create!(first_name:"Tridas", last_name:"Mukhopadhyay", date_of_birth:52.years.ago, phone:"66090897", 
-organization_id:1, email:"tridas@cmu.edu", position:"Audiologist", admin:true, password:"Tridas123",
-password_confirmation:"Tridas123")
+organization_id:1, email:"chaxz93@gmail.com", position:"Audiologist", admin:true, password:"Default123",
+password_confirmation:"Default123")
 
 Medic.create!(first_name:"Divakaran", last_name:"Liginlal", date_of_birth:45.years.ago, phone:"66090897",
-organization_id:1, email:"liginlal@cmu.edu", position:"Allergist", admin:false, password:"Lal123",
-password_confirmation:"Lal123")
+organization_id:1, email:"chaxz@cmu.edu", position:"Allergist", admin:false, password:"Default123",
+password_confirmation:"Default123")
 
 Medic.create!(first_name:"Yazan", last_name:"Hijleh", date_of_birth:22.years.ago, phone:"66090897",
-organization_id:2, email:"yna2@cmu.edu", position:"Andrologist", admin:true, password:"Yazan123",
-password_confirmation:"Yazan123")
+organization_id:2, email:"chaxz93@live.com", position:"Andrologist", admin:true, password:"Default123",
+password_confirmation:"Default123")
 
-Donor.create!(first_name:"Life", last_name:"Span", date_of_birth:17.years.ago, phone:"97800044", 
-	email:"lifespan.donation@gmail.com", blood_type:"A-", weight: 51, gender: "Other", 
-	region:"Madinat Khalifa", password:"Lifespanproject1", 
-	password_confirmation:"Lifespanproject1", admin:true) 
 
-Donor.create!(first_name:"Maher", last_name:"Hakim", date_of_birth:47.years.ago, phone:"66090897", 
-email:"mhakim@qatar.cmu.edu", blood_type:"A+", weight: 74, gender: "Male",  
-region:"Al Assiry", password:"Maher123", 
-password_confirmation:"Maher123", admin:false, authenticated:true) 
+Donor.create!(first_name:"Maher", last_name:"Hakim", authenticated:true, date_of_birth:47.years.ago, phone:"66090897", 
+email:"schakrav@qatar.cmu.edu", blood_type:"A+", weight: 74, gender: "Male",  
+region:"Al Assiry", password:"Default123", 
+password_confirmation:"Default123", admin:false) 
 
-Donor.create!(first_name:"Ray", last_name:"Tsai", date_of_birth:61.years.ago, phone:"44548631", 
-email:"ritsai@qatar.cmu.edu", blood_type:"B-", weight: 55, gender: "Male",  
-region:"Al Bidda", password:"Ray123", 
-password_confirmation:"Ray123", admin:false, authenticated:true) 
+Donor.create!(first_name:"Ray", last_name:"Tsai", authenticated:true, date_of_birth:61.years.ago, phone:"44548631", 
+email:"acheweiky@gmail.com", blood_type:"B-", weight: 55, gender: "Male",  
+region:"Al Bidda", password:"Default123",
+password_confirmation:"Default123", admin:false) 
 
-Donor.create!(first_name:"Daniel", last_name:"Phelps", date_of_birth:33.years.ago, phone:"44548624", 
-email:"dphelps@cmu.edu", blood_type:"B+", weight: 68, gender: "Male",  
-region:"Al Dafna", password:"Dan123", 
-password_confirmation:"Dan123", admin:false, authenticated:true) 
+Donor.create!(first_name:"Daniel", last_name:"Phelps", authenticated:true, date_of_birth:33.years.ago, phone:"44548624", 
+email:"dcheweik@qatar.cmu.edu", blood_type:"B+", weight: 68, gender: "Male",  
+region:"Al Dafna", password:"Default123", 
+password_confirmation:"Default123", admin:false) 
 
-Donor.create!(first_name:"Selma", last_name:"Mansar", date_of_birth:41.years.ago, phone:"44548650", 
-email:"selmal@andrew.cmu.edu", blood_type:"O-", weight: 76, gender: "Female",  
-region:"Al Mamoura", password:"Selma123", 
-password_confirmation:"Selma123", admin:false, authenticated:true) 
+Donor.create!(first_name:"Selma", last_name:"Mansar", authenticated:true, date_of_birth:41.years.ago, phone:"44548650", 
+email:"cheweiky@cmu.edu", blood_type:"O-", weight: 76, gender: "Female",  
+region:"Al Mamoura", password:"Default123", 
+password_confirmation:"Default123", admin:false) 
 
 Organization.create!(name:"Al Ahli Hospital", region:"Wadi Al Sail", website:"http://www.ahlihospital.com", phone:"44898888", email:"info@ahlihospital.com")
 Organization.create!(name:"Al Emadi Hospital", region:"Al Hilal", website:"http://www.alemadihospital.com.qa", phone:"44666009", email:"info@alemadihospital.com.qa")

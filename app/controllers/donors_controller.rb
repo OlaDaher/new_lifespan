@@ -64,7 +64,7 @@ class DonorsController < ApplicationController
     respond_to do |format|
       if @donor.save
         DonorMailer.donor_authentication(@donor).deliver
-        format.html { redirect_to root_path, :notice => "#{@donor.proper_name} was succesfully created." }
+        format.html { redirect_to root_path, :notice => "#{@donor.proper_name} was succesfully created. Please click on the confirmation link sent to your email inbox to verify your LifeSpan+ account." }
         format.json { render json: @donor, status: :created, location: @donor }
       else
         format.html { render action: "new" }
