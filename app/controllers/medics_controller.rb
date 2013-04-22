@@ -49,7 +49,7 @@ class MedicsController < ApplicationController
     @title = "Edit Medic"
     @medic = Medic.find(params[:id])
   end
-
+  
   # POST /medics
   # POST /medics.json
   def create

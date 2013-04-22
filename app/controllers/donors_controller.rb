@@ -61,16 +61,6 @@ class DonorsController < ApplicationController
     @title = "Donor Created"
     @donor = Donor.new(params[:donor])
 
-  #  @code = params[:donor][:password]
-   # @f_name = params[:donor][:first_name]
-  #  @l_name = params[:donor][:last_name]
-  #  @email_id = params[:donor][:email]
-  #  at_index = @email_id.index('@')
-  #  username = @email_id[0,at_index-1]
-  #  if @code.include?(username) || @code.include?(@f_name) || @code.include?(@l_name) == true
-  #      @donor.errors.full_messages << "password can't contain your first name, last name or email"
- #   end
-
     respond_to do |format|
       if @donor.save
         DonorMailer.donor_authentication(@donor).deliver
@@ -125,14 +115,15 @@ class DonorsController < ApplicationController
     @donors = Donor.all
     @blood = params[:BloodType]
     @org = @medic.organization
-    @time = Time.now.strftime("%H:%M:%S")
+    @time = Time.now.localtime.strftime("%H:%M:%S")
     DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
+    @msg = " (Sent: #{@time}) #{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}"
     Twitter.update(@twitter)
     @donors.each do |d|
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
-    @req=Request.new(:content => @twitter, :posted_at => Time.now)
+    @req=Request.new(:content => @msg, :posted_at => Time.now)
     @req.save!
     redirect_to root_url
   end
