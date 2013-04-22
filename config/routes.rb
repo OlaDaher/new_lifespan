@@ -5,7 +5,7 @@ Lifespan::Application.routes.draw do
 
   get "password_resets_donors/new"
 
-  resources :medics
+  resources :medics 
   resources :organizations
   resources :donors
   resources :sessions
