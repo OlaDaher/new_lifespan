@@ -23,6 +23,7 @@ body {
 }
 a {
 	color: #ee5f5b;
+	font-size: 13px;
 }
 
 section {
@@ -349,7 +350,7 @@ background-repeat: no-repeat;
 
  select {
   border: 1px solid #bbb;
-  width: 30%;
+  width: 80px;
   padding: 10px;
   margin-bottom: 15px;
 
@@ -369,3 +370,19 @@ input {
   height: auto !important;
 }
 
+
+.label, .badge{
+	background-color:white;
+	color:#bd362f ;
+}
+
+#inline-errors{
+	font-size:13px;
+}
+
+#error_explanation ul{
+	color:blue;
+}
+#inline-errors{
+	font-size:12px;
+}
