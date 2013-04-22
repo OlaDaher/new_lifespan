@@ -2,17 +2,25 @@
  
  <% if current_donor && current_donor.admin == true %>
 <h1>System Admin</h1>
- <h4>Blood Donation Requests</h4>
-<%Request.last_24hours.each do |r|%>
-(<%=r.id%>) <%=r.content%></br>
+<% if Request.last_24hours == []%>
+ <%= "No Requests are available" %>
+<% else %>
+	<h4>Blood Donation Requests</h4>
+	<%Request.last_24hours.each do |r|%>
+	<%=r.content%></br>
+	<%end%>
 <%end%>
 
  <%elsif current_donor && current_donor.admin == false %> 
  <h1> <%=current_donor.proper_name%> | Active Blood Donor </h1>
 </br>
-<h4>Blood Donation Requests</h4>
-<%Request.last_24hours.each do |r|%>
-(<%=r.id%>) <%=r.content%></br>
+<% if Request.last_24hours == []%>
+ <%= "No Requests are available" %>
+<% else %>
+	<h4>Blood Donation Requests</h4>
+	<%Request.last_24hours.each do |r|%>
+ 	<%=r.content%></br>
+	<%end%>
 <%end%>
 
  <% elsif current_medic && current_medic.admin == true %>

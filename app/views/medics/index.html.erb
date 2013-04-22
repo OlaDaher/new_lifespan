@@ -17,7 +17,7 @@
                   <th><h2>Hospital Admin</h2></th>
                 </tr>
                 <tr>
-                  <td id='donor_img'> <%= image_tag medic.photo_url %></td>
+                  <td> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                     <td><%= medic.proper_name %></td>
                   <% else %>
@@ -40,7 +40,7 @@
                   <th><h2>Position</h2></th>
                 </tr>
                 <tr>
-                  <td id='donor_img'> <%= image_tag medic.photo_url %></td>
+                  <td> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                     <td><%= medic.proper_name %></td>
                   <% else %>
@@ -87,7 +87,7 @@
                   <th><h2>Position</h2></th>
                   </tr>
                   <tr>
-                    <td id='donor_img'> <%= image_tag medic.photo_url %></td>
+                    <td> <%= image_tag medic.photo_url %></td>
                     <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
                       <td><%= medic.proper_name %></td>
                     <% else %>
