@@ -1,11 +1,12 @@
 <h1>Available Hospitals</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
 	<th>Photo</th>
     <th>Name</th>
     <th>Region</th>
-    <th>Admin</th>
+    <th>Admin Name</th>
+    <th>Admin Email</th>
   </tr>
 
 <% @organizations.each do |organization| %>
@@ -19,7 +20,9 @@
           <td><%= admin.proper_name %></td>
         <% else %>
           <td><%= admin.email %></td>
-        <% end %>  
+        <% end %> 
+        <% else %>
+        <td>Not Available</td> 
       <% end %>
     <% end %>
     

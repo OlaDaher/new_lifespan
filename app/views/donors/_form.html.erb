@@ -4,7 +4,6 @@
   <% @donor.errors.delete(:password_digest) %>
     <div id="error_explanation">
       <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
-
       <ul>
       <% @donor.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,42 +11,64 @@
       </ul>
     </div>
   <% end %>
-<div class="ola">
+  
   <div class="field"> 
-    First Name: <%= f.text_field :first_name %>
-    <div>
+    <%= f.text_field :first_name, :placeholder => "First Name" %>
+  <div>
+  
   <div class="field">
-    Last Name: <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :placeholder => "Last Name" %>
   </div>
+  
   <div class="field">
-    Date of Birth: <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
+    <%= f.text_field :phone, :placeholder => "Phone Number"  %>
   </div>
+  
+  <div class="field">
+    Gender: <%= f.select :gender, options_for_select([['Male'], ['Female'], ['Other']]), :include_blank => true, :default => nil %>
+  </div>
+  
+  <div class="field">
+    Weight: <%= f.select :weight, (50..636), :include_blank => true, :default => nil %>
+  </div>
+  
   <div class="field">
     Phone Number: <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    Region: <%= f.select(:region, Donor::Region_List) %>
-  </div>
-
-  <div class="field">
-    Blood Type :<%= f.select(:blood_type, Donor::Blood_List) %>
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth , :placeholder => "Birth", :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
   </div>
 
   <div class="field">
-     Photo: <%= f.file_field :photo %>
+    <%= f.label :region %>
+    <%= f.select(:region, Donor::Region_List) %>
   </div>
+
   <div class="field">
-    Email Address: <%= f.text_field :email %>
+      <%= f.label :blood_type %>
+      <%= f.select(:blood_type, Donor::Blood_List) %>
   </div>
+
+  <div class="field">
+     <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  
+  <div class="field">
+    <%= f.text_field :email, :placeholder => "Email Address" %>
+  </div>
+  
   <div class="field">
     <%= f.input :password, :as => :pwdcalc %>
   </div>
+  
   <div class="field">
     <%= f.input :password_confirmation, :as => :pwdcalc %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 <% end %>
 </div>

@@ -13,12 +13,16 @@
   <% end %>
   
   <% if current_donor && current_donor.admin == true%>
-    <div class="field">
-      Organization:  <%= collection_select(:medic, :organization_id, Organization.all, :id, :name, :include_blank => true, :default => nil) %>
+    <div class="selector">
+        <%= f.label :organization_id %>
+        
+    <%= collection_select(:medic, :organization_id, Organization.all, :id, :name, :include_blank => true, :default => nil) %>
     </div>
-  
+  <br>
     <div class="field">
-      Admin: <%= f.check_box :admin %>
+  
+        
+     Admin <%= f.check_box :admin %>
     </div>
     
     </br>
@@ -29,24 +33,28 @@
   <% end %>  
 
 <% if current_medic && current_medic.admin == true || current_medic && current_medic.admin == false %>
-<div class="ola">
+
   <div class="field">
-     Photo: <%= f.file_field :photo %>
+<%= f.label :photo %>
+      
+  <%= f.file_field :photo %>
   </div>
   <div class="field">
-    First Name: <%= f.text_field :first_name %>
+ <%= f.text_field :first_name, :placeholder => "First Name" %>
   </div>
   <div class="field">
-    Last Name: <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :placeholder => "Last Name" %>
   </div>
   <div class="field">
-  Date of Birth: <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
+      <%= f.label :date_of_birth %>
+      
+ <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
   </div>
    <div class="field">
-    Phone: <%= f.text_field :phone %>
+<%= f.text_field :phone, :placeholder => "Last Name" %>
   </div>
   <div class="field">
-    Position: <%= f.select(:position, Medic::Position) %>
+<%= f.select(:position, Medic::Position) %>
   </div>
 <% end %>
 
@@ -54,7 +62,7 @@
   </br>
 
   <div class="field">
-    Email Address: <%= f.text_field :email %>
+    <%= f.text_field :email, :placeholder => "Email" %>
   </div>
   
   </br>
@@ -68,9 +76,7 @@
     <%= f.input :password_confirmation, :as => :pwdcalc %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  </div>
+  <div class="actions"><%= f.submit %></div>
+  <br>
 <% end %>
 

@@ -11,28 +11,28 @@ Medic.create!(first_name:"Yazan", last_name:"Hijleh", date_of_birth:22.years.ago
 organization_id:2, email:"yna2@cmu.edu", position:"Andrologist", admin:true, password:"Yazan123",
 password_confirmation:"Yazan123")
 
-Donor.create!(first_name:"Life", last_name:"Span", date_of_birth:Date.parse("2013/04/21"), phone:"97800044", 
-	email:"lifespan.donation@gmail.com", blood_type:"A-", 
+Donor.create!(first_name:"Life", last_name:"Span", date_of_birth:17.years.ago, phone:"97800044", 
+	email:"lifespan.donation@gmail.com", blood_type:"A-", weight: 51, gender: "Other", 
 	region:"Madinat Khalifa", password:"Lifespanproject1", 
 	password_confirmation:"Lifespanproject1", admin:true) 
 
 Donor.create!(first_name:"Maher", last_name:"Hakim", date_of_birth:47.years.ago, phone:"66090897", 
-email:"mhakim@qatar.cmu.edu", blood_type:"A+", 
+email:"mhakim@qatar.cmu.edu", blood_type:"A+", weight: 74, gender: "Male",  
 region:"Al Assiry", password:"Maher123", 
 password_confirmation:"Maher123", admin:false, authenticated:true) 
 
 Donor.create!(first_name:"Ray", last_name:"Tsai", date_of_birth:61.years.ago, phone:"44548631", 
-email:"ritsai@qatar.cmu.edu", blood_type:"B-", 
+email:"ritsai@qatar.cmu.edu", blood_type:"B-", weight: 55, gender: "Male",  
 region:"Al Bidda", password:"Ray123", 
 password_confirmation:"Ray123", admin:false, authenticated:true) 
 
 Donor.create!(first_name:"Daniel", last_name:"Phelps", date_of_birth:33.years.ago, phone:"44548624", 
-email:"dphelps@cmu.edu", blood_type:"B+", 
+email:"dphelps@cmu.edu", blood_type:"B+", weight: 68, gender: "Male",  
 region:"Al Dafna", password:"Dan123", 
 password_confirmation:"Dan123", admin:false, authenticated:true) 
 
 Donor.create!(first_name:"Selma", last_name:"Mansar", date_of_birth:41.years.ago, phone:"44548650", 
-email:"selmal@andrew.cmu.edu", blood_type:"O-", 
+email:"selmal@andrew.cmu.edu", blood_type:"O-", weight: 76, gender: "Female",  
 region:"Al Mamoura", password:"Selma123", 
 password_confirmation:"Selma123", admin:false, authenticated:true) 
 
