@@ -61,9 +61,9 @@ class Donor < ActiveRecord::Base
   validates :email, uniqueness: true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
   validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)"
-  validate :custom_method
+  validate :password_excludes_name
 
-  def custom_method
+  def password_excludes_name
     code = password
     f_name = first_name
     l_name = last_name

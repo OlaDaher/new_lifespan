@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   	def create
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
+        if donor.authenticated == true
           session[:donor_id] = donor.id
 
           if current_donor && current_donor.admin == true
@@ -14,6 +15,10 @@ class SessionsController < ApplicationController
           else
             redirect_to root_url, :notice => "Welcome #{donor.proper_name}, You're part of the 4% !"
           end
+        else
+          flash.now.alert = "Unverified email! Please verify your registered email."
+          render "new"
+        end  
       else
     		flash.now.alert = "Invalid email or password"
     		render "new"

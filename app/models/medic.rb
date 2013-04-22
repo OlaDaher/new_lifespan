@@ -24,11 +24,31 @@ class Medic < ActiveRecord::Base
   validates :email, uniqueness: true
   validates_format_of :phone, :with => /^(\+?\d{8}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 8 digits (country code not required)", :allow_blank => true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
- 
+  validate :password_excludes_name
   before_create { generate_token(:auth_token) }
   
   Position = [[''], ['Administrator'], ['Audiologist'], ['Allergist'], ['Andrologist'], ['Anesthesiologist'], ['Cardiologist'], ['Dentist'], ['Dermatologist'], ['Emergency Doctor'], ['Endocrinologist'], ['ENT Specialist'], ['Epidemiologist'], ['Family Practician'], ['Gastroenterologist'], ['Geneticist'], ['Gynecologist'], ['Hematologist'], ['Hepatologist'], ['Immunologist'], ['Infectious Disease Specialist'], ['Internist'], ['Internal Medicine Specialist'], ['Microbiologist'], ['Neonatologist'], ['Nephrologist'], ['Neurologist'], ['Neurosurgeon'], ['Obstetrician'], ['Oncologist'], ['Ophthalmologist'], ['Orthopedic Surgeon'], ['Perinatologist'], ['Paleopathologist'], ['Parasitologist'], ['Pathologist'], ['Pediatrician'], ['Physiologist'], ['Physiatrist'], ['Plastic Surgeon'], ['Podiatrists'], ['Psychiatrist'], ['Pulmonologist'], ['Radiologists'], ['Rheumatologsist'], ['Surgeon'], ['Urologist'], ['Veterinarian']]
 
+
+  def password_excludes_name
+    code = password
+    f_name = first_name
+    l_name = last_name
+    email_id = email
+    if !(code && f_name && l_name && email_id)
+      return false
+    end  
+    at_index = email_id.index('@')
+    if at_index == nil
+      return false
+    end  
+    username = email_id[0,at_index-1]
+
+    if code.include?(username) || code.include?(f_name) || code.include?(l_name) == true
+        errors.add(:password, "can't include your First Name, Last Name or Email!") 
+    end
+  end 
+  
   def proper_name
     first_name + " " + last_name
   end 
