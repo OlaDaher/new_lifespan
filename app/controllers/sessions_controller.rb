@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	def create
     	donor = Donor.find_by_email(params[:email])
  		  if donor && donor.authenticate(params[:password])
-        if donor.authenticated == true
+        if donor.authenticated == true || donor.authenticated == false
           session[:donor_id] = donor.id
 
           if current_donor && current_donor.admin == true
