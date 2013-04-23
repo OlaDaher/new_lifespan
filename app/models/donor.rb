@@ -4,6 +4,16 @@ class Donor < ActiveRecord::Base
  :email, :first_name, :gender, :last_name, :password, :password_confirmation,
  :phone, :region, :photo, :admin, :confirmation_code, :authenticated
 
+
+  scope :bloodtype_a_m, where('blood_type = ?', "A-")
+	scope :bloodtype_a_p, where('blood_type = ?', "A+")
+  scope :bloodtype_b_m, where('blood_type = ?', "B-")
+	scope :bloodtype_b_p, where('blood_type = ?', "B+")
+	scope :bloodtype_o_m, where('blood_type = ?', "O-")
+	scope :bloodtype_o_p, where('blood_type = ?', "O+")
+	scope :bloodtype_ab_m, where('blood_type = ?', "AB-")
+	scope :bloodtype_ab_p, where('blood_type = ?', "AB+")
+	
   
 
   Region_List = [[''], ['Al Assiry'],  ['Al Bidda'], ['Al Dafna'], ['Al Hilal'], ['Al Mamoura'], ['Al Mansoura'], ['Al Markhiya'], ['Al Mirqab Al Jadeed'], ['Al Muntazah'], ['Al Nasr'], ['Al Rayyan'], ['Al Sadd'], ['Al Waab'], ['Bin Mahmoud'], ['Madinat Khalifa'], ['Old Airport'], ['Onaiza'], ['Qutaifiya'], ['Ras Abu Aboud'], ['Rumeilah'], ['Wadi Al Sail'], ['West Bay']]
