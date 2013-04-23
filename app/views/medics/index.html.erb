@@ -11,13 +11,11 @@
         </br>  
           <table class="table table-bordered">
             <% @group[hospital_name].each do |medic| -%>
+              <tr>
+                <th><h3>Photo </h3></th>
+                <th><h5>Hospital Admin</h5></th>
+              </tr>
               <% if medic.admin == true %> 
-                <tr>
-                  <th><h3>Photo </h3></th>
-                  <th><h5>Hospital Admin</h5></th>
-                  <th><h5></h5></th>
-                  <th><h5></h5></th>
-                </tr>
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
@@ -35,11 +33,13 @@
                     <td><h3><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></h3></td>
                   <% end %> 
                 </tr>   
-              <% else %>
-                <tr>
-                  <th><h3>Photo</h3></th>
-                  <th><h5>Doctors</h5></th>
-                </tr>
+              <% end %>
+              </br>
+              <tr>
+                <th><h3>Photo</h3></th>
+                <th><h5>Doctors</h5></th>
+              </tr>
+              <% if medic.admin == false %> 
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
@@ -56,16 +56,16 @@
                   <% if can? :destroy, medic %>
                     <td><h3><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></h3></td>
                   <% end %> 
-                </tr>      
-              <% end %>   
-            <% end %> 
+                </tr> 
+              <% end %>       
+            <% end %>   
           </table>
         </ul>
       </li>       
     <% end %>
   </ul>
 <% else %>
- <ul>
+  <ul>
     <% @group.keys.sort.each do |hospital_name| -%>
       </br>
       </br>
@@ -75,13 +75,13 @@
           <ul>
           </br>  
             <table>
+              <tr>
+                <th>Photo</th>    
+                <th><h2>Doctors</h2></th>
+                <th><h2>Position</h2></th>
+              </tr> 
               <% @group[hospital_name].each do |medic| -%>
                 <% if medic.admin == false %> 
-                    <tr>
-                  <th>Photo</th>    
-                  <th><h2>Doctors</h2></th>
-                  <th><h2>Position</h2></th>
-                  </tr>
                   <tr>
                     <td class="donor_img"> <%= image_tag medic.photo_url %></td>
                     <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>

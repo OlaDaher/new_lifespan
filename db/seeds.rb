@@ -14,15 +14,15 @@ Medic.create!(first_name:"Divakaran", last_name:"Liginlal", date_of_birth:45.yea
 organization_id:2, email:"liginlal@cmu.edu", position:"Administrator", admin:true, password:"Default123",
 password_confirmation:"Default123")
 
-Medic.create!(first_name:"Hashim", last_name:"Aliya", date_of_birth:21.years.ago, phone:"66090897",
+Medic.create!(first_name:"Aliya", last_name:"Hashim", date_of_birth:21.years.ago, phone:"66090897",
 organization_id:2, email:"aliya.hashim11@gmail.com", position:"ENT Specialist", admin:false, password:"Default123",
 password_confirmation:"Default123")
 
-Medic.create!(first_name:"Daher", last_name:"Ola", date_of_birth:22.years.ago, phone:"66090897",
+Medic.create!(first_name:"Ola", last_name:"Daher", date_of_birth:22.years.ago, phone:"66090897",
 organization_id:2, email:"oladaher@gmail.com", position:"Dentist", admin:false, password:"Default123",
 password_confirmation:"Default123")
 
-Medic.create!(first_name:"Cheweiky", last_name:"Aboudue", date_of_birth:23.years.ago, phone:"66090897",
+Medic.create!(first_name:"Aboudue", last_name:"Cheweiky", date_of_birth:23.years.ago, phone:"66090897",
 organization_id:2, email:"acheweiky@gmail.com", position:"Neurosurgeon", admin:false, password:"Default123",
 password_confirmation:"Default123")
 
