@@ -11,6 +11,10 @@ Medic.create!(first_name:"Yazan", last_name:"Hijleh", date_of_birth:22.years.ago
 organization_id:2, email:"chaxz93@live.com", position:"Andrologist", admin:true, password:"Default123",
 password_confirmation:"Default123")
 
+Donor.create!(first_name:"System", last_name:"Admin", date_of_birth:17.years.ago, phone:"97800044", 
+	email:"lifespan.donation@gmail.com", blood_type:"A-", weight: 51, gender: "Other", 
+	region:"Madinat Khalifa", password:"Default123", 
+	password_confirmation:"Default123", admin:true) 
 
 Donor.create!(first_name:"Maher", last_name:"Hakim", authenticated:true, date_of_birth:47.years.ago, phone:"66090897", 
 email:"schakrav@qatar.cmu.edu", blood_type:"A+", weight: 74, gender: "Male",  
