@@ -132,11 +132,11 @@ class DonorsController < ApplicationController
     if @blood == "AB+"
       @donors_one_type = Donor.bloodtype_ab_p
     end
-    if @blood == "O-"
-      @donors_one_type = Donor.bloodtype_o_m
-    end
     if @blood == "O+"
       @donors_one_type = Donor.bloodtype_o_p
+    end
+    if @blood == "O-"
+      @donors_one_type = Donor.bloodtype_o_m
     end
     @org = @medic.organization
     @time = Time.now.localtime.strftime("%H:%M:%S")
