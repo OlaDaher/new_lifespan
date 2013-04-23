@@ -9,56 +9,56 @@
         <h1><%= hospital_name %></h1>
         <ul>
         </br>  
-          <table>
+          <table class="table table-bordered">
             <% @group[hospital_name].each do |medic| -%>
               <% if medic.admin == true %> 
                 <tr>
-                  <th>Photo</th>
-                  <th><h2>Hospital Admin</h2></th>
+                  <th><h3>Photo </h3></th>
+                  <th><h5>Hospital Admin</h5></th>
                 </tr>
                 <tr>
                   <td> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
-                    <td><%= medic.proper_name %></td>
+                    <td><h3><%= medic.proper_name %></h3></td>
                   <% else %>
-                    <td> Not Entered </td>  
+                    <td> <h3>Not Entered </h3></td>  
                   <% end %>
                   <% if can? :show, medic %>
-                    <td><%= link_to 'Show', medic %></td>
+                    <td><h3><%= link_to 'Show', medic %></h3></td>
                   <% end %>  
                   <% if can? :update, medic %>
-                    <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
+                    <td><h3><%= link_to 'Edit', edit_medic_path(medic) %></h3></td>
                   <% end %>
                   <% if can? :destroy, medic %>
-                    <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><h3><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></h3></td>
                   <% end %> 
                 </tr>   
               <% else %>
                 <tr>
-                  <th>Photo</th>
-                  <th><h2>Doctors</h2></th>
-                  <th><h2>Position</h2></th>
+                  <th><h3>Photo</h3></th>
+                  <th><h5>Doctors</h5></th>
+                  <th><h5>Position</h5></th>
                 </tr>
                 <tr>
                   <td> <%= image_tag medic.photo_url %></td>
                   <% if medic.first_name.blank? == false && medic.last_name.blank? == false%>
-                    <td><%= medic.proper_name %></td>
+                    <td><h3><%= medic.proper_name %></h3></td>
                   <% else %>
-                    <td> Unnamed </td>  
+                    <td> <h3>Unnamed </h3></td>  
                   <% end %>
                   <% if medic.position.blank? == false %>
-                    <td><%= medic.position %></td>
+                    <td><h3><%= medic.position %></h3></td>
                   <% else %>
                     <td> Unassigned </td>  
                   <% end %>  
                   <% if can? :show, medic %>
-                    <td><%= link_to 'Show', medic %></td>
+                    <td><h3><%= link_to 'Show', medic %></h3></td>
                   <% end %>  
                   <% if can? :update, medic %>
-                    <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
+                    <td><h3><%= link_to 'Edit', edit_medic_path(medic) %></h3></td>
                   <% end %>
                   <% if can? :destroy, medic %>
-                    <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><h3><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></h3></td>
                   <% end %> 
                 </tr>      
               <% end %>   

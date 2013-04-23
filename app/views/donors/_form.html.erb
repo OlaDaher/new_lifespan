@@ -31,12 +31,14 @@
   <div class="field">
     Weight: <%= f.select :weight, (50..636), :include_blank => true, :default => nil %>
   </div>
-  
-  <div class="field">
-    <%= f.label :date_of_birth %>
-    <%= f.date_select :date_of_birth , :placeholder => "Birth", :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
 
-  <div class="field"> 
+      <div class="field">
+  Date of Birth: 
+  <br>
+    <%= f.date_select :date_of_birth , :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
+  </div>
+
+  <div class="field">
     Region: <%= f.select(:region, Donor::Region_List) %>
   </div>
 
