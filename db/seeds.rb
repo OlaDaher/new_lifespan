@@ -17,7 +17,7 @@ email:"schakrav@qatar.cmu.edu", blood_type:"A+", weight: 74, gender: "Male",
 region:"Al Assiry", password:"Default123", 
 password_confirmation:"Default123", admin:false) 
 
-Donor.create!(first_name:"Ray", last_name:"Tsai", authenticated:true, date_of_birth:61.years.ago, phone:"44548631", 
+Donor.create!(first_name:"Ray", last_name:"Tsai", authenticated:true, date_of_birth:61.years.ago, phone:"66090897", 
 email:"acheweiky@gmail.com", blood_type:"B-", weight: 55, gender: "Male",  
 region:"Al Bidda", password:"Default123",
 password_confirmation:"Default123", admin:false) 
