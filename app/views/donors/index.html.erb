@@ -8,18 +8,21 @@
       <h4><%= letter %></h4>
       <ul>
       </br>  
-      <table class="table table-bordered">
+      <div id="hospital-table"> 
+      
+    <table class="table table-bordered">
         <tr>
 		      <th><h3>Photo</h3></th>
           <th><h3>Full Name</h3></th>
-          <th><h3>Region<h3></th>
+          <th><h3>Show</h3></th>
+          <th><h3>Destroy</h3></th>
+          
         </tr>
           <% @grouped[letter].each do |donor| -%>
             <tr>
 
 			        <td class="donor_img"> <%= image_tag donor.photo_url %></td>
               <td><h3><%= donor.proper_name %></h3></td>
-              <td><h3><%= donor.region %></h3></td>
               <% if can? :show, donor %>
                 <td><h3><%= link_to 'Show', donor %></h3></td>
               <% end %>  
@@ -31,7 +34,9 @@
               <% end %>  
             </tr>
           <% end %>
-        </table>   
+       
+        </table> 
+           </div>  
       </ul>
     </li>  
   <% end %>

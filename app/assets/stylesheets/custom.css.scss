@@ -91,11 +91,30 @@ h5 {
 
 }
 
-
-p {
+h6{
 	font-size: 1.3em;
 	line-height: 1.7em;
 	text-align: center;
+	padding-top:-20px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	font-weight: normal;
+	
+	
+}
+
+h7{
+	font-size:1.4em;
+	text-align:center;
+	color:#bd362f;
+	
+}
+
+
+
+p {
+	font-size: 0.8em;
+	line-height: 1.7em;
 	padding-top:-20px;
 	margin-bottom: 10px;
 	margin-left: 15px;
@@ -378,6 +397,7 @@ max-height:110px;
 	width: 30px;
 height: 30px;
 line-height: 30px;
+margin-top:30px;
 vertical-align: text-top;
 background-repeat: no-repeat;
 }
@@ -430,5 +450,26 @@ table{
 	width:70%;
 }
 .table-bordered{
-	margin-left:5px;
+	width: 300px;
+	
+}
+
+
+
+#video
+{
+
+    width: 300px;
+    height: 250px;
+}
+#main_video
+{
+    padding: 10px;
+    margin: 0 auto;
+}
+#hospital-table{
+	margin-left:-10px;
+}
+tbody{
+	margin-right:-30px;
 }

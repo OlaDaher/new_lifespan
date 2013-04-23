@@ -15,6 +15,8 @@
                 <tr>
                   <th><h3>Photo </h3></th>
                   <th><h5>Hospital Admin</h5></th>
+                  <th><h5></h5></th>
+                  <th><h5></h5></th>
                 </tr>
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
@@ -37,7 +39,6 @@
                 <tr>
                   <th><h3>Photo</h3></th>
                   <th><h5>Doctors</h5></th>
-                  <th><h5>Position</h5></th>
                 </tr>
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
@@ -46,11 +47,6 @@
                   <% else %>
                     <td> <h3>Unnamed </h3></td>  
                   <% end %>
-                  <% if medic.position.blank? == false %>
-                    <td><h3><%= medic.position %></h3></td>
-                  <% else %>
-                    <td> Unassigned </td>  
-                  <% end %>  
                   <% if can? :show, medic %>
                     <td><h3><%= link_to 'Show', medic %></h3></td>
                   <% end %>  

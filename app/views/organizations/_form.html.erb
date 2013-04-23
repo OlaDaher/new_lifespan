@@ -1,4 +1,3 @@
-
 <%= form_for(@organization) do |f| %>
   <% if @organization.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +15,7 @@
   <%= f.text_field :name, :placeholder => "Name" %>
   </div>
    <div class="field">
-   <%= f.text_field :phone, :placeholder => "Phone Nnumber" %>
+   <%= f.text_field :phone, :placeholder => "Phone Number" %>
      </div>
       <div class="field">
       <%= f.text_field :email,:placeholder => "Email Adress" %>

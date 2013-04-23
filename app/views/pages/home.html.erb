@@ -5,7 +5,9 @@
 <% if Request.last_24hours == []%>
  <%= "No Requests are available" %>
 <% else %>
-	<h4>Blood Donation Requests</h4>
+	<h7>Blood Donation Requests</h7>
+	<br>
+	<br>
 	<%Request.last_24hours.each do |r|%>
 	<%=r.content%></br>
 	<%end%>
@@ -31,11 +33,11 @@
 <div class="center hero-unit">
 <h1>LifeSpan+</h1>
   <%= image_tag("donate_blood.png", :alt => "rss feed") %>
-<p>
+<h6>
 
 	96% of us rely on the other 4% to give blood. Please don’t leave it to someone else!
 	
-</p>
+<h6>
  <%=link_to "Get Involved Now!", login_path, class:"btn btn-large btn-primary" %>
 </div>
    <% end %>
