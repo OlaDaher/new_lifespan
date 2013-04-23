@@ -20,7 +20,17 @@
 
 <p>
   <b>Admin:</b>
-  <%= @organization.admin %>
+  <% @admins.each do |admin| %>
+    <% if admin.organization_id == @organization.id %>
+      <% if admin.first_name.blank? == false && admin.last_name.blank? == false %>
+          <%= admin.proper_name %>
+      <% else %>
+          <%= admin.email %>
+      <% end %> 
+    <% else %>
+        <% "Not Available" %>
+    <% end %>
+  <% end %>
 </p>
 
 </br>

@@ -4,7 +4,7 @@ class OrganizationsController < ApplicationController
   def index
     @title = "Organization List"
     @organizations = Organization.all
-    @admins = Medic.admins
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,8 @@ class OrganizationsController < ApplicationController
   def show
     @title = "Show Organization"
     @organization = Organization.find(params[:id])
+    @admins = Medic.admins
+
 
     respond_to do |format|
       format.html # show.html.erb
