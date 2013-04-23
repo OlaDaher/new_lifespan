@@ -33,11 +33,6 @@
 <% if current_medic && current_medic.admin == true || current_medic && current_medic.admin == false %>
 
   <div class="field">
-<%= f.label :photo %>
-      
-  <%= f.file_field :photo %>
-  </div>
-  <div class="field">
  <%= f.text_field :first_name, :placeholder => "First Name" %>
   </div>
   <div class="field">
@@ -45,19 +40,24 @@
   </div>
   <div class="field">
       <%= f.label :date_of_birth %>
-      
  <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :include_blank => true, :default => nil, :start_year => 123.years.ago.year, :end_year => Date.today.year-16 %>
   </div>
+  <br>
    <div class="field">
 <%= f.text_field :phone, :placeholder => "Phone" %>
   </div>
   <div class="field">
+      <%= f.label :position %>
 <%= f.select(:position, Medic::Position) %>
   </div>
 <% end %>
-
-
-  </br>
+<br>
+<div class="field">
+<%= f.label :photo %>
+      
+  <%= f.file_field :photo %>
+  </div>
+  <br>
 
   <div class="field">
     <%= f.text_field :email, :placeholder => "Email" %>

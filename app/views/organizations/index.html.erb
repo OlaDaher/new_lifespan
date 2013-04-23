@@ -2,30 +2,26 @@
 
 <table class="table table-bordered">
   <tr>
-	<th>Photo</th>
-    <th>Name</th>
- 
- 
+	<th><h3>Photo</h3></th>
+    <th><h3>Name</h3></th>
+  <th><h3>Show</h3></th>
+  <th><h3>Edit</h3></th>
+  <th><h3>Destroy</h3></th>
   </tr>
 
 <% @organizations.each do |organization| %>
   <tr>
 	<td class="donor_img"> <%= image_tag organization.photo_url %></td>
-    <td><%= organization.name %></td>
-    
-    
+    <td><h3><%= organization.name %></h3></td>
     <% if can? :show, organization %>
       <td><%= link_to 'Show', organization %></td>
     <% end %>
-
     <% if can? :update, organization %>
       <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
     <% end %>
-
     <% if can? :destroy, organization %>
       <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>  
-
   </tr>
 <% end %>
 </table>
