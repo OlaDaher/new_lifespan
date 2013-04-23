@@ -10,11 +10,11 @@
         <ul>
         </br>  
           <table class="table table-bordered">
-            <% @group[hospital_name].each do |medic| -%>
-              <tr>
+            <tr>
                 <th><h3>Photo </h3></th>
                 <th><h5>Hospital Admin</h5></th>
-              </tr>
+            </tr>
+            <% @group[hospital_name].each do |medic| -%>
               <% if medic.admin == true %> 
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
@@ -34,11 +34,13 @@
                   <% end %> 
                 </tr>   
               <% end %>
-              </br>
-              <tr>
-                <th><h3>Photo</h3></th>
-                <th><h5>Doctors</h5></th>
-              </tr>
+            <% end %>  
+            </br>
+            <tr>
+              <th><h3>Photo</h3></th>
+              <th><h5>Doctors</h5></th>
+            </tr>
+            <% @group[hospital_name].each do |medic| -%>
               <% if medic.admin == false %> 
                 <tr>
                   <td class="donor_img"> <%= image_tag medic.photo_url %></td>
