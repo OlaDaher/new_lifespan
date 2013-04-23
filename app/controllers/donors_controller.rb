@@ -114,9 +114,33 @@ class DonorsController < ApplicationController
     @medic = Medic.find(session[:medic_id])
     @donors = Donor.all
     @blood = params[:BloodType]
+    if @blood == "A-"
+      @donors_one_type = Donor.bloodtype_a_m
+    end
+    if @blood == "A+"
+      @donors_one_type = Donor.bloodtype_a_p
+    end
+    if @blood == "B-"
+      @donors_one_type = Donor.bloodtype_b_m
+    end
+    if @blood == "B+"
+      @donors_one_type = Donor.bloodtype_b_p
+    end
+    if @blood == "AB-"
+      @donors_one_type = Donor.bloodtype_ab_m
+    end
+    if @blood == "AB+"
+      @donors_one_type = Donor.bloodtype_ab_p
+    end
+    if @blood == "O-"
+      @donors_one_type = Donor.bloodtype_o_m
+    end
+    if @blood == "O+"
+      @donors_one_type = Donor.bloodtype_o_p
+    end
     @org = @medic.organization
     @time = Time.now.localtime.strftime("%H:%M:%S")
-    DonorMailer.new_donor_request(@donors, @medic, @org, @blood).deliver
+    DonorMailer.new_donor_request(@donors_one_type, @medic, @org, @blood).deliver
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
     @msg = " (Sent: #{@time}) #{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}"
     Twitter.update(@twitter)
