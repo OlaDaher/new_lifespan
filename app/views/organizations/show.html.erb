@@ -1,7 +1,7 @@
 <body>
 <p>
   <% unless @organization.photo_url.nil? %>
-      <p id='donor_img'><%= image_tag @organization.photo_url %></p>
+      <p class="donor_img"><%= image_tag @organization.photo_url %></p>
   <% end %>
 </p>
 <p>
@@ -17,6 +17,12 @@
   <b>Phone:</b>
   <%= @organization.phone %>
 </p>
+
+<p>
+  <b>Admin:</b>
+  <%= @organization.admin %>
+</p>
+
 </br>
 </br>
 </br>
