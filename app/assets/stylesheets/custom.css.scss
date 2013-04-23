@@ -68,6 +68,29 @@ h2 {
 	text-align: center;
 }
 
+h3{
+	font-size:0.7em;
+	text-align:left;
+}
+
+h4{
+	font-size:1.4em;
+	text-align:left;
+}
+
+
+
+h5 {
+	font-size: 0.7em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: normal;
+	color: #999;
+
+}
+
+
 p {
 	font-size: 1.3em;
 	line-height: 1.7em;
@@ -111,17 +134,21 @@ footer a:hover {
 }
 
 footer small {
-	float :left;
+	float :right;
 }
 
 footer ul {
-	float: right;
+	float: left;
 	list-style: none;
+	margin-left: 5px;
+	font-size:16px;
+	
+	
 }
 
 footer ul li{
 	float: left;
-	margin-left: 10px;
+	margin-left: 6px;
 }
 
 /*miscellaneous*/
@@ -301,7 +328,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 	color:black;
 	text-align: left;
 	padding-top: -30px;
-	margin-left: -45px;
+	margin-left: 7px;
 	color:#bd362f;
 	font-weight: bold;
 	
@@ -314,13 +341,23 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 	text-align: left;
 	padding-top:-20px;
 	margin-bottom: 10px;
-	margin-left: -45px;
+	margin-left: 7px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	color:black;
 }
 
-
+.hero-unit h4 {
+	font-size: 0.5em;
+	line-height: 1.7em;
+	text-align: left;
+	padding-top:-20px;
+	margin-bottom: 10px;
+	margin-left: 7px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color:black;
+}
 /*Logo*/
 .logo{
 margin-top:5px;
@@ -368,4 +405,9 @@ input, textarea,.uneditable-input
 input {
   height: auto !important;
 }
-
+table{
+	margin-left:-50px;
+	margin-right:40px;
+	width:70%;
+	
+}

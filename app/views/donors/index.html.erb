@@ -5,28 +5,28 @@
     </br>
     </br>
     <li>
-      <h1><%= letter %></h1>
+      <h4><%= letter %></h4>
       <ul>
       </br>  
-      <table>
+      <table class="table table-bordered">
         <tr>
-		      <th>Photo</th>
-          <th>Full Name</th>
-          <th>Region</th>
+		      <th><h3>Photo</h3></th>
+          <th><h3>Full Name</h3></th>
+          <th><h3>Region<h3></th>
         </tr>
           <% @grouped[letter].each do |donor| -%>
             <tr>
 			        <td id='donor_img'> <%= image_tag donor.photo_url %></td>
-              <td><%= donor.proper_name %></td>
-              <td><%= donor.region %></td>
+              <td><h3><%= donor.proper_name %></h3></td>
+              <td><h3><%= donor.region %></h3></td>
               <% if can? :show, donor %>
-                <td><%= link_to 'Show', donor %></td>
+                <td><h3><%= link_to 'Show', donor %></h3></td>
               <% end %>  
               <% if can? :update, donor %>
-                <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+                <td><h3><%= link_to 'Edit', edit_donor_path(donor) %></h3></td>
               <% end %>
               <% if can? :destroy, donor %>
-                <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><h3><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></h3></td>
               <% end %>  
             </tr>
           <% end %>
