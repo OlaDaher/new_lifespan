@@ -132,11 +132,11 @@ class DonorsController < ApplicationController
     if @blood == "AB+"
       @donors_one_type = Donor.bloodtype_ab_p
     end
-    if @blood == "O-"
-      @donors_one_type = Donor.bloodtype_o_m
-    end
     if @blood == "O+"
       @donors_one_type = Donor.bloodtype_o_p
+    end
+    if @blood == "O-"
+      @donors_one_type = Donor.bloodtype_o_m
     end
     @org = @medic.organization
     @time = Time.now.localtime.strftime("%H:%M:%S")
@@ -144,7 +144,7 @@ class DonorsController < ApplicationController
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
     @msg = " (Sent: #{@time}) #{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}"
     Twitter.update(@twitter)
-    @donors.each do |d|
+    @donors_one_type.each do |d|
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
     @req=Request.new(:content => @msg, :posted_at => Time.now)
