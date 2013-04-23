@@ -144,7 +144,7 @@ class DonorsController < ApplicationController
     @twitter = "#{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone} (Sent: #{@time})"
     @msg = " (Sent: #{@time}) #{@blood} is needed at #{@org.name} in #{@org.region}, telephone: +#{@org.phone}"
     Twitter.update(@twitter)
-    @donors.each do |d|
+    @donors_one_type.each do |d|
        d.initializeSMS(@blood, @org.name, @org.phone, d.phone)
     end
     @req=Request.new(:content => @msg, :posted_at => Time.now)
