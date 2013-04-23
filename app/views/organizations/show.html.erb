@@ -23,9 +23,9 @@
   <% @admins.each do |admin| %>
     <% if admin.organization_id == @organization.id %>
       <% if admin.first_name.blank? == false && admin.last_name.blank? == false %>
-          <%= admin.proper_name %>
+        <li><%= admin.proper_name %></li>
       <% else %>
-          <%= admin.email %>
+         <li> <%= admin.email %> </li> 
       <% end %> 
     <% else %>
         <% "Not Available" %>
