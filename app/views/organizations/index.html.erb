@@ -4,27 +4,15 @@
   <tr>
 	<th>Photo</th>
     <th>Name</th>
-    <th>Region</th>
-    <th>Admin Name</th>
-    <th>Admin Email</th>
+ 
+ 
   </tr>
 
 <% @organizations.each do |organization| %>
   <tr>
-	<td id='donor_img'> <%= image_tag organization.photo_url %></td>
+	<td class="donor_img"> <%= image_tag organization.photo_url %></td>
     <td><%= organization.name %></td>
-    <td><%= organization.region %></td>
-    <% @admins.each do |admin| %>
-      <% if admin.organization_id == organization.id %>
-        <% if  admin.first_name.blank? == false || admin.last_name.blank? == false %>
-          <td><%= admin.proper_name %></td>
-        <% else %>
-          <td><%= admin.email %></td>
-        <% end %> 
-        <% else %>
-        <td>Not Available</td> 
-      <% end %>
-    <% end %>
+    
     
     <% if can? :show, organization %>
       <td><%= link_to 'Show', organization %></td>

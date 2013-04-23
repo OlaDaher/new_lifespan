@@ -17,7 +17,7 @@
           <% @grouped[letter].each do |donor| -%>
             <tr>
 
-			        <td id='donor_img'> <%= image_tag donor.photo_url %></td>
+			        <td class="donor_img"> <%= image_tag donor.photo_url %></td>
               <td><h3><%= donor.proper_name %></h3></td>
               <td><h3><%= donor.region %></h3></td>
               <% if can? :show, donor %>
