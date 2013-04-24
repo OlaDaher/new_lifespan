@@ -9,6 +9,10 @@ Medic.create!(first_name:"Tridas", last_name:"Mukhopadhyay", date_of_birth:52.ye
 organization_id:1, email:"tridas@cmu.edu", position:"Administrator", admin:true, password:"Default123",
 password_confirmation:"Default123")
 
+Medic.create!(first_name:"Thomas", last_name:"Emerson", date_of_birth:69.years.ago, phone:"66090897", 
+organization_id:1, email:"emerson@andrew.cmu.edu", position:"Audiologist", admin:false, password:"Default123",
+password_confirmation:"Default123")
+
 
 Medic.create!(first_name:"Divakaran", last_name:"Liginlal", date_of_birth:45.years.ago, phone:"66090897",
 organization_id:2, email:"liginlal@cmu.edu", position:"Administrator", admin:true, password:"Default123",
@@ -50,13 +54,29 @@ Medic.create!(first_name:"Talal", last_name:"Shoeb", date_of_birth:20.years.ago,
 organization_id:4, email:"talalhotstar@gmail.com", position:"Administrator", admin:true, password:"Default123",
 password_confirmation:"Default123")
 
+Medic.create!(first_name:"Mark", last_name:"Stehlik", date_of_birth:59.years.ago, phone:"66090897",
+organization_id:4, email:"mjs@cs.cmu.edu", position:"Anesthesiologist", admin:false, password:"Default123",
+password_confirmation:"Default123")
+
+
+
 Medic.create!(first_name:"Nabil", last_name:"Shoeb", date_of_birth:21.years.ago, phone:"66090897",
 organization_id:5, email:"nabilshoaib@gmail.com", position:"Administrator", admin:true, password:"Default123",
 password_confirmation:"Default123")
 
+Medic.create!(first_name:"Mariamma", last_name:"Thomas", date_of_birth:28.years.ago, phone:"66090897",
+organization_id:5, email:"swapthomas@gmail.com", position:"Family Practician", admin:false, password:"Default123",
+password_confirmation:"Default123")
+
+
 Medic.create!(first_name:"Noshin", last_name:"Nisa", date_of_birth:19.years.ago, phone:"66090897",
 organization_id:6, email:"nisanoshin@gmail.com", position:"Administrator", admin:true, password:"Default123",
 password_confirmation:"Default123")
+
+Medic.create!(first_name:"Majd", last_name:"Sakr", date_of_birth:48.years.ago, phone:"66090897",
+organization_id:6, email:"msakr@qatar.cmu.edu", position:"Epidemiologist", admin:false, password:"Default123",
+password_confirmation:"Default123")
+
 
 
 
